@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko"><head>
 <meta charset="UTF-8">
-<title>어바웃피싱 · 예약검색 스토리보드 v41</title>
+<title>어바웃피싱 · 예약검색 스토리보드 v43</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -143,6 +143,106 @@ body{font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;b
         <span style=&quot;font-size:16px;font-weight:800;color:#fff&quot;>선박 검색하기</span>
       </div>
     </div>
+
+    <!-- ★ 즐겨찾기·재예약 모듈 (③ 조합형) -->
+    <div id=&quot;fave-module&quot; style=&quot;padding:14px 16px 0&quot;>
+
+      <!-- CASE A: 찜한 선박 있을 때 (기본 노출 상태) -->
+      <div id=&quot;fave-case-a&quot;>
+        <div style=&quot;display:flex;align-items:center;justify-content:space-between;margin-bottom:10px&quot;>
+          <div style=&quot;display:flex;align-items:center;gap:7px&quot;>
+            <svg width=&quot;15&quot; height=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;#1A56DB&quot; stroke=&quot;#1A56DB&quot; stroke-width=&quot;1&quot;><path d=&quot;M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z&quot;/></svg>
+            <span style=&quot;font-size:14px;font-weight:800;color:#1A202C&quot;>찜한 선박</span>
+          </div>
+          <span class=&quot;btn&quot; onclick=&quot;go('s-result')&quot; style=&quot;font-size:12px;color:#1A56DB;font-weight:600&quot;>전체보기</span>
+        </div>
+
+        <!-- 찜 선박 카드들 (가로 스크롤) -->
+        <div style=&quot;display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 16px 4px&quot;>
+
+          <!-- 카드 1: 오늘 잔여석 있음 -->
+          <div style=&quot;flex-shrink:0;width:220px;background:#fff;border:1px solid #E2E8F0;border-radius:12px;overflow:hidden&quot;>
+            <div style=&quot;height:80px;background:linear-gradient(160deg,#0B2747,#0B274788);display:flex;align-items:center;justify-content:center;font-size:28px;position:relative&quot;>
+              ⛵
+              <div style=&quot;position:absolute;top:8px;left:8px;background:#1A7F54;border-radius:4px;padding:2px 8px;font-size:10px;font-weight:700;color:#fff&quot;>오늘 42마리</div>
+              <div style=&quot;position:absolute;top:8px;right:8px;background:rgba(0,0,0,.45);border-radius:4px;padding:2px 8px;font-size:10px;color:#fff&quot;>잔여 2석</div>
+            </div>
+            <div style=&quot;padding:10px 12px&quot;>
+              <div style=&quot;font-size:13px;font-weight:800;color:#1A202C;margin-bottom:2px&quot;>블랙이글스호</div>
+              <div style=&quot;font-size:11px;color:#718096;margin-bottom:8px&quot;>인천 연안부두 · 05:30 출항 · 4h</div>
+              <div style=&quot;display:flex;align-items:center;justify-content:space-between&quot;>
+                <span style=&quot;font-size:14px;font-weight:900;color:#1A56DB&quot;>90,000원</span>
+                <div class=&quot;btn&quot; onclick=&quot;go('s-book')&quot; style=&quot;background:#1A56DB;border-radius:6px;padding:6px 14px;font-size:12px;font-weight:700;color:#fff&quot;>바로 예약</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 카드 2: 오늘 만석 -->
+          <div style=&quot;flex-shrink:0;width:220px;background:#fff;border:1px solid #E2E8F0;border-radius:12px;overflow:hidden;opacity:.75&quot;>
+            <div style=&quot;height:80px;background:linear-gradient(160deg,#1A3A1A,#1A3A1A88);display:flex;align-items:center;justify-content:center;font-size:28px;position:relative&quot;>
+              ⛵
+              <div style=&quot;position:absolute;inset:0;background:rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center&quot;>
+                <span style=&quot;font-size:13px;font-weight:800;color:#fff&quot;>오늘 만석</span>
+              </div>
+            </div>
+            <div style=&quot;padding:10px 12px&quot;>
+              <div style=&quot;font-size:13px;font-weight:800;color:#1A202C;margin-bottom:2px&quot;>바다정복호</div>
+              <div style=&quot;font-size:11px;color:#718096;margin-bottom:8px&quot;>경남 통영항 · 오늘 출항 불가</div>
+              <div class=&quot;btn&quot; onclick=&quot;openOv('m-date')&quot; style=&quot;background:#F1F5F9;border-radius:6px;padding:7px;text-align:center;font-size:12px;font-weight:600;color:#475569&quot;>다른 날짜 선택</div>
+            </div>
+          </div>
+
+          <!-- 찜 추가 버튼 -->
+          <div class=&quot;btn&quot; onclick=&quot;go('s-search')&quot; style=&quot;flex-shrink:0;width:80px;background:#F8FAFC;border:1.5px dashed #CBD5E0;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px&quot;>
+            <svg width=&quot;22&quot; height=&quot;22&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#94A3B8&quot; stroke-width=&quot;2&quot;><line x1=&quot;12&quot; y1=&quot;5&quot; x2=&quot;12&quot; y2=&quot;19&quot;/><line x1=&quot;5&quot; y1=&quot;12&quot; x2=&quot;19&quot; y2=&quot;12&quot;/></svg>
+            <span style=&quot;font-size:11px;color:#94A3B8;font-weight:600;text-align:center;line-height:1.3&quot;>선박<br>추가</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CASE B: 찜 없음 → 최근 이용 기반 재예약 (toggle 버튼으로 확인) -->
+      <div id=&quot;fave-case-b&quot; style=&quot;display:none&quot;>
+        <div style=&quot;display:flex;align-items:center;justify-content:space-between;margin-bottom:10px&quot;>
+          <div style=&quot;display:flex;align-items:center;gap:7px&quot;>
+            <svg width=&quot;15&quot; height=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#1A56DB&quot; stroke-width=&quot;2&quot;><path d=&quot;M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2&quot;/><circle cx=&quot;9&quot; cy=&quot;7&quot; r=&quot;4&quot;/><path d=&quot;M23 21v-2a4 4 0 0 0-3-3.87&quot;/><path d=&quot;M16 3.13a4 4 0 0 1 0 7.75&quot;/></svg>
+            <span style=&quot;font-size:14px;font-weight:800;color:#1A202C&quot;>지난번에 탔어요</span>
+          </div>
+        </div>
+        <div style=&quot;background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:14px;display:flex;align-items:center;gap:12px&quot;>
+          <div style=&quot;width:52px;height:52px;background:linear-gradient(160deg,#0B2747,#0B274788);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0&quot;>⛵</div>
+          <div style=&quot;flex:1;min-width:0&quot;>
+            <div style=&quot;font-size:14px;font-weight:800;color:#1A202C;margin-bottom:2px&quot;>블랙이글스호</div>
+            <div style=&quot;font-size:11px;color:#718096;margin-bottom:4px&quot;>2026.03.15 · 갑오징어 반일</div>
+            <div style=&quot;font-size:11px;color:#1A7F54;font-weight:600&quot;>오늘 잔여 2석 · 90,000원</div>
+          </div>
+          <div class=&quot;btn&quot; onclick=&quot;go('s-book')&quot; style=&quot;flex-shrink:0;background:#1A56DB;border-radius:8px;padding:10px 16px;font-size:13px;font-weight:700;color:#fff;text-align:center&quot;>다시<br>예약</div>
+        </div>
+        <div style=&quot;margin-top:10px;text-align:center&quot;>
+          <span class=&quot;btn&quot; onclick=&quot;go('s-detail')&quot; style=&quot;font-size:12px;color:#718096;text-decoration:underline&quot;>찜한 선박이 없어요 · 선박 찜하러 가기</span>
+        </div>
+      </div>
+
+      <!-- CASE C: 비로그인 (숨김) - 로그인 유도 -->
+      <div id=&quot;fave-case-c&quot; style=&quot;display:none&quot;>
+        <div style=&quot;background:#F8FAFC;border:1.5px dashed #CBD5E0;border-radius:12px;padding:16px;display:flex;align-items:center;gap:12px&quot;>
+          <svg width=&quot;28&quot; height=&quot;28&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#94A3B8&quot; stroke-width=&quot;1.5&quot;><path d=&quot;M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z&quot;/></svg>
+          <div style=&quot;flex:1&quot;>
+            <div style=&quot;font-size:13px;font-weight:700;color:#374151;margin-bottom:2px&quot;>자주 가는 선박을 찜해보세요</div>
+            <div style=&quot;font-size:11px;color:#94A3B8&quot;>로그인 후 즉시 예약 가능</div>
+          </div>
+          <div class=&quot;btn&quot; style=&quot;flex-shrink:0;background:#1A56DB;border-radius:6px;padding:7px 14px;font-size:12px;font-weight:700;color:#fff&quot;>로그인</div>
+        </div>
+      </div>
+
+      <!-- 케이스 토글 버튼 (데모용) -->
+      <div style=&quot;display:flex;gap:6px;margin-top:10px;padding:8px;background:#F1F5F9;border-radius:8px;justify-content:center&quot;>
+        <span style=&quot;font-size:10px;color:#94A3B8;align-self:center&quot;>데모:</span>
+        <div class=&quot;btn&quot; onclick=&quot;showCase('a')&quot; id=&quot;ca-btn&quot; style=&quot;background:#1A56DB;color:#fff;font-size:10px;font-weight:700;border-radius:5px;padding:4px 10px&quot;>A.찜있음</div>
+        <div class=&quot;btn&quot; onclick=&quot;showCase('b')&quot; id=&quot;cb-btn&quot; style=&quot;background:#E2E8F0;color:#475569;font-size:10px;font-weight:700;border-radius:5px;padding:4px 10px&quot;>B.최근이용</div>
+        <div class=&quot;btn&quot; onclick=&quot;showCase('c')&quot; id=&quot;cc-btn&quot; style=&quot;background:#E2E8F0;color:#475569;font-size:10px;font-weight:700;border-radius:5px;padding:4px 10px&quot;>C.비로그인</div>
+      </div>
+    </div>
+    <!-- // 즐겨찾기·재예약 모듈 끝 -->
 
     <!-- 실시간 조황 리포트 (NEW) -->
     <div style=&quot;padding:14px 16px 0&quot;>
@@ -885,7 +985,14 @@ function clearAndSearch(){
   ids.forEach(function(id,i){var e=document.getElementById(id);if(e)e.textContent=defaults[i];});
   go('s-result');
 }
-window.addEventListener('message',function(e){if(e.data&amp;&amp;e.data.type==='nav')go(e.data.k);});
+function showCase(c){
+  ['a','b','c'].forEach(function(x){
+    var el=document.getElementById('fave-case-'+x);
+    var btn=document.getElementById('c'+x+'-btn');
+    if(el) el.style.display=x===c?'block':'none';
+    if(btn){btn.style.background=x===c?'#1A56DB':'#E2E8F0';btn.style.color=x===c?'#fff':'#475569';}
+  });
+}
 function go(id){var c=document.querySelector('.sc.on');if(c)STACK.push(c.id);document.querySelectorAll('.sc').forEach(function(s){s.classList.remove('on');});document.getElementById(id).classList.add('on');closeOv();}
 function back(){var p=STACK.pop()||'s-home';document.querySelectorAll('.sc').forEach(function(s){s.classList.remove('on');});document.getElementById(p).classList.add('on');}
 function openOv(id){document.querySelectorAll('.ov').forEach(function(o){o.classList.remove('on');});document.getElementById(id).classList.add('on');}
@@ -1049,7 +1156,7 @@ function pickFish(el,val){document.querySelectorAll('#m-fish .btn').forEach(func
   <!-- RIGHT -->
   <main id="right">
   <div style="padding:14px 28px 12px;background:#F8FAFC;border-bottom:1px solid #E2E8F0;display:flex;align-items:center;justify-content:space-between">
-    <span style="font-size:11px;font-weight:700;color:#94A3B8;letter-spacing:.5px;text-transform:uppercase">어바웃피싱 · 예약검색 스토리보드 · v42</span>
+    <span style="font-size:11px;font-weight:700;color:#94A3B8;letter-spacing:.5px;text-transform:uppercase">어바웃피싱 · 예약검색 스토리보드 · v43</span>
     <span style="font-size:11px;color:#CBD5E0">PM 김채린</span>
   </div>
   <div style="border-bottom:1px solid #E2E8F0">
