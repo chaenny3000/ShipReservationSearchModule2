@@ -568,23 +568,25 @@ body{font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;b
           </div>
 
     <!-- ✦ 조황 섹션 (날짜 선택 위) -->
-    <div style=&quot;padding:14px 14px 0&quot;>
+    <div id=&quot;johwang-section&quot; style=&quot;padding:14px 14px 0&quot;>
 
       <!-- AI 요약 카드 -->
-      <div style=&quot;background:linear-gradient(135deg,#0F172A,#1E3A5F);border-radius:12px;padding:14px;margin-bottom:12px;position:relative;overflow:hidden&quot;>
-        <div style=&quot;position:absolute;top:0;right:0;width:80px;height:80px;background:radial-gradient(circle,rgba(26,86,219,.4),transparent);border-radius:50%&quot;></div>
+      <div style=&quot;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:12px;padding:14px;margin-bottom:12px;position:relative;overflow:hidden&quot;>
+        <div style=&quot;position:absolute;top:-10px;right:-10px;width:70px;height:70px;background:radial-gradient(circle,rgba(26,86,219,.08),transparent);border-radius:50%&quot;></div>
         <div style=&quot;display:flex;align-items:center;gap:8px;margin-bottom:10px&quot;>
           <div style=&quot;background:#1A56DB;border-radius:6px;padding:3px 8px;display:flex;align-items:center;gap:4px&quot;>
             <span style=&quot;font-size:11px;font-weight:800;color:#fff&quot;>AI</span>
           </div>
-          <span style=&quot;font-size:12px;color:rgba(255,255,255,.7)&quot;>최근 조황 · 예약 데이터 기반 요약</span>
-          <span style=&quot;margin-left:auto;font-size:11px;color:#4ADE80;font-weight:700&quot;>긍정반응 89%</span>
+          <span style=&quot;font-size:12px;color:#64748B;font-weight:500&quot;>최근 조황 · 예약 데이터 기반 요약</span>
+          <div style=&quot;margin-left:auto;background:#DCFCE7;border-radius:4px;padding:2px 8px&quot;>
+            <span style=&quot;font-size:11px;color:#15803D;font-weight:700&quot;>긍정반응 89%</span>
+          </div>
         </div>
-        <div style=&quot;font-size:14px;color:#fff;line-height:1.7;font-weight:500&quot;>
-          갑오징어 전문 선박 중 <span style=&quot;color:#60A5FA;font-weight:700&quot;>이번 달 조황 1위</span>. 최근 3회 출조 평균 <span style=&quot;color:#4ADE80;font-weight:700&quot;>26마리</span> 조획. 물때 12~13물에 입질이 집중되며, 오전 6시 이후 포인트 집중도 높음.
+        <div style=&quot;font-size:13px;color:#1E293B;line-height:1.75;font-weight:400&quot;>
+          갑오징어 전문 선박 중 <span style=&quot;color:#1A56DB;font-weight:700&quot;>이번 달 조황 1위</span>. 최근 3회 출조 평균 <span style=&quot;color:#059669;font-weight:700&quot;>26마리</span> 조획. 물때 12~13물에 입질이 집중되며, 오전 6시 이후 포인트 집중도 높음.
         </div>
-        <div style=&quot;margin-top:10px;display:flex;align-items:center;gap:8px&quot;>
-          <span style=&quot;font-size:10px;color:rgba(255,255,255,.35)&quot;>예약건 38회 · 조황기록 · 웹 데이터 분석</span>
+        <div style=&quot;margin-top:10px;padding-top:8px;border-top:1px solid #BFDBFE;display:flex;align-items:center;gap:6px&quot;>
+          <span style=&quot;font-size:10px;color:#94A3B8&quot;>예약건 38회 · 조황기록 · 웹 데이터 분석</span>
         </div>
       </div>
 
@@ -596,7 +598,7 @@ body{font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;b
       <div style=&quot;display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;margin:0 -14px;padding-left:14px&quot;>
 
         <!-- 조황 카드 1 -->
-        <div class=&quot;btn&quot; style=&quot;flex-shrink:0;width:140px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;overflow:hidden&quot;>
+        <div class=&quot;btn&quot; onclick=&quot;openJohwang('4/6(일)','갑오징어 반일','42마리','1,203g','12물')&quot; style=&quot;flex-shrink:0;width:140px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;overflow:hidden&quot;>
           <div style=&quot;height:80px;background:linear-gradient(135deg,#0B2747,#1A56DB44);position:relative;display:flex;align-items:center;justify-content:center;font-size:28px&quot;>
             🦑
             <div style=&quot;position:absolute;top:6px;right:6px;background:rgba(0,0,0,.55);border-radius:4px;padding:2px 6px;font-size:10px;font-weight:700;color:#4ADE80&quot;>42마리</div>
@@ -608,7 +610,7 @@ body{font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;b
         </div>
 
         <!-- 조황 카드 2 -->
-        <div class=&quot;btn&quot; style=&quot;flex-shrink:0;width:140px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;overflow:hidden&quot;>
+        <div class=&quot;btn&quot; onclick=&quot;openJohwang('3/31(월)','갑오징어 전일','28마리','990g','13물')&quot; style=&quot;flex-shrink:0;width:140px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;overflow:hidden&quot;>
           <div style=&quot;height:80px;background:linear-gradient(135deg,#0B2747,#1A56DB44);position:relative;display:flex;align-items:center;justify-content:center;font-size:28px&quot;>
             🦑
             <div style=&quot;position:absolute;top:6px;right:6px;background:rgba(0,0,0,.55);border-radius:4px;padding:2px 6px;font-size:10px;font-weight:700;color:#4ADE80&quot;>28마리</div>
@@ -620,7 +622,7 @@ body{font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;b
         </div>
 
         <!-- 조황 카드 3 -->
-        <div class=&quot;btn&quot; style=&quot;flex-shrink:0;width:140px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;overflow:hidden&quot;>
+        <div class=&quot;btn&quot; onclick=&quot;openJohwang('3/29(토)','갑오징어 반일','18마리','820g','조금')&quot; style=&quot;flex-shrink:0;width:140px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;overflow:hidden&quot;>
           <div style=&quot;height:80px;background:linear-gradient(135deg,#0B2747,#1A56DB44);position:relative;display:flex;align-items:center;justify-content:center;font-size:28px&quot;>
             🦑
             <div style=&quot;position:absolute;top:6px;right:6px;background:rgba(0,0,0,.55);border-radius:4px;padding:2px 6px;font-size:10px;font-weight:700;color:#FCD34D&quot;>18마리</div>
@@ -632,7 +634,7 @@ body{font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;b
         </div>
 
         <!-- 조황 카드 4 -->
-        <div class=&quot;btn&quot; style=&quot;flex-shrink:0;width:140px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;overflow:hidden&quot;>
+        <div class=&quot;btn&quot; onclick=&quot;openJohwang('4/2(수)','갑오징어 전일','31마리','1,203g','1물')&quot; style=&quot;flex-shrink:0;width:140px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;overflow:hidden&quot;>
           <div style=&quot;height:80px;background:linear-gradient(135deg,#0B2747,#1A56DB44);position:relative;display:flex;align-items:center;justify-content:center;font-size:28px&quot;>
             🦑
             <div style=&quot;position:absolute;top:6px;right:6px;background:rgba(0,0,0,.55);border-radius:4px;padding:2px 6px;font-size:10px;font-weight:700;color:#FCD34D&quot;>31마리</div>
@@ -648,42 +650,42 @@ body{font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;b
     <!-- ✦ /조황 섹션 -->
 
     <!-- 날짜 선택 -->
-    <div style=&quot;padding:14px 14px 0&quot;>
+    <div id=&quot;date-section&quot; style=&quot;padding:14px 14px 0&quot;>
       <!-- 가로 스크롤 칩 + 캘린더 버튼 -->
       <div style=&quot;display:flex;align-items:center;gap:8px&quot;>
         <div id=&quot;chip-scroll&quot; style=&quot;flex:1;min-width:0;overflow-x:scroll;overflow-y:hidden;scrollbar-width:none;-ms-overflow-style:none;cursor:grab&quot;>
           <div style=&quot;display:flex;gap:8px;padding-bottom:2px;white-space:nowrap;width:max-content&quot;>
-            <div class=&quot;btn date-chip&quot; onclick=&quot;pickDateChip(this,'4월 8일 (수) · 오늘')&quot; style=&quot;background:#1A56DB;border:2px solid #1A56DB;border-radius:10px;padding:7px 12px;text-align:center;min-width:62px&quot;>
+            <div class=&quot;btn date-chip&quot; onclick=&quot;pickDateChipAndScroll(this,'4월 8일 (수) · 오늘')&quot; style=&quot;background:#1A56DB;border:2px solid #1A56DB;border-radius:10px;padding:7px 12px;text-align:center;min-width:62px&quot;>
               <div style=&quot;font-size:10px;font-weight:600;color:rgba(255,255,255,.8)&quot;>오늘</div>
               <div style=&quot;font-size:15px;font-weight:900;color:#fff&quot;>4/8</div>
               <div style=&quot;font-size:9px;color:rgba(255,255,255,.7)&quot;>수</div>
               <div style=&quot;font-size:8px;color:rgba(255,255,255,.65);margin-top:2px;border-top:1px solid rgba(255,255,255,.2);padding-top:2px&quot;>🌊 12물</div>
             </div>
-            <div class=&quot;btn date-chip&quot; onclick=&quot;pickDateChip(this,'4월 9일 (목) · 내일')&quot; style=&quot;background:#fff;border:2px solid #E2E8F0;border-radius:10px;padding:7px 12px;text-align:center;min-width:62px&quot;>
+            <div class=&quot;btn date-chip&quot; onclick=&quot;pickDateChipAndScroll(this,'4월 9일 (목) · 내일')&quot; style=&quot;background:#fff;border:2px solid #E2E8F0;border-radius:10px;padding:7px 12px;text-align:center;min-width:62px&quot;>
               <div style=&quot;font-size:10px;color:#A0AEC0&quot;>내일</div>
               <div style=&quot;font-size:15px;font-weight:900;color:#1A202C&quot;>4/9</div>
               <div style=&quot;font-size:9px;color:#A0AEC0&quot;>목</div>
               <div style=&quot;font-size:8px;color:#718096;margin-top:2px;border-top:1px solid #F1F5F9;padding-top:2px&quot;>🌊 13물</div>
             </div>
-            <div class=&quot;btn date-chip&quot; onclick=&quot;pickDateChip(this,'4월 10일 (금)')&quot; style=&quot;background:#fff;border:2px solid #E2E8F0;border-radius:10px;padding:7px 12px;text-align:center;min-width:62px&quot;>
+            <div class=&quot;btn date-chip&quot; onclick=&quot;pickDateChipAndScroll(this,'4월 10일 (금)')&quot; style=&quot;background:#fff;border:2px solid #E2E8F0;border-radius:10px;padding:7px 12px;text-align:center;min-width:62px&quot;>
               <div style=&quot;font-size:10px;color:transparent&quot;>.</div>
               <div style=&quot;font-size:15px;font-weight:900;color:#1A202C&quot;>4/10</div>
               <div style=&quot;font-size:9px;color:#A0AEC0&quot;>금</div>
               <div style=&quot;font-size:8px;color:#718096;margin-top:2px;border-top:1px solid #F1F5F9;padding-top:2px&quot;>🌊 조금</div>
             </div>
-            <div class=&quot;btn date-chip&quot; onclick=&quot;pickDateChip(this,'4월 11일 (토)')&quot; style=&quot;background:#fff;border:2px solid #E2E8F0;border-radius:10px;padding:7px 12px;text-align:center;min-width:62px&quot;>
+            <div class=&quot;btn date-chip&quot; onclick=&quot;pickDateChipAndScroll(this,'4월 11일 (토)')&quot; style=&quot;background:#fff;border:2px solid #E2E8F0;border-radius:10px;padding:7px 12px;text-align:center;min-width:62px&quot;>
               <div style=&quot;font-size:10px;color:transparent&quot;>.</div>
               <div style=&quot;font-size:15px;font-weight:900;color:#1A56DB&quot;>4/11</div>
               <div style=&quot;font-size:9px;color:#1A56DB;font-weight:700&quot;>토</div>
               <div style=&quot;font-size:8px;color:#718096;margin-top:2px;border-top:1px solid #F1F5F9;padding-top:2px&quot;>🌊 무시</div>
             </div>
-            <div class=&quot;btn date-chip&quot; onclick=&quot;pickDateChip(this,'4월 12일 (일)')&quot; style=&quot;background:#fff;border:2px solid #E2E8F0;border-radius:10px;padding:7px 12px;text-align:center;min-width:62px&quot;>
+            <div class=&quot;btn date-chip&quot; onclick=&quot;pickDateChipAndScroll(this,'4월 12일 (일)')&quot; style=&quot;background:#fff;border:2px solid #E2E8F0;border-radius:10px;padding:7px 12px;text-align:center;min-width:62px&quot;>
               <div style=&quot;font-size:10px;color:transparent&quot;>.</div>
               <div style=&quot;font-size:15px;font-weight:900;color:#E53E3E&quot;>4/12</div>
               <div style=&quot;font-size:9px;color:#E53E3E&quot;>일</div>
               <div style=&quot;font-size:8px;color:#718096;margin-top:2px;border-top:1px solid #F1F5F9;padding-top:2px&quot;>🌊 1물</div>
             </div>
-            <div class=&quot;btn date-chip&quot; onclick=&quot;pickDateChip(this,'4월 13일 (월)')&quot; style=&quot;background:#fff;border:2px solid #E2E8F0;border-radius:10px;padding:7px 12px;text-align:center;min-width:62px&quot;>
+            <div class=&quot;btn date-chip&quot; onclick=&quot;pickDateChipAndScroll(this,'4월 13일 (월)')&quot; style=&quot;background:#fff;border:2px solid #E2E8F0;border-radius:10px;padding:7px 12px;text-align:center;min-width:62px&quot;>
               <div style=&quot;font-size:10px;color:transparent&quot;>.</div>
               <div style=&quot;font-size:15px;font-weight:900;color:#1A202C&quot;>4/13</div>
               <div style=&quot;font-size:9px;color:#A0AEC0&quot;>월</div>
@@ -702,7 +704,7 @@ body{font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;b
 
     <!-- 출조 상품 선택 (NEW: Stitch 스타일) -->
     <div style=&quot;padding:14px 14px 0&quot;>
-      <div style=&quot;display:flex;align-items:center;justify-content:space-between;margin-bottom:10px&quot;>
+      <div id=&quot;product-section&quot; style=&quot;display:flex;align-items:center;justify-content:space-between;margin-bottom:10px&quot;>
         <div>
           <span style=&quot;font-size:14px;font-weight:800&quot;>출조 상품 선택</span>
           <span id=&quot;product-date-header&quot; style=&quot;font-size:12px;color:#1A56DB;font-weight:600;margin-left:6px&quot;>4/8 출조 상품</span>
@@ -1784,6 +1786,57 @@ function toggleBookStatus() {
   }
 }
 
+/* ─── 조황 상세 바텀시트 ─── */
+function openJohwang(date, title, count, maxsize, tide) {
+  var el = {
+    title: document.getElementById('jh-title'),
+    date:  document.getElementById('jh-date'),
+    count: document.getElementById('jh-count-badge'),
+    total: document.getElementById('jh-total'),
+    max:   document.getElementById('jh-max'),
+    tide:  document.getElementById('jh-tide'),
+  };
+  if(el.title) el.title.textContent = title;
+  if(el.date)  el.date.textContent  = date + ' · 05:30 출항';
+  if(el.count) el.count.textContent = count;
+  if(el.total) el.total.textContent = count.replace('마리','');
+  if(el.max)   el.max.textContent   = maxsize;
+  if(el.tide)  el.tide.textContent  = tide;
+  /* 마리수 배지 색상 */
+  var num = parseInt(count);
+  if(el.count) el.count.style.background = num >= 25 ? '#22C55E' : '#F59E0B';
+  openOv('m-johwang');
+}
+
+/* ─── 날짜 칩 클릭 → 상품 선택 섹션으로 포커싱 ─── */
+function pickDateChipAndScroll(el, label) {
+  pickDateChip(el, label);
+  /* 상품 선택 섹션으로 부드럽게 스크롤 */
+  setTimeout(function(){
+    var scr = document.querySelector('#s-detail .scr');
+    var dateEl = document.getElementById('date-section');
+    if(scr &amp;&amp; dateEl) {
+      /* getBoundingClientRect으로 실제 화면 기준 정확한 위치 계산 */
+      var scrRect  = scr.getBoundingClientRect();
+      var dateRect = dateEl.getBoundingClientRect();
+      /* 현재 스크롤 위치 + 날짜 섹션까지 거리 - 탭 높이(44px) 보정 */
+      var delta = dateRect.top - scrRect.top - 44;
+      scr.scrollBy({ top: delta, behavior: 'smooth' });
+    }
+  }, 50);
+}
+
+function pickDateChip2AndScroll(el, label) {
+  pickDateChip2(el, label);
+  setTimeout(function(){
+    var scr = document.querySelector('#s-detail2 .scr');
+    var target = document.getElementById('product-section2');
+    if(scr &amp;&amp; target) {
+      scr.scrollTo({ top: target.offsetTop - 8, behavior: 'smooth' });
+    }
+  }, 50);
+}
+
 function showDateChangeNudge() {
   var el = document.getElementById('date-change-nudge');
   if(el) el.style.display = 'block';
@@ -1921,7 +1974,7 @@ function renderDateChips(selYear, selMonth, selDay) {
     var bg = isSel ? '#1A56DB' : '#fff';
     var border = isSel ? '#1A56DB' : '#E2E8F0';
     var cursor = isPast ? 'cursor:default;opacity:.45' : 'cursor:pointer';
-    var onclick_str = isPast ? '' : ('onclick=&quot;pickDateChip(this,\'' + label + '\')&quot;');
+    var onclick_str = isPast ? '' : ('onclick=&quot;pickDateChipAndScroll(this,\'' + label + '\')&quot;');
     h += '<div class=&quot;date-chip&quot; ' + onclick_str + ' style=&quot;' + cursor + ';flex-shrink:0;background:' + bg + ';border:2px solid ' + border + ';border-radius:10px;padding:8px 14px;text-align:center;min-width:58px&quot;>';
     h += '<div style=&quot;font-size:10px;font-weight:600;color:' + topColor + '&quot;>' + topText + '</div>';
     h += '<div style=&quot;font-size:15px;font-weight:900;color:' + numColor + '&quot;>' + mm + '/' + dd + '</div>';
@@ -2425,37 +2478,37 @@ window.addEventListener('message', function(e){
       <div style=&quot;display:flex;align-items:center;gap:8px&quot;>
         <div style=&quot;flex:1;min-width:0;overflow-x:scroll;overflow-y:hidden;scrollbar-width:none;-ms-overflow-style:none;cursor:grab&quot; id=&quot;chip-scroll2&quot;>
           <div style=&quot;display:flex;gap:8px;padding-bottom:2px;white-space:nowrap;width:max-content&quot;>
-            <div class=&quot;btn date-chip2&quot; onclick=&quot;pickDateChip2(this,'4월 8일 (수) · 오늘')&quot; style=&quot;background:#5B21B6;border:2px solid #5B21B6;border-radius:10px;padding:7px 12px;text-align:center;min-width:62px&quot;>
+            <div class=&quot;btn date-chip2&quot; onclick=&quot;pickDateChip2AndScroll(this,'4월 8일 (수) · 오늘')&quot; style=&quot;background:#5B21B6;border:2px solid #5B21B6;border-radius:10px;padding:7px 12px;text-align:center;min-width:62px&quot;>
               <div style=&quot;font-size:10px;font-weight:600;color:rgba(255,255,255,.8)&quot;>오늘</div>
               <div style=&quot;font-size:15px;font-weight:900;color:#fff&quot;>4/8</div>
               <div style=&quot;font-size:9px;color:rgba(255,255,255,.7)&quot;>수</div>
               <div style=&quot;font-size:8px;color:rgba(255,255,255,.65);margin-top:2px;border-top:1px solid rgba(255,255,255,.2);padding-top:2px&quot;>🌊 12물</div>
             </div>
-            <div class=&quot;btn date-chip2&quot; onclick=&quot;pickDateChip2(this,'4월 9일 (목) · 내일')&quot; style=&quot;background:#fff;border:2px solid #E2E8F0;border-radius:10px;padding:7px 12px;text-align:center;min-width:62px&quot;>
+            <div class=&quot;btn date-chip2&quot; onclick=&quot;pickDateChip2AndScroll(this,'4월 9일 (목) · 내일')&quot; style=&quot;background:#fff;border:2px solid #E2E8F0;border-radius:10px;padding:7px 12px;text-align:center;min-width:62px&quot;>
               <div style=&quot;font-size:10px;color:#A0AEC0&quot;>내일</div>
               <div style=&quot;font-size:15px;font-weight:900;color:#1A202C&quot;>4/9</div>
               <div style=&quot;font-size:9px;color:#A0AEC0&quot;>목</div>
               <div style=&quot;font-size:8px;color:#718096;margin-top:2px;border-top:1px solid #F1F5F9;padding-top:2px&quot;>🌊 13물</div>
             </div>
-            <div class=&quot;btn date-chip2&quot; onclick=&quot;pickDateChip2(this,'4월 10일 (금)')&quot; style=&quot;background:#fff;border:2px solid #E2E8F0;border-radius:10px;padding:7px 12px;text-align:center;min-width:62px&quot;>
+            <div class=&quot;btn date-chip2&quot; onclick=&quot;pickDateChip2AndScroll(this,'4월 10일 (금)')&quot; style=&quot;background:#fff;border:2px solid #E2E8F0;border-radius:10px;padding:7px 12px;text-align:center;min-width:62px&quot;>
               <div style=&quot;font-size:10px;color:transparent&quot;>.</div>
               <div style=&quot;font-size:15px;font-weight:900;color:#1A202C&quot;>4/10</div>
               <div style=&quot;font-size:9px;color:#A0AEC0&quot;>금</div>
               <div style=&quot;font-size:8px;color:#718096;margin-top:2px;border-top:1px solid #F1F5F9;padding-top:2px&quot;>🌊 조금</div>
             </div>
-            <div class=&quot;btn date-chip2&quot; onclick=&quot;pickDateChip2(this,'4월 11일 (토)')&quot; style=&quot;background:#fff;border:2px solid #E2E8F0;border-radius:10px;padding:7px 12px;text-align:center;min-width:62px&quot;>
+            <div class=&quot;btn date-chip2&quot; onclick=&quot;pickDateChip2AndScroll(this,'4월 11일 (토)')&quot; style=&quot;background:#fff;border:2px solid #E2E8F0;border-radius:10px;padding:7px 12px;text-align:center;min-width:62px&quot;>
               <div style=&quot;font-size:10px;color:transparent&quot;>.</div>
               <div style=&quot;font-size:15px;font-weight:900;color:#1A56DB&quot;>4/11</div>
               <div style=&quot;font-size:9px;color:#1A56DB;font-weight:700&quot;>토</div>
               <div style=&quot;font-size:8px;color:#718096;margin-top:2px;border-top:1px solid #F1F5F9;padding-top:2px&quot;>🌊 무시</div>
             </div>
-            <div class=&quot;btn date-chip2&quot; onclick=&quot;pickDateChip2(this,'4월 12일 (일)')&quot; style=&quot;background:#fff;border:2px solid #E2E8F0;border-radius:10px;padding:7px 12px;text-align:center;min-width:62px&quot;>
+            <div class=&quot;btn date-chip2&quot; onclick=&quot;pickDateChip2AndScroll(this,'4월 12일 (일)')&quot; style=&quot;background:#fff;border:2px solid #E2E8F0;border-radius:10px;padding:7px 12px;text-align:center;min-width:62px&quot;>
               <div style=&quot;font-size:10px;color:transparent&quot;>.</div>
               <div style=&quot;font-size:15px;font-weight:900;color:#E53E3E&quot;>4/12</div>
               <div style=&quot;font-size:9px;color:#E53E3E&quot;>일</div>
               <div style=&quot;font-size:8px;color:#718096;margin-top:2px;border-top:1px solid #F1F5F9;padding-top:2px&quot;>🌊 1물</div>
             </div>
-            <div class=&quot;btn date-chip2&quot; onclick=&quot;pickDateChip2(this,'4월 13일 (월)')&quot; style=&quot;background:#fff;border:2px solid #E2E8F0;border-radius:10px;padding:7px 12px;text-align:center;min-width:62px&quot;>
+            <div class=&quot;btn date-chip2&quot; onclick=&quot;pickDateChip2AndScroll(this,'4월 13일 (월)')&quot; style=&quot;background:#fff;border:2px solid #E2E8F0;border-radius:10px;padding:7px 12px;text-align:center;min-width:62px&quot;>
               <div style=&quot;font-size:10px;color:transparent&quot;>.</div>
               <div style=&quot;font-size:15px;font-weight:900;color:#1A202C&quot;>4/13</div>
               <div style=&quot;font-size:9px;color:#A0AEC0&quot;>월</div>
@@ -2472,7 +2525,7 @@ window.addEventListener('message', function(e){
 
     <!-- 출조 상품 선택 (지정좌석 전용) -->
     <div style=&quot;padding:14px 14px 0&quot;>
-      <div style=&quot;display:flex;align-items:center;justify-content:space-between;margin-bottom:10px&quot;>
+      <div id=&quot;product-section2&quot; style=&quot;display:flex;align-items:center;justify-content:space-between;margin-bottom:10px&quot;>
         <div>
           <span style=&quot;font-size:14px;font-weight:800&quot;>출조 상품 선택</span>
           <span style=&quot;font-size:12px;color:#5B21B6;font-weight:600;margin-left:6px&quot;>4/8 출조 상품</span>
@@ -3270,6 +3323,62 @@ window.addEventListener('message', function(e){
   </div>
 </div>
 <!-- ═══ /M-DATE-CHANGE ═══ -->
+
+<!-- ═══ M-JOHWANG (조황 상세) ═══ -->
+<div id=&quot;m-johwang&quot; class=&quot;ov&quot; onclick=&quot;if(event.target===this)closeOv()&quot;>
+  <div class=&quot;sheet&quot; style=&quot;padding-bottom:28px;max-height:80%&quot;>
+    <div style=&quot;width:40px;height:4px;background:#E2E8F0;border-radius:2px;margin:14px auto 16px&quot;></div>
+    <div id=&quot;jh-header&quot; style=&quot;display:flex;align-items:center;justify-content:space-between;margin-bottom:14px&quot;>
+      <div>
+        <div id=&quot;jh-title&quot; style=&quot;font-size:17px;font-weight:900&quot;>갑오징어 반일 출조</div>
+        <div id=&quot;jh-date&quot; style=&quot;font-size:12px;color:#718096;margin-top:2px&quot;>4월 6일 (일) · 05:30 출항</div>
+      </div>
+      <div class=&quot;btn&quot; onclick=&quot;closeOv()&quot; style=&quot;width:32px;height:32px;background:#F7F8FA;border-radius:50%;display:flex;align-items:center;justify-content:center&quot;>
+        <svg width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#718096&quot; stroke-width=&quot;2.5&quot;><line x1=&quot;18&quot; y1=&quot;6&quot; x2=&quot;6&quot; y2=&quot;18&quot;/><line x1=&quot;6&quot; y1=&quot;6&quot; x2=&quot;18&quot; y2=&quot;18&quot;/></svg>
+      </div>
+    </div>
+    <!-- 조황 썸네일 크게 -->
+    <div id=&quot;jh-thumb&quot; style=&quot;height:160px;background:linear-gradient(135deg,#0B2747,#1A56DB55);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:64px;margin-bottom:14px;position:relative&quot;>
+      🦑
+      <div id=&quot;jh-count-badge&quot; style=&quot;position:absolute;top:12px;right:12px;background:#22C55E;border-radius:8px;padding:6px 14px;font-size:16px;font-weight:900;color:#fff&quot;>42마리</div>
+    </div>
+    <!-- 조황 요약 수치 -->
+    <div style=&quot;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px&quot;>
+      <div style=&quot;background:#F7F8FA;border-radius:10px;padding:12px;text-align:center&quot;>
+        <div id=&quot;jh-total&quot; style=&quot;font-size:20px;font-weight:900;color:#1A56DB&quot;>42</div>
+        <div style=&quot;font-size:11px;color:#A0AEC0;margin-top:2px&quot;>총 마리수</div>
+      </div>
+      <div style=&quot;background:#F7F8FA;border-radius:10px;padding:12px;text-align:center&quot;>
+        <div id=&quot;jh-max&quot; style=&quot;font-size:20px;font-weight:900;color:#1A56DB&quot;>1,203g</div>
+        <div style=&quot;font-size:11px;color:#A0AEC0;margin-top:2px&quot;>최대 크기</div>
+      </div>
+      <div style=&quot;background:#F7F8FA;border-radius:10px;padding:12px;text-align:center&quot;>
+        <div id=&quot;jh-tide&quot; style=&quot;font-size:20px;font-weight:900;color:#1A56DB&quot;>12물</div>
+        <div style=&quot;font-size:11px;color:#A0AEC0;margin-top:2px&quot;>물때</div>
+      </div>
+    </div>
+    <!-- 상세 조황 -->
+    <div style=&quot;font-size:13px;font-weight:700;margin-bottom:8px&quot;>이날 조황 상세</div>
+    <div style=&quot;background:#F7F8FA;border-radius:10px;padding:12px;margin-bottom:12px&quot;>
+      <div style=&quot;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:12px&quot;>
+        <span style=&quot;color:#A0AEC0&quot;>출항</span><span>05:30</span>
+        <span style=&quot;color:#A0AEC0&quot;>귀항</span><span>09:30</span>
+        <span style=&quot;color:#A0AEC0&quot;>포인트</span><span>오천항 남동방 8마일</span>
+        <span style=&quot;color:#A0AEC0&quot;>날씨</span><span>맑음 · 풍속 2m/s</span>
+        <span style=&quot;color:#A0AEC0&quot;>입질시간</span><span>06:00~08:30 집중</span>
+        <span style=&quot;color:#A0AEC0&quot;>미끼</span><span>살오징어 에기</span>
+      </div>
+    </div>
+    <!-- 갤러리 이미지 -->
+    <div style=&quot;font-size:13px;font-weight:700;margin-bottom:8px&quot;>현장 사진</div>
+    <div style=&quot;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px&quot;>
+      <div style=&quot;flex-shrink:0;width:90px;height:90px;background:linear-gradient(135deg,#0B2747,#1A56DB);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:32px&quot;>🦑</div>
+      <div style=&quot;flex-shrink:0;width:90px;height:90px;background:linear-gradient(135deg,#0B4747,#1A8B6B);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:32px&quot;>🎣</div>
+      <div style=&quot;flex-shrink:0;width:90px;height:90px;background:linear-gradient(135deg,#1A0533,#3B0764);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:32px&quot;>⛵</div>
+    </div>
+  </div>
+</div>
+<!-- ═══ /M-JOHWANG ═══ -->
 
 <!-- ═══ M-CANCEL ═══ -->
 <div id=&quot;m-cancel&quot; class=&quot;ov&quot; onclick=&quot;if(event.target===this)closeOv()&quot;>
