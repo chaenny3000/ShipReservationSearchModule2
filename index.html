@@ -975,6 +975,21 @@ var DOW = ['일','월','화','수','목','금','토'];
  *
  ─────────────────────────────────────────── */
 
+/* ─── 토스트 ─── */
+var _toastTimer = null;
+function showToast(msg) {
+  var el = document.getElementById('toast-el');
+  if(!el) return;
+  el.textContent = msg;
+  el.style.opacity = '1';
+  el.style.transform = 'translateX(-50%) translateY(0)';
+  if(_toastTimer) clearTimeout(_toastTimer);
+  _toastTimer = setTimeout(function(){
+    el.style.opacity = '0';
+    el.style.transform = 'translateX(-50%) translateY(20px)';
+  }, 2800);
+}
+
 var NAV_STACK = [];
 
 var FIXED_BACK = {
@@ -1366,16 +1381,49 @@ function confirmDateChange() {
   if(!dcSelectedDate) return;
   var dateLabel = dcSelectedDate;
   closeOv();
+  /* 예약상세로 이동 */
+  var cur = document.querySelector('.sc.on');
+  if(!cur || cur.id !== 's-book-detail') go('s-book-detail');
   /* 요청완료 배너 노출 */
   var banner = document.getElementById('dc-success-banner');
   var dateEl  = document.getElementById('dc-success-date');
   if(banner) banner.style.display = 'block';
   if(dateEl)  dateEl.textContent  = dateLabel + ' 변경 요청 완료';
+  /* 예약 상태 뱃지 → &quot;일자변경 요청 중&quot; */
+  var statusBadge = document.getElementById('book-status-badge');
+  if(statusBadge) {
+    statusBadge.textContent = '일자변경 요청 중';
+    statusBadge.style.background = '#FEF3C7';
+    statusBadge.style.color = '#92400E';
+  }
+  /* 취소 버튼 → 비활성 안내로 교체 */
+  var cancelBtn = document.getElementById('cancel-main-btn');
+  var cancelMsg = document.getElementById('cancel-disabled-msg');
+  if(cancelBtn) cancelBtn.style.display = 'none';
+  if(cancelMsg) cancelMsg.style.display = 'block';
+  /* scr 맨 위로 포커싱 — 배너가 보이도록 */
+  setTimeout(function(){
+    var scr = document.querySelector('#s-book-detail .scr');
+    if(scr) scr.scrollTop = 0;
+  }, 100);
   dcSelectedDate = null;
-  /* 예약상세로 이동 (이미 열려있으면 그냥 배너만) */
-  var cur = document.querySelector('.sc.on');
-  if(!cur || cur.id !== 's-book-detail') go('s-book-detail');
-  showToast('변경 요청이 접수됐어요 📩 카카오로 안내드릴게요');
+  showToast('일자변경 요청이 접수됐어요 📩');
+}
+
+/* 예약 상태 전환 (프로토타입 전용) */
+var _bookStatus = '예약대기'; // 예약대기 → 이용완료
+function toggleBookStatus() {
+  var badge = document.getElementById('book-status-badge');
+  var reviewBanner = document.getElementById('review-banner');
+  if(_bookStatus === '예약대기') {
+    _bookStatus = '이용완료';
+    if(badge) { badge.textContent = '이용완료'; badge.style.background = '#D1FAE5'; badge.style.color = '#065F46'; }
+    if(reviewBanner) reviewBanner.style.display = 'block';
+  } else {
+    _bookStatus = '예약대기';
+    if(badge) { badge.textContent = '예약대기'; badge.style.background = '#EBF4FF'; badge.style.color = '#1A56DB'; }
+    if(reviewBanner) reviewBanner.style.display = 'none';
+  }
 }
 
 function showDateChangeNudge() {
@@ -2391,11 +2439,15 @@ window.addEventListener('message', function(e){
         <div style=&quot;font-size:11px;color:#A0AEC0;text-align:right&quot;>예약번호 유지<br>카카오로 안내예정</div>
       </div>
     </div>
-    <div style=&quot;display:flex;align-items:center;gap:8px;margin-bottom:12px&quot;>
-      <span style=&quot;background:#EBF4FF;color:#1A56DB;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px&quot;>예약대기</span>
+    <div style=&quot;display:flex;align-items:center;justify-content:space-between;margin-bottom:12px&quot;>
+      <div style=&quot;display:flex;align-items:center;gap:8px&quot;>
+        <span id=&quot;book-status-badge&quot; style=&quot;background:#EBF4FF;color:#1A56DB;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px&quot;>예약대기</span>
       <span style=&quot;font-size:12px;color:#1A56DB;font-weight:600&quot;>1234567890</span>
       <svg width=&quot;12&quot; height=&quot;12&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#1A56DB&quot; stroke-width=&quot;2&quot;><rect x=&quot;9&quot; y=&quot;9&quot; width=&quot;13&quot; height=&quot;13&quot; rx=&quot;2&quot;/><path d=&quot;M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1&quot;/></svg>
-    </div>
+      </div><!-- /inner-flex -->
+      <!-- 프로토타입 전용: 상태 전환 -->
+      <div class=&quot;btn&quot; onclick=&quot;toggleBookStatus()&quot; style=&quot;font-size:10px;color:#A0AEC0;border:1px solid #E2E8F0;border-radius:6px;padding:4px 8px&quot;>상태전환↺</div>
+    </div><!-- /status-row -->
     <div style=&quot;background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between&quot;>
       <div style=&quot;display:flex;align-items:center;gap:12px&quot;>
         <div style=&quot;width:52px;height:52px;background:linear-gradient(160deg,#0B2747,#0B274788);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0&quot;>&amp;#9935;</div>
@@ -2459,9 +2511,16 @@ window.addEventListener('message', function(e){
         </div>
       </div>
     </div>
-    <div class=&quot;btn&quot; onclick=&quot;openOv('m-cancel')&quot; style=&quot;border:2px solid #E2E8F0;border-radius:8px;padding:14px;text-align:center;font-size:14px;font-weight:700;color:#4A5568;margin-bottom:10px&quot;>예약취소</div>
-  <!-- 후기 작성 유도 배너 -->
-  <div style=&quot;margin:0 14px 12px;background:linear-gradient(135deg,#F0FDF4,#ECFDF5);border:1.5px solid #22C55E;border-radius:12px;padding:14px&quot;>
+    <div id=&quot;cancel-btn-wrap&quot;>
+            <div id=&quot;cancel-main-btn&quot; class=&quot;btn&quot; onclick=&quot;openOv('m-cancel')&quot; style=&quot;border:2px solid #E2E8F0;border-radius:8px;padding:14px;text-align:center;font-size:14px;font-weight:700;color:#4A5568;margin-bottom:10px&quot;>예약취소</div>
+      <!-- 일자변경 요청 중 취소 제한 안내 (평소 숨김) -->
+      <div id=&quot;cancel-disabled-msg&quot; style=&quot;display:none;border:2px solid #FEF3C7;background:#FFFBEB;border-radius:8px;padding:12px 14px;text-align:center;margin-bottom:10px&quot;>
+        <div style=&quot;font-size:12px;font-weight:700;color:#92400E;margin-bottom:3px&quot;>⚠️ 일자변경 요청 처리 중</div>
+        <div style=&quot;font-size:11px;color:#A0AEC0&quot;>변경 완료 전까지 취소가 제한됩니다</div>
+      </div>
+    </div>
+  <!-- 후기 작성 유도 배너 (이용완료 상태일 때만 노출) -->
+  <div id=&quot;review-banner&quot; style=&quot;display:none;margin:0 14px 12px;background:linear-gradient(135deg,#F0FDF4,#ECFDF5);border:1.5px solid #22C55E;border-radius:12px;padding:14px&quot;>
     <div style=&quot;display:flex;align-items:center;gap:10px;margin-bottom:10px&quot;>
       <span style=&quot;font-size:22px&quot;>📝</span>
       <div>
@@ -2482,8 +2541,8 @@ window.addEventListener('message', function(e){
     <div class=&quot;ni&quot;><svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#1A56DB&quot; stroke-width=&quot;2&quot;><path d=&quot;M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z&quot;/><polyline points=&quot;14 2 14 8 20 8&quot;/></svg><span style=&quot;color:#1A56DB;font-weight:700&quot;>예약</span></div>
     <div class=&quot;ni&quot;><svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#A0AEC0&quot; stroke-width=&quot;2&quot;><path d=&quot;M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9&quot;/><path d=&quot;M13.73 21a2 2 0 0 1-3.46 0&quot;/></svg><span style=&quot;color:#A0AEC0&quot;>알림</span></div>
     <div class=&quot;ni&quot;><svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#A0AEC0&quot; stroke-width=&quot;2&quot;><path d=&quot;M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2&quot;/><circle cx=&quot;12&quot; cy=&quot;7&quot; r=&quot;4&quot;/></svg><span style=&quot;color:#A0AEC0&quot;>MY</span></div>
-  </div>
-</div>
+  </div><!-- /bnav -->
+</div><!-- /sc -->
 
 
 <!-- ═══ S-CREW ═══ -->
@@ -2563,6 +2622,9 @@ window.addEventListener('message', function(e){
       <span style=&quot;background:#FEE2E2;color:#991B1B;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px&quot;>예약취소</span>
       <span style=&quot;background:#EBF4FF;color:#1A56DB;font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px&quot;>예약확정</span>
       <span style=&quot;font-size:12px;color:#1A56DB;font-weight:600&quot;>1234567890</span>
+      </div>
+      <!-- 프로토타입 전용: 상태 전환 -->
+      <div class=&quot;btn&quot; onclick=&quot;toggleBookStatus()&quot; style=&quot;font-size:10px;color:#A0AEC0;border:1px solid #E2E8F0;border-radius:6px;padding:4px 8px&quot;>상태전환↺</div>
     </div>
     <div style=&quot;background:#F7F8FA;border:1px solid #E2E8F0;border-radius:10px;padding:14px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;opacity:.75&quot;>
       <div style=&quot;display:flex;align-items:center;gap:12px&quot;>
@@ -2874,6 +2936,8 @@ window.addEventListener('message', function(e){
     <div class=&quot;btn&quot; onclick=&quot;closeOv()&quot; style=&quot;background:#F7F8FA;border-radius:8px;padding:14px;text-align:center;font-size:15px;font-weight:700;color:#4A5568&quot;>닫기</div>
   </div>
 </div>
+  <!-- 토스트 -->
+  <div id=&quot;toast-el&quot; style=&quot;position:absolute;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);background:rgba(26,32,44,.92);color:#fff;font-size:13px;font-weight:600;padding:10px 18px;border-radius:999px;white-space:nowrap;opacity:0;transition:opacity .25s,transform .25s;z-index:9999;pointer-events:none&quot;></div>
 </body></html>" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
       </div>
     </div>
