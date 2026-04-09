@@ -19,13 +19,13 @@ html,body{height:100%;font-family:var(--fn);color:#1A1A2E;background:#fff}
 /* BODY */
 #body{display:flex;flex:1;overflow:hidden}
 /* LEFT */
-#left{width:300px;flex-shrink:0;border-right:none;background:#F8F9FC;display:flex;flex-direction:column;align-items:center;justify-content:center;position:sticky;top:0;height:calc(100vh - 48px);overflow:hidden;min-width:220px;max-width:600px}
+#left{width:570px;flex-shrink:0;border-right:none;background:#F8F9FC;display:flex;flex-direction:column;align-items:center;justify-content:center;position:sticky;top:0;height:calc(100vh - 48px);overflow:hidden;min-width:220px;max-width:900px}
 #resizer{width:5px;flex-shrink:0;cursor:col-resize;background:transparent;position:relative;z-index:50;border-right:1px solid #E5E7EB;transition:background .15s}
 #resizer:hover{background:rgba(61,78,255,.1)}
 #resizer::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:3px;height:48px;background:#D1D5DB;border-radius:2px}
 #resizer:hover::after{background:#3D4EFF}
 .plb{font-size:10px;color:#9CA3AF;margin-bottom:10px;letter-spacing:.5px;text-transform:uppercase}
-#pw{position:relative;width:240px;height:520px;background:#111827;border-radius:38px;box-shadow:0 16px 48px rgba(0,0,0,.35),inset 0 0 0 1px rgba(255,255,255,.08);overflow:hidden}
+#pw{position:relative;width:327px;height:708px;background:#111827;border-radius:38px;box-shadow:0 16px 48px rgba(0,0,0,.35),inset 0 0 0 1px rgba(255,255,255,.08);overflow:hidden}
 #pw::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:90px;height:24px;background:#111827;border-radius:0 0 14px 14px;z-index:10;pointer-events:none}
 #pw-screen{position:absolute;inset:5px;border-radius:34px;overflow:hidden;background:#fff;pointer-events:all}
 #pf{width:375px;height:812px;border:none;zoom:0.624;transform-origin:top left}
@@ -4028,7 +4028,15 @@ function delC(sid,cid){
   var pw = document.getElementById('pw');
   var pf = document.getElementById('pf');
   if(!resizer||!left) return;
-  
+
+  /* 초기 zoom 설정 — scale 0.85 (디폴트 최대 크기) */
+  setTimeout(function(){
+    if(pw && pf) {
+      var initScale = 0.85;
+      pf.style.zoom = initScale;
+    }
+  }, 100);
+
   var isDown = false, startX = 0, startW = 0;
   
   resizer.addEventListener('mousedown', function(e){
@@ -4044,14 +4052,14 @@ function delC(sid,cid){
   document.addEventListener('mousemove', function(e){
     if(!isDown) return;
     var delta = e.clientX - startX;
-    var newW = Math.max(220, Math.min(600, startW + delta));
+    var newW = Math.max(220, Math.min(900, startW + delta));
     left.style.width = newW + 'px';
     
     // 폰 목업 크기 조정
     if(pw && pf) {
-      // 패널 너비에 따라 스케일 계산
-      var scale = Math.min(0.85, (newW - 40) / 375);
-      scale = Math.max(0.4, scale);
+      // 패널 너비에 따라 스케일 계산 (최대 1.2배)
+      var scale = Math.min(1.2, (newW - 40) / 375);
+      scale = Math.max(0.35, scale);
       var pwW = Math.round(375 * scale * 1.025);
       var pwH = Math.round(812 * scale * 1.025);
       pw.style.width = pwW + 'px';
