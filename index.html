@@ -565,10 +565,87 @@ body{font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;b
         <span style=&quot;font-size:12px;color:#718096&quot;>·</span>
         <span style=&quot;font-size:12px;color:#718096&quot;>뚜무리 전문</span>
       </div>
-      <div style=&quot;display:flex;gap:8px&quot;>
-        <div style=&quot;flex:1;background:#F7F8FA;border-radius:8px;padding:8px;text-align:center&quot;><div style=&quot;font-size:16px;margin-bottom:3px&quot;>🛡</div><div style=&quot;font-size:10px;color:#718096&quot;>안전검사</div><div style=&quot;font-size:11px;font-weight:700;color:#1A56DB;margin-top:1px&quot;>합격</div></div><div style=&quot;flex:1;background:#F7F8FA;border-radius:8px;padding:8px;text-align:center&quot;><div style=&quot;font-size:16px;margin-bottom:3px&quot;>👤</div><div style=&quot;font-size:10px;color:#718096&quot;>선장인증</div><div style=&quot;font-size:11px;font-weight:700;color:#1A56DB;margin-top:1px&quot;>완료</div></div><div style=&quot;flex:1;background:#F7F8FA;border-radius:8px;padding:8px;text-align:center&quot;><div style=&quot;font-size:16px;margin-bottom:3px&quot;>⭐</div><div style=&quot;font-size:10px;color:#718096&quot;>선정자격</div><div style=&quot;font-size:11px;font-weight:700;color:#1A56DB;margin-top:1px&quot;>우수</div></div>
+          </div>
+
+    <!-- ✦ 조황 섹션 (날짜 선택 위) -->
+    <div style=&quot;padding:14px 14px 0&quot;>
+
+      <!-- AI 요약 카드 -->
+      <div style=&quot;background:linear-gradient(135deg,#0F172A,#1E3A5F);border-radius:12px;padding:14px;margin-bottom:12px;position:relative;overflow:hidden&quot;>
+        <div style=&quot;position:absolute;top:0;right:0;width:80px;height:80px;background:radial-gradient(circle,rgba(26,86,219,.4),transparent);border-radius:50%&quot;></div>
+        <div style=&quot;display:flex;align-items:center;gap:8px;margin-bottom:10px&quot;>
+          <div style=&quot;background:#1A56DB;border-radius:6px;padding:3px 8px;display:flex;align-items:center;gap:4px&quot;>
+            <span style=&quot;font-size:11px;font-weight:800;color:#fff&quot;>AI</span>
+          </div>
+          <span style=&quot;font-size:12px;color:rgba(255,255,255,.7)&quot;>최근 조황 · 예약 데이터 기반 요약</span>
+          <span style=&quot;margin-left:auto;font-size:11px;color:#4ADE80;font-weight:700&quot;>긍정반응 89%</span>
+        </div>
+        <div style=&quot;font-size:14px;color:#fff;line-height:1.7;font-weight:500&quot;>
+          갑오징어 전문 선박 중 <span style=&quot;color:#60A5FA;font-weight:700&quot;>이번 달 조황 1위</span>. 최근 3회 출조 평균 <span style=&quot;color:#4ADE80;font-weight:700&quot;>26마리</span> 조획. 물때 12~13물에 입질이 집중되며, 오전 6시 이후 포인트 집중도 높음.
+        </div>
+        <div style=&quot;margin-top:10px;display:flex;align-items:center;gap:8px&quot;>
+          <span style=&quot;font-size:10px;color:rgba(255,255,255,.35)&quot;>예약건 38회 · 조황기록 · 웹 데이터 분석</span>
+        </div>
+      </div>
+
+      <!-- 조황 썸네일 카드 목록 -->
+      <div style=&quot;display:flex;align-items:center;justify-content:space-between;margin-bottom:10px&quot;>
+        <span style=&quot;font-size:14px;font-weight:800&quot;>최근 조황</span>
+        <span style=&quot;font-size:12px;color:#1A56DB;font-weight:600&quot;>전체보기 ›</span>
+      </div>
+      <div style=&quot;display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;margin:0 -14px;padding-left:14px&quot;>
+
+        <!-- 조황 카드 1 -->
+        <div class=&quot;btn&quot; style=&quot;flex-shrink:0;width:140px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;overflow:hidden&quot;>
+          <div style=&quot;height:80px;background:linear-gradient(135deg,#0B2747,#1A56DB44);position:relative;display:flex;align-items:center;justify-content:center;font-size:28px&quot;>
+            🦑
+            <div style=&quot;position:absolute;top:6px;right:6px;background:rgba(0,0,0,.55);border-radius:4px;padding:2px 6px;font-size:10px;font-weight:700;color:#4ADE80&quot;>42마리</div>
+          </div>
+          <div style=&quot;padding:8px 10px&quot;>
+            <div style=&quot;font-size:12px;font-weight:800;color:#1A202C;margin-bottom:2px&quot;>갑오징어 반일</div>
+            <div style=&quot;font-size:10px;color:#A0AEC0&quot;>4/6(일) · 최대 1,203g</div>
+          </div>
+        </div>
+
+        <!-- 조황 카드 2 -->
+        <div class=&quot;btn&quot; style=&quot;flex-shrink:0;width:140px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;overflow:hidden&quot;>
+          <div style=&quot;height:80px;background:linear-gradient(135deg,#0B2747,#1A56DB44);position:relative;display:flex;align-items:center;justify-content:center;font-size:28px&quot;>
+            🦑
+            <div style=&quot;position:absolute;top:6px;right:6px;background:rgba(0,0,0,.55);border-radius:4px;padding:2px 6px;font-size:10px;font-weight:700;color:#4ADE80&quot;>28마리</div>
+          </div>
+          <div style=&quot;padding:8px 10px&quot;>
+            <div style=&quot;font-size:12px;font-weight:800;color:#1A202C;margin-bottom:2px&quot;>갑오징어 전일</div>
+            <div style=&quot;font-size:10px;color:#A0AEC0&quot;>3/31(월) · 최대 990g</div>
+          </div>
+        </div>
+
+        <!-- 조황 카드 3 -->
+        <div class=&quot;btn&quot; style=&quot;flex-shrink:0;width:140px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;overflow:hidden&quot;>
+          <div style=&quot;height:80px;background:linear-gradient(135deg,#0B2747,#1A56DB44);position:relative;display:flex;align-items:center;justify-content:center;font-size:28px&quot;>
+            🦑
+            <div style=&quot;position:absolute;top:6px;right:6px;background:rgba(0,0,0,.55);border-radius:4px;padding:2px 6px;font-size:10px;font-weight:700;color:#FCD34D&quot;>18마리</div>
+          </div>
+          <div style=&quot;padding:8px 10px&quot;>
+            <div style=&quot;font-size:12px;font-weight:800;color:#1A202C;margin-bottom:2px&quot;>갑오징어 반일</div>
+            <div style=&quot;font-size:10px;color:#A0AEC0&quot;>3/29(토) · 최대 820g</div>
+          </div>
+        </div>
+
+        <!-- 조황 카드 4 -->
+        <div class=&quot;btn&quot; style=&quot;flex-shrink:0;width:140px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;overflow:hidden&quot;>
+          <div style=&quot;height:80px;background:linear-gradient(135deg,#0B2747,#1A56DB44);position:relative;display:flex;align-items:center;justify-content:center;font-size:28px&quot;>
+            🦑
+            <div style=&quot;position:absolute;top:6px;right:6px;background:rgba(0,0,0,.55);border-radius:4px;padding:2px 6px;font-size:10px;font-weight:700;color:#FCD34D&quot;>31마리</div>
+          </div>
+          <div style=&quot;padding:8px 10px&quot;>
+            <div style=&quot;font-size:12px;font-weight:800;color:#1A202C;margin-bottom:2px&quot;>갑오징어 전일</div>
+            <div style=&quot;font-size:10px;color:#A0AEC0&quot;>4/2(수) · 최대 1,203g</div>
+          </div>
+        </div>
+
       </div>
     </div>
+    <!-- ✦ /조황 섹션 -->
 
     <!-- 날짜 선택 -->
     <div style=&quot;padding:14px 14px 0&quot;>
@@ -714,12 +791,7 @@ body{font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;b
         </div>
       </div>
 
-      <!-- 최근 조황 테이블 -->
-      <div style=&quot;font-size:14px;font-weight:800;margin-bottom:8px&quot;>최근 조황</div>
-      <div style=&quot;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden;margin-bottom:14px&quot;>
-        <div style=&quot;background:#1A56DB;padding:8px 12px;display:grid;grid-template-columns:72px 1fr 1fr&quot;><span style=&quot;font-size:11px;font-weight:700;color:#fff&quot;>날짜</span><span style=&quot;font-size:11px;font-weight:700;color:#fff&quot;>결과</span><span style=&quot;font-size:11px;font-weight:700;color:#fff;text-align:right&quot;>최대</span></div>
-        <div style=&quot;padding:9px 12px;border-top:1px solid #F0F2F5;display:grid;grid-template-columns:72px 1fr 1fr&quot;><span style=&quot;font-size:12px;color:#718096&quot;>4/2</span><span style=&quot;font-size:12px;font-weight:500&quot;>갑오징어 42마리</span><span style=&quot;font-size:12px;font-weight:700;color:#1A56DB;text-align:right&quot;>1,203g</span></div><div style=&quot;padding:9px 12px;border-top:1px solid #F0F2F5;display:grid;grid-template-columns:72px 1fr 1fr&quot;><span style=&quot;font-size:12px;color:#718096&quot;>4/1</span><span style=&quot;font-size:12px;font-weight:500&quot;>갑오징어 38마리 · 광어</span><span style=&quot;font-size:12px;font-weight:700;color:#1A56DB;text-align:right&quot;>820g</span></div><div style=&quot;padding:9px 12px;border-top:1px solid #F0F2F5;display:grid;grid-template-columns:72px 1fr 1fr&quot;><span style=&quot;font-size:12px;color:#718096&quot;>3/31</span><span style=&quot;font-size:12px;font-weight:500&quot;>갑오징어 28마리</span><span style=&quot;font-size:12px;font-weight:700;color:#1A56DB;text-align:right&quot;>990g</span></div>
-      </div>
+      
 
     </div>
   </div><!-- /panel-product -->
@@ -2333,12 +2405,7 @@ window.addEventListener('message', function(e){
         <span style=&quot;font-size:12px;color:#718096&quot;>·</span>
         <span style=&quot;font-size:12px;color:#718096&quot;>우럭·참돔 전문</span>
       </div>
-      <div style=&quot;display:flex;gap:8px&quot;>
-        <div style=&quot;flex:1;background:#F7F8FA;border-radius:8px;padding:8px;text-align:center&quot;><div style=&quot;font-size:16px;margin-bottom:3px&quot;>🛡</div><div style=&quot;font-size:10px;color:#718096&quot;>안전검사</div><div style=&quot;font-size:11px;font-weight:700;color:#1A56DB;margin-top:1px&quot;>완료</div></div>
-        <div style=&quot;flex:1;background:#F7F8FA;border-radius:8px;padding:8px;text-align:center&quot;><div style=&quot;font-size:16px;margin-bottom:3px&quot;>⚓</div><div style=&quot;font-size:10px;color:#718096&quot;>선장인증</div><div style=&quot;font-size:11px;font-weight:700;color:#1A56DB;margin-top:1px&quot;>완료</div></div>
-        <div style=&quot;flex:1;background:#F7F8FA;border-radius:8px;padding:8px;text-align:center&quot;><div style=&quot;font-size:16px;margin-bottom:3px&quot;>⭐</div><div style=&quot;font-size:10px;color:#718096&quot;>선정자격</div><div style=&quot;font-size:11px;font-weight:700;color:#1A56DB;margin-top:1px&quot;>우수</div></div>
-      </div>
-    </div>
+          </div>
 
     <!-- 어종 태그 더보기 -->
     <div style=&quot;padding:12px 14px 0&quot;>
