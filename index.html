@@ -69,7 +69,7 @@ html,body{height:100%;font-family:var(--fn);color:#1A1A2E;background:#fff}
     <span style="font-size:11px;color:#9CA3AF">어바웃피싱</span>
     <span style="color:#D1D5DB;font-size:12px">/</span>
     <span class="hd-title">예약검색 스토리보드</span>
-    <span class="hd-ver">v3.7</span>
+    <span class="hd-ver">v3.8</span>
   </div>
   <div class="hd-sep"></div>
   <span style="font-size:12px;color:#6B7280">예약탭 · 선박예약검색 + 예약·결제·취소 플로우</span>
@@ -104,7 +104,7 @@ body{font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;b
 </style></head><body>
 
 <!-- ═══ S-HOME ═══ -->
-<div id=&quot;s-home&quot; class=&quot;sc on&quot;>
+<div <div id=&quot;s-home&quot; class=&quot;sc on&quot;>
 
   <!-- GNB -->
   <div style=&quot;background:#fff;padding:46px 16px 0;flex-shrink:0;border-bottom:1px solid #E2E8F0&quot;>
@@ -118,232 +118,532 @@ body{font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;b
         <span style=&quot;font-size:13px;font-weight:700;color:#fff&quot;>내 예약</span>
       </div>
     </div>
-  </div>
+
+  
+
+  </div><!-- /GNB -->
 
   <!-- 스크롤 영역 -->
-  <div class=&quot;scr&quot;>
+  <div class=&quot;scr&quot; style=&quot;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;&quot;>
+
+    <!-- ⚡ 출조 임박 알림 모듈 --><div id=&quot;departure-alert&quot; style=&quot;margin:0 8px 14px;background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border:1.5px solid #BFDBFE;border-radius:20px;overflow:hidden&quot;><div style=&quot;background:#1A56DB;padding:8px 14px;display:flex;align-items:center;justify-content:space-between&quot;><div style=&quot;display:flex;align-items:center;gap:6px&quot;><span style=&quot;font-size:14px&quot;>⚓</span><span style=&quot;font-size:13px;font-weight:800;color:#fff&quot;>김채린님, 내일 출조 예정이에요!</span></div><div style=&quot;background:rgba(255,255,255,.25);border-radius:20px;padding:3px 10px&quot;><span style=&quot;font-size:12px;font-weight:900;color:#fff&quot;>D-1</span></div></div><div class=&quot;btn&quot; onclick=&quot;go('s-book-detail')&quot; style=&quot;padding:8px 14px&quot;><div style=&quot;display:flex;align-items:center;gap:10px;margin-bottom:6px&quot;><div style=&quot;width:40px;height:40px;background:#1A56DB22;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0&quot;>⛵</div><div style=&quot;flex:1&quot;><div style=&quot;font-size:15px;font-weight:900;color:#1A202C&quot;>블랙이글스호</div><div style=&quot;font-size:12px;color:#64748B;margin-top:1px&quot;>충남 오천항 · 갑오징어 반일 출조</div></div></div><div style=&quot;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:6px&quot;><div style=&quot;background:#fff;border-radius:12px;padding:6px 10px&quot;><div style=&quot;font-size:10px;color:#94A3B8;margin-bottom:2px&quot;>📅 출항 일시</div><div style=&quot;font-size:13px;font-weight:700;color:#1A202C&quot;>4월 14일 (화)</div><div style=&quot;font-size:12px;color:#1A56DB;font-weight:600&quot;>오전 05:30</div></div><div style=&quot;background:#fff;border-radius:12px;padding:6px 10px&quot;><div style=&quot;font-size:10px;color:#94A3B8;margin-bottom:2px&quot;>🎟 예약번호</div><div style=&quot;font-size:13px;font-weight:700;color:#1A202C&quot;>AF-20260414</div><div style=&quot;font-size:12px;color:#22C55E;font-weight:600&quot;>예약확정 ✓</div></div></div><div style=&quot;background:#FEF3C7;border-radius:12px;padding:8px 12px;display:flex;align-items:center;justify-content:space-between&quot;><div style=&quot;display:flex;align-items:center;gap:6px&quot;><span style=&quot;font-size:13px&quot;>⚠️</span><span style=&quot;font-size:12px;color:#92400E;font-weight:600&quot;>탑승자 명단을 미리 등록하세요</span></div><div style=&quot;background:#F59E0B;border-radius:8px;padding:4px 10px&quot;><span style=&quot;font-size:11px;font-weight:700;color:#fff&quot;>등록하기</span></div></div></div></div>
 
     <!-- ① 검색 모듈 -->
-    <div style=&quot;background:#fff;padding:14px 16px 14px;border-bottom:1px solid #E2E8F0&quot;>
+    <div style=&quot;background:#fff;padding:14px 8px 14px;border-bottom:1px solid #E2E8F0&quot;>
+      <div style=&quot;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:20px;padding:14px 12px;box-shadow:0 2px 8px rgba(0,0,0,.05)&quot;>
       <div style=&quot;font-size:12px;font-weight:700;color:#1A56DB;margin-bottom:10px&quot;>⚓ 선박 예약 검색</div>
       <div style=&quot;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px&quot;>
-        <div class=&quot;btn&quot; onclick=&quot;openOv('m-date')&quot; style=&quot;border:1px solid #CBD5E0;border-radius:8px;padding:10px 12px;background:#F8FAFC&quot;>
+        <div class=&quot;btn&quot; onclick=&quot;openOv('m-date')&quot; style=&quot;border:1px solid #CBD5E0;border-radius:14px;padding:10px 12px;background:#fff&quot;>
           <div style=&quot;display:flex;align-items:center;gap:5px;margin-bottom:3px&quot;><svg width=&quot;12&quot; height=&quot;12&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#1A56DB&quot; stroke-width=&quot;2&quot;><rect x=&quot;3&quot; y=&quot;4&quot; width=&quot;18&quot; height=&quot;18&quot; rx=&quot;2&quot;/><line x1=&quot;16&quot; y1=&quot;2&quot; x2=&quot;16&quot; y2=&quot;6&quot;/><line x1=&quot;8&quot; y1=&quot;2&quot; x2=&quot;8&quot; y2=&quot;6&quot;/><line x1=&quot;3&quot; y1=&quot;10&quot; x2=&quot;21&quot; y2=&quot;10&quot;/></svg><span style=&quot;font-size:11px;color:#718096&quot;>날짜</span></div>
           <div id=&quot;v-date&quot; style=&quot;font-size:14px;font-weight:700;color:#1A202C&quot;>10.24 (목)</div>
         </div>
-        <div class=&quot;btn&quot; onclick=&quot;openOv('m-ppl')&quot; style=&quot;border:1px solid #CBD5E0;border-radius:8px;padding:10px 12px;background:#F8FAFC&quot;>
+        <div class=&quot;btn&quot; onclick=&quot;openOv('m-ppl')&quot; style=&quot;border:1px solid #CBD5E0;border-radius:14px;padding:10px 12px;background:#fff&quot;>
           <div style=&quot;display:flex;align-items:center;gap:5px;margin-bottom:3px&quot;><svg width=&quot;12&quot; height=&quot;12&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#1A56DB&quot; stroke-width=&quot;2&quot;><path d=&quot;M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2&quot;/><circle cx=&quot;9&quot; cy=&quot;7&quot; r=&quot;4&quot;/></svg><span style=&quot;font-size:11px;color:#718096&quot;>인원</span></div>
           <div id=&quot;v-ppl&quot; style=&quot;font-size:14px;font-weight:700;color:#1A202C&quot;>성인 2명</div>
         </div>
-        <div class=&quot;btn&quot; onclick=&quot;openOv('m-reg')&quot; style=&quot;border:1px solid #CBD5E0;border-radius:8px;padding:10px 12px;background:#F8FAFC&quot;>
+        <div class=&quot;btn&quot; onclick=&quot;openOv('m-reg')&quot; style=&quot;border:1px solid #CBD5E0;border-radius:14px;padding:10px 12px;background:#fff&quot;>
           <div style=&quot;display:flex;align-items:center;gap:5px;margin-bottom:3px&quot;><svg width=&quot;12&quot; height=&quot;12&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#1A56DB&quot; stroke-width=&quot;2&quot;><path d=&quot;M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z&quot;/><circle cx=&quot;12&quot; cy=&quot;10&quot; r=&quot;3&quot;/></svg><span style=&quot;font-size:11px;color:#718096&quot;>지역</span></div>
           <div id=&quot;v-reg&quot; style=&quot;font-size:14px;font-weight:700;color:#1A202C&quot;>충남 오천항</div>
         </div>
-        <div class=&quot;btn&quot; onclick=&quot;openOv('m-fish')&quot; style=&quot;border:1px solid #CBD5E0;border-radius:8px;padding:10px 12px;background:#F8FAFC&quot;>
+        <div class=&quot;btn&quot; onclick=&quot;openOv('m-fish')&quot; style=&quot;border:1px solid #CBD5E0;border-radius:14px;padding:10px 12px;background:#fff&quot;>
           <div style=&quot;display:flex;align-items:center;gap:5px;margin-bottom:3px&quot;><svg width=&quot;12&quot; height=&quot;12&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#1A56DB&quot; stroke-width=&quot;2&quot;><path d=&quot;M18 8c0 4-6 10-6 10S6 12 6 8a6 6 0 0 1 12 0z&quot;/></svg><span style=&quot;font-size:11px;color:#718096&quot;>어종</span></div>
           <div id=&quot;v-fish&quot; style=&quot;font-size:14px;font-weight:700;color:#1A202C&quot;>뚜무리/갑오징어</div>
         </div>
       </div>
-      <div class=&quot;btn&quot; onclick=&quot;searchFromHome()&quot; style=&quot;background:#1A56DB;border-radius:8px;padding:13px;display:flex;align-items:center;justify-content:center;gap:8px&quot;>
+      <div class=&quot;btn&quot; onclick=&quot;searchFromHome()&quot; style=&quot;background:#1A56DB;border-radius:14px;padding:13px;display:flex;align-items:center;justify-content:center;gap:8px&quot;>
         <svg width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#fff&quot; stroke-width=&quot;2.5&quot;><circle cx=&quot;11&quot; cy=&quot;11&quot; r=&quot;8&quot;/><line x1=&quot;21&quot; y1=&quot;21&quot; x2=&quot;16.65&quot; y2=&quot;16.65&quot;/></svg>
         <span style=&quot;font-size:15px;font-weight:800;color:#fff&quot;>선박 검색하기</span>
       </div>
+      </div>
+    
+
+    
+        <!-- ★ 시즌 기획전 배너 슬라이더 (띠배너) -->
+    <div style=&quot;margin:12px 8px 14px;border-radius:14px;position:relative;overflow:hidden&quot; id=&quot;season-banner-wrap&quot;>
+      <div id=&quot;season-slider&quot; style=&quot;display:flex;transition:transform .4s cubic-bezier(.25,.46,.45,.94)&quot;>
+        <!-- 슬라이드 1 -->
+        <div class=&quot;btn&quot; onclick=&quot;doSearchKw('갑오징어')&quot; style=&quot;flex-shrink:0;width:100%;height:72px;background:linear-gradient(135deg,#0B2747 0%,#1A56DB 60%,#0B4080 100%);position:relative;display:flex;align-items:center;overflow:hidden&quot;>
+          <div style=&quot;position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:52px;opacity:.25;line-height:1&quot;>🦑</div>
+          <div style=&quot;display:flex;align-items:center;gap:10px;padding:0 14px;width:100%&quot;>
+            <div style=&quot;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:20px;padding:3px 10px;flex-shrink:0&quot;>
+              <span style=&quot;font-size:10px;font-weight:700;color:#fff;white-space:nowrap&quot;>🌸 봄 시즌</span>
+            </div>
+            <div style=&quot;flex:1&quot;>
+              <div style=&quot;font-size:14px;font-weight:900;color:#fff;white-space:nowrap&quot;>갑오징어 황금어장 <span style=&quot;color:#93C5FD&quot;>최대 30% 할인</span></div>
+              <div style=&quot;font-size:11px;color:rgba(255,255,255,.7);margin-top:1px&quot;>지금 예약하기 →</div>
+            </div>
+          </div>
+        </div>
+        <!-- 슬라이드 2 -->
+        <div class=&quot;btn&quot; onclick=&quot;doSearchKw('우럭')&quot; style=&quot;flex-shrink:0;width:100%;height:72px;background:linear-gradient(135deg,#1a0533 0%,#5B21B6 60%,#2e0a57 100%);position:relative;display:flex;align-items:center;overflow:hidden&quot;>
+          <div style=&quot;position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:52px;opacity:.25;line-height:1&quot;>🐟</div>
+          <div style=&quot;display:flex;align-items:center;gap:10px;padding:0 14px;width:100%&quot;>
+            <div style=&quot;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:20px;padding:3px 10px;flex-shrink:0&quot;>
+              <span style=&quot;font-size:10px;font-weight:700;color:#fff;white-space:nowrap&quot;>⚡ 마감임박</span>
+            </div>
+            <div style=&quot;flex:1&quot;>
+              <div style=&quot;font-size:14px;font-weight:900;color:#fff;white-space:nowrap&quot;>우럭 낚시 특가전 <span style=&quot;color:#C4B5FD&quot;>55,000원~</span></div>
+              <div style=&quot;font-size:11px;color:rgba(255,255,255,.7);margin-top:1px&quot;>잔여석 한정 · 지금 예약하기 →</div>
+            </div>
+          </div>
+        </div>
+        <!-- 슬라이드 3 -->
+        <div class=&quot;btn&quot; onclick=&quot;doSearchKw('반일출조')&quot; style=&quot;flex-shrink:0;width:100%;height:72px;background:linear-gradient(135deg,#064E3B 0%,#059669 60%,#065F46 100%);position:relative;display:flex;align-items:center;overflow:hidden&quot;>
+          <div style=&quot;position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:52px;opacity:.25;line-height:1&quot;>⛵</div>
+          <div style=&quot;display:flex;align-items:center;gap:10px;padding:0 14px;width:100%&quot;>
+            <div style=&quot;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:20px;padding:3px 10px;flex-shrink:0&quot;>
+              <span style=&quot;font-size:10px;font-weight:700;color:#fff;white-space:nowrap&quot;>🎯 이번 주말</span>
+            </div>
+            <div style=&quot;flex:1&quot;>
+              <div style=&quot;font-size:14px;font-weight:900;color:#fff;white-space:nowrap&quot;>주말 반일출조 <span style=&quot;color:#6EE7B7&quot;>여유석 있음</span></div>
+              <div style=&quot;font-size:11px;color:rgba(255,255,255,.7);margin-top:1px&quot;>지금 예약하기 →</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- dot indicator -->
+      <div style=&quot;position:absolute;bottom:7px;left:50%;transform:translateX(-50%);display:flex;gap:4px&quot; id=&quot;season-dots&quot;>
+        <div class=&quot;s-dot&quot; style=&quot;width:16px;height:3px;background:#fff;border-radius:2px;transition:all .3s;cursor:pointer&quot; onclick=&quot;seasonGo(0)&quot;></div>
+        <div class=&quot;s-dot&quot; style=&quot;width:5px;height:3px;background:rgba(255,255,255,.45);border-radius:2px;transition:all .3s;cursor:pointer&quot; onclick=&quot;seasonGo(1)&quot;></div>
+        <div class=&quot;s-dot&quot; style=&quot;width:5px;height:3px;background:rgba(255,255,255,.45);border-radius:2px;transition:all .3s;cursor:pointer&quot; onclick=&quot;seasonGo(2)&quot;></div>
+      </div>
     </div>
 
-    <!-- ② 찜한 선박 / 재예약 모듈 -->
-    <div style=&quot;background:#F8FAFC;padding:14px 16px;border-bottom:1px solid #E2E8F0&quot;>
+        <!-- ② 찜한 선박 / 재예약 모듈 -->
+    <div style=&quot;margin-bottom:14px&quot;>
+      <div style=&quot;display:flex;align-items:center;justify-content:space-between;padding:0 8px;margin-bottom:10px&quot;>
+        <span style=&quot;font-size:16px;font-weight:900&quot;>❤️ 찜한 선박</span>
+        <div class=&quot;btn&quot; onclick=&quot;showToast('찜한 선박 전체보기')&quot; style=&quot;font-size:12px;color:#1A56DB;font-weight:600&quot;>전체보기 ›</div>
+      </div>
+      <div id=&quot;jjim-scroll&quot; style=&quot;display:flex;gap:10px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:0 8px 4px&quot;>
+        <!-- 찜 카드 1 -->
+        <div style=&quot;flex-shrink:0;width:200px;background:#fff;border:1px solid #E2E8F0;border-radius:18px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.07)&quot;>
+          <div class=&quot;btn&quot; onclick=&quot;goDetail('s-detail','s-home');updateCommerceBySpecies('오징어')&quot; style=&quot;height:110px;background:linear-gradient(160deg,#0B2747,#1A56DB33);display:flex;align-items:center;justify-content:center;font-size:40px;position:relative&quot;>
+            ⛵
+            <div style=&quot;position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,transparent 55%);pointer-events:none&quot;></div>
+            <div style=&quot;position:absolute;top:8px;left:8px;display:flex;gap:4px;pointer-events:none&quot;>
+              <div style=&quot;background:#22C55E;border-radius:6px;padding:2px 7px;font-size:9px;font-weight:700;color:#fff&quot;>🦑 오늘 42마리</div>
+              <div style=&quot;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4);border-radius:6px;padding:2px 7px;font-size:9px;font-weight:700;color:#fff&quot;>추첨</div>
+            </div>
+            <div style=&quot;position:absolute;top:8px;right:8px;background:rgba(0,0,0,.45);border-radius:6px;padding:2px 7px;font-size:9px;color:#fff;pointer-events:none&quot;>잔여 2석</div>
+            <div style=&quot;position:absolute;bottom:8px;left:10px;right:10px;pointer-events:none&quot;>
+              <div style=&quot;font-size:14px;font-weight:900;color:#fff;margin-bottom:1px&quot;>블랙이글스호</div>
+              <div style=&quot;font-size:10px;color:rgba(255,255,255,.7)&quot;>충남 오천항 · 05:00</div>
+            </div>
+          </div>
+          <div style=&quot;padding:10px 12px&quot;>
+            <div style=&quot;display:flex;align-items:center;justify-content:space-between;margin-bottom:8px&quot;>
+              <div style=&quot;font-size:15px;font-weight:900;color:#1A56DB&quot;>90,000원~</div>
+              <div style=&quot;background:#FEE2E2;border-radius:6px;padding:2px 7px;font-size:9px;font-weight:700;color:#DC2626&quot;>마감임박</div>
+            </div>
+            <div class=&quot;btn&quot; onclick=&quot;go('s-payment2')&quot; style=&quot;background:#1A56DB;border-radius:10px;padding:8px;text-align:center;font-size:12px;font-weight:800;color:#fff&quot;>예약하기 →</div>
+          </div>
+        </div>
+        <!-- 찜 카드 2 -->
+        <div style=&quot;flex-shrink:0;width:200px;background:#fff;border:1px solid #E2E8F0;border-radius:18px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.07)&quot;>
+          <div class=&quot;btn&quot; onclick=&quot;goDetail('s-detail2','s-home');updateCommerceBySpecies('우럭')&quot; style=&quot;height:110px;background:linear-gradient(160deg,#1A0A3A,#5B21B633);display:flex;align-items:center;justify-content:center;font-size:40px;position:relative&quot;>
+            ⛵
+            <div style=&quot;position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,transparent 55%);pointer-events:none&quot;></div>
+            <div style=&quot;position:absolute;top:8px;left:8px;display:flex;gap:4px;pointer-events:none&quot;>
+              <div style=&quot;background:#F59E0B;border-radius:6px;padding:2px 7px;font-size:9px;font-weight:700;color:#fff&quot;>🐟 오늘 우럭 18</div>
+              <div style=&quot;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4);border-radius:6px;padding:2px 7px;font-size:9px;font-weight:700;color:#fff&quot;>지정</div>
+            </div>
+            <div style=&quot;position:absolute;bottom:8px;left:10px;right:10px;pointer-events:none&quot;>
+              <div style=&quot;font-size:14px;font-weight:900;color:#fff;margin-bottom:1px&quot;>오션블루마린호</div>
+              <div style=&quot;font-size:10px;color:rgba(255,255,255,.7)&quot;>인천 신포항 · 05:00</div>
+            </div>
+          </div>
+          <div style=&quot;padding:10px 12px&quot;>
+            <div style=&quot;display:flex;align-items:center;justify-content:space-between;margin-bottom:8px&quot;>
+              <div style=&quot;font-size:15px;font-weight:900;color:#1A56DB&quot;>55,000원~</div>
+              <div style=&quot;background:#DCFCE7;border-radius:6px;padding:2px 7px;font-size:9px;font-weight:700;color:#166534&quot;>여유있음</div>
+            </div>
+            <div class=&quot;btn&quot; onclick=&quot;go('s-payment2')&quot; style=&quot;background:#1A56DB;border-radius:10px;padding:8px;text-align:center;font-size:12px;font-weight:800;color:#fff&quot;>예약하기 →</div>
+          </div>
+        </div>
+        <!-- 찜 카드 3 -->
+        <div style=&quot;flex-shrink:0;width:200px;background:#fff;border:1px solid #E2E8F0;border-radius:18px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.07)&quot;>
+          <div class=&quot;btn&quot; onclick=&quot;goDetail('s-detail','s-home')&quot; style=&quot;height:110px;background:linear-gradient(160deg,#0A1A2A,#15803D33);display:flex;align-items:center;justify-content:center;font-size:40px;position:relative&quot;>
+            ⛵
+            <div style=&quot;position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,transparent 55%);pointer-events:none&quot;></div>
+            <div style=&quot;position:absolute;top:8px;left:8px;display:flex;gap:4px;pointer-events:none&quot;>
+              <div style=&quot;background:#059669;border-radius:6px;padding:2px 7px;font-size:9px;font-weight:700;color:#fff&quot;>🎣 오늘 조황</div>
+              <div style=&quot;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4);border-radius:6px;padding:2px 7px;font-size:9px;font-weight:700;color:#fff&quot;>추첨</div>
+            </div>
+            <div style=&quot;position:absolute;top:8px;right:8px;background:rgba(0,0,0,.45);border-radius:6px;padding:2px 7px;font-size:9px;color:#fff;pointer-events:none&quot;>잔여 5석</div>
+            <div style=&quot;position:absolute;bottom:8px;left:10px;right:10px;pointer-events:none&quot;>
+              <div style=&quot;font-size:14px;font-weight:900;color:#fff;margin-bottom:1px&quot;>오천마린호</div>
+              <div style=&quot;font-size:10px;color:rgba(255,255,255,.7)&quot;>충남 오천항 · 06:00</div>
+            </div>
+          </div>
+          <div style=&quot;padding:10px 12px&quot;>
+            <div style=&quot;display:flex;align-items:center;justify-content:space-between;margin-bottom:8px&quot;>
+              <div style=&quot;font-size:15px;font-weight:900;color:#1A56DB&quot;>75,000원~</div>
+              <div style=&quot;background:#DCFCE7;border-radius:6px;padding:2px 7px;font-size:9px;font-weight:700;color:#166534&quot;>여유있음</div>
+            </div>
+            <div class=&quot;btn&quot; onclick=&quot;go('s-payment2')&quot; style=&quot;background:#1A56DB;border-radius:10px;padding:8px;text-align:center;font-size:12px;font-weight:800;color:#fff&quot;>예약하기 →</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      <!-- CASE A: 찜한 선박 있을 때 -->
-      <div id=&quot;fave-case-a&quot;>
-        <div style=&quot;display:flex;align-items:center;justify-content:space-between;margin-bottom:10px&quot;>
+    <!-- ★ 최근 본 선박 가로 스크롤 -->
+    <div style=&quot;padding:0 0 14px&quot;>
+      <div style=&quot;display:flex;align-items:center;justify-content:space-between;padding:0 8px;margin-bottom:10px&quot;>
+        <span style=&quot;font-size:15px;font-weight:900&quot;>최근 본 선박</span>
+        <div class=&quot;btn&quot; onclick=&quot;showToast('최근 본 선박 전체보기')&quot; style=&quot;font-size:12px;color:#1A56DB;font-weight:600&quot;>더보기 ›</div>
+      </div>
+      <div style=&quot;display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding:0 8px 4px&quot;>
+        <div class=&quot;btn&quot; onclick=&quot;goDetailShip('blackeagle','s-home')&quot; style=&quot;flex-shrink:0;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:16px;padding:8px 12px;box-shadow:0 1px 4px rgba(0,0,0,.06)&quot;>
+          <div style=&quot;width:42px;height:42px;background:linear-gradient(135deg,#0B2747,#1A56DB55);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0&quot;>⛵</div>
+          <div>
+            <div style=&quot;font-size:12px;font-weight:800;color:#1A202C;white-space:nowrap&quot;>블랙이글스호</div>
+            <div style=&quot;font-size:10px;color:#718096;margin-top:1px&quot;>오천항 · 갑오징어</div>
+            <div style=&quot;font-size:11px;font-weight:700;color:#1A56DB;margin-top:2px&quot;>90,000원~</div>
+          </div>
+        </div>
+        <div class=&quot;btn&quot; onclick=&quot;goDetailShip('ssea','s-home')&quot; style=&quot;flex-shrink:0;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:16px;padding:8px 12px;box-shadow:0 1px 4px rgba(0,0,0,.06)&quot;>
+          <div style=&quot;width:42px;height:42px;background:linear-gradient(135deg,#1A0A3A,#5B21B633);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0&quot;>⛵</div>
+          <div>
+            <div style=&quot;font-size:12px;font-weight:800;color:#1A202C;white-space:nowrap&quot;>오션블루마린호</div>
+            <div style=&quot;font-size:10px;color:#718096;margin-top:1px&quot;>신포항 · 우럭</div>
+            <div style=&quot;font-size:11px;font-weight:700;color:#1A56DB;margin-top:2px&quot;>55,000원~</div>
+          </div>
+        </div>
+        <div class=&quot;btn&quot; onclick=&quot;goDetailShip('bada','s-home')&quot; style=&quot;flex-shrink:0;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #E2E8F0;border-radius:16px;padding:8px 12px;box-shadow:0 1px 4px rgba(0,0,0,.06)&quot;>
+          <div style=&quot;width:42px;height:42px;background:linear-gradient(135deg,#1A3A1A,#065F4655);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0&quot;>⛵</div>
+          <div>
+            <div style=&quot;font-size:12px;font-weight:800;color:#1A202C;white-space:nowrap&quot;>바다정복호</div>
+            <div style=&quot;font-size:10px;color:#718096;margin-top:1px&quot;>통영항 · 참돔</div>
+            <div style=&quot;font-size:11px;font-weight:700;color:#1A56DB;margin-top:2px&quot;>85,000원~</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- ③ 실시간 조황 리포트 -->
+    <div style=&quot;padding:16px 8px 0&quot;>
+      <div style=&quot;display:flex;align-items:center;justify-content:space-between;margin-bottom:14px&quot;>
+        <div>
           <div style=&quot;display:flex;align-items:center;gap:6px&quot;>
-            <svg width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;#1A56DB&quot; stroke=&quot;#1A56DB&quot; stroke-width=&quot;1&quot;><path d=&quot;M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z&quot;/></svg>
-            <span style=&quot;font-size:14px;font-weight:800;color:#1A202C&quot;>찜한 선박</span>
+            <span style=&quot;font-size:16px;font-weight:900&quot;>🏆 실시간 조황 랭킹</span>
           </div>
-          <span class=&quot;btn&quot; onclick=&quot;go('s-result')&quot; style=&quot;font-size:12px;color:#1A56DB;font-weight:600&quot;>전체보기</span>
+          <div style=&quot;font-size:11px;color:#718096;margin-top:2px&quot;>지금 가장 잘 잡히는 선박 TOP 5</div>
         </div>
-        <div id=&quot;fave-scroll&quot; style=&quot;display:flex;gap:10px;overflow-x:scroll;overflow-y:hidden;scrollbar-width:none;-ms-overflow-style:none;margin:0 -16px;padding:0 16px 2px;cursor:grab&quot;>
-          <!-- 블랙이글스호 (추첨) -->
-          <div class=&quot;btn&quot; onclick=&quot;goDetail('s-detail','s-home')&quot; style=&quot;flex-shrink:0;width:210px;background:#fff;border:1px solid #E2E8F0;border-radius:12px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,.06)&quot;>
-            <div style=&quot;height:72px;background:linear-gradient(160deg,#0B2747,#0B274788);display:flex;align-items:center;justify-content:center;font-size:26px;position:relative&quot;>
-              ⛵
-              <div style=&quot;position:absolute;top:7px;left:8px;background:#1A7F54;border-radius:4px;padding:2px 8px;font-size:10px;font-weight:700;color:#fff&quot;>오늘 42마리</div>
-              <div style=&quot;position:absolute;bottom:7px;right:8px;background:rgba(0,0,0,.45);border-radius:4px;padding:2px 8px;font-size:10px;color:#fff&quot;>잔여 2석</div>
-              <div style=&quot;position:absolute;top:7px;right:8px;background:#1A56DB;border-radius:4px;padding:2px 7px;font-size:9px;font-weight:700;color:#fff&quot;>추첨</div>
-            </div>
-            <div style=&quot;padding:9px 11px&quot;>
-              <div style=&quot;font-size:13px;font-weight:800;color:#1A202C;margin-bottom:1px&quot;>블랙이글스호</div>
-              <div style=&quot;font-size:11px;color:#718096;margin-bottom:7px&quot;>충남 오천항 · 05:00 · 추첨배정</div>
-              <div style=&quot;display:flex;align-items:center;justify-content:space-between&quot;>
-                <span style=&quot;font-size:14px;font-weight:900;color:#1A56DB&quot;>90,000원</span>
-                <div style=&quot;background:#1A56DB;border-radius:6px;padding:5px 12px;font-size:12px;font-weight:700;color:#fff&quot;>상세보기</div>
+        <div class=&quot;btn&quot; onclick=&quot;showToast('조황 랭킹 전체보기 준비 중입니다 🎣')&quot; style=&quot;font-size:12px;color:#1A56DB;font-weight:600&quot;>전체보기 ›</div>
+      </div>
+
+      <!-- 랭킹 1위 빅카드 -->
+      <div class=&quot;btn&quot; onclick=&quot;goDetailShip('blackeagle','s-home')&quot; style=&quot;background:#0B2747;border-radius:14px;overflow:hidden;margin-bottom:10px;position:relative&quot;>
+        <div style=&quot;position:relative;height:140px;display:flex;align-items:center;justify-content:center;font-size:56px&quot;>
+          🦑
+          <div style=&quot;position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(180deg,transparent 40%,rgba(11,39,71,.85))&quot;></div>
+          <div style=&quot;position:absolute;top:12px;left:12px;background:#FFD700;border-radius:6px;padding:3px 10px;display:flex;align-items:center;gap:4px&quot;>
+            <span style=&quot;font-size:13px;font-weight:900;color:#0B2747&quot;>🥇 1위</span>
+          </div>
+          <div style=&quot;position:absolute;top:12px;right:12px;background:rgba(0,0,0,.5);border-radius:20px;padding:4px 10px&quot;>
+            <span style=&quot;font-size:11px;color:#4ADE80;font-weight:700&quot;>● 방금 업데이트</span>
+          </div>
+          <div style=&quot;position:absolute;bottom:10px;left:12px;right:12px&quot;>
+            <div style=&quot;display:flex;align-items:center;justify-content:space-between&quot;>
+              <div>
+                <div style=&quot;font-size:15px;font-weight:900;color:#fff&quot;>블랙이글스호</div>
+                <div style=&quot;font-size:11px;color:rgba(255,255,255,.7)&quot;>충남 오천항 · 반일 출조</div>
+              </div>
+              <div style=&quot;text-align:right&quot;>
+                <div style=&quot;font-size:20px;font-weight:900;color:#4ADE80&quot;>42마리</div>
+                <div style=&quot;font-size:10px;color:rgba(255,255,255,.6)&quot;>갑오징어</div>
               </div>
             </div>
-          </div>
-          <!-- 오션블루마린호 (지정좌석) -->
-          <div class=&quot;btn&quot; onclick=&quot;goDetail('s-detail2','s-home')&quot; style=&quot;flex-shrink:0;width:210px;background:#fff;border:1.5px solid #5B21B6;border-radius:12px;overflow:hidden;box-shadow:0 1px 6px rgba(91,33,182,.15)&quot;>
-            <div style=&quot;height:72px;background:linear-gradient(160deg,#1A0533,#3B0764);display:flex;align-items:center;justify-content:center;font-size:26px;position:relative&quot;>
-              ⛵
-              <div style=&quot;position:absolute;top:7px;left:8px;background:#22C55E;border-radius:4px;padding:2px 8px;font-size:10px;font-weight:700;color:#fff&quot;>오늘 우럭18</div>
-              <div style=&quot;position:absolute;bottom:7px;right:8px;background:rgba(0,0,0,.45);border-radius:4px;padding:2px 8px;font-size:10px;color:#fff&quot;>잔여 8석</div>
-              <div style=&quot;position:absolute;top:7px;right:8px;background:#5B21B6;border-radius:4px;padding:2px 7px;font-size:9px;font-weight:700;color:#fff&quot;>지정</div>
-            </div>
-            <div style=&quot;padding:9px 11px&quot;>
-              <div style=&quot;font-size:13px;font-weight:800;color:#1A202C;margin-bottom:1px&quot;>오션블루마린호</div>
-              <div style=&quot;font-size:11px;color:#718096;margin-bottom:7px&quot;>인천 신포항 · 05:00 · 지정좌석</div>
-              <div style=&quot;display:flex;align-items:center;justify-content:space-between&quot;>
-                <span style=&quot;font-size:14px;font-weight:900;color:#5B21B6&quot;>55,000원</span>
-                <div style=&quot;background:#5B21B6;border-radius:6px;padding:5px 12px;font-size:12px;font-weight:700;color:#fff&quot;>상세보기</div>
-              </div>
-            </div>
-          </div>
-          <!-- 만석 -->
-          <div class=&quot;btn&quot; onclick=&quot;openOv('m-date')&quot; style=&quot;flex-shrink:0;width:150px;background:#fff;border:1px solid #E2E8F0;border-radius:12px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,.06);opacity:.7&quot;>
-            <div style=&quot;height:72px;background:linear-gradient(160deg,#1A3A1A,#1A3A1A88);display:flex;align-items:center;justify-content:center;position:relative&quot;>
-              <div style=&quot;position:absolute;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center&quot;>
-                <span style=&quot;font-size:13px;font-weight:800;color:#fff&quot;>오늘 만석</span>
-              </div>
-            </div>
-            <div style=&quot;padding:9px 11px&quot;>
-              <div style=&quot;font-size:13px;font-weight:800;color:#1A202C;margin-bottom:4px&quot;>바다정복호</div>
-              <div style=&quot;background:#F1F5F9;border-radius:6px;padding:6px;text-align:center;font-size:11px;font-weight:600;color:#475569&quot;>다른 날짜 선택</div>
-            </div>
-          </div>
-          <!-- 추가 버튼 -->
-          <div class=&quot;btn&quot; onclick=&quot;go('s-search')&quot; style=&quot;flex-shrink:0;width:70px;background:#fff;border:1.5px dashed #CBD5E0;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px&quot;>
-            <svg width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#94A3B8&quot; stroke-width=&quot;2&quot;><line x1=&quot;12&quot; y1=&quot;5&quot; x2=&quot;12&quot; y2=&quot;19&quot;/><line x1=&quot;5&quot; y1=&quot;12&quot; x2=&quot;19&quot; y2=&quot;12&quot;/></svg>
-            <span style=&quot;font-size:10px;color:#94A3B8;font-weight:600;text-align:center;line-height:1.3&quot;>선박<br>추가</span>
           </div>
         </div>
       </div>
 
-      <!-- CASE B: 찜 없고 최근 이용 있음 -->
-      <div id=&quot;fave-case-b&quot; style=&quot;display:none&quot;>
-        <div style=&quot;display:flex;align-items:center;gap:6px;margin-bottom:10px&quot;>
-          <span style=&quot;font-size:14px;font-weight:800;color:#1A202C&quot;>지난번에 탔어요</span>
-        </div>
-        <div style=&quot;background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:12px;display:flex;align-items:center;gap:11px&quot;>
-          <div style=&quot;width:48px;height:48px;background:linear-gradient(160deg,#0B2747,#0B274788);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0&quot;>⛵</div>
-          <div style=&quot;flex:1;min-width:0&quot;>
-            <div style=&quot;font-size:14px;font-weight:800;color:#1A202C;margin-bottom:2px&quot;>블랙이글스호</div>
-            <div style=&quot;font-size:11px;color:#718096;margin-bottom:3px&quot;>2026.03.15 · 갑오징어 반일</div>
-            <div style=&quot;font-size:11px;color:#1A7F54;font-weight:600&quot;>오늘 잔여 2석 · 90,000원</div>
+      <!-- 랭킹 2~4위 리스트 -->
+      <div style=&quot;background:#fff;border:1px solid #E2E8F0;border-radius:12px;overflow:hidden;margin-bottom:14px&quot;>
+        <!-- 2위 -->
+        <div class=&quot;btn&quot; onclick=&quot;goDetailShip('ssea','s-home')&quot; style=&quot;display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid #F1F5F9&quot;>
+          <div style=&quot;width:28px;height:28px;background:#E2E8F0;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0&quot;>
+            <span style=&quot;font-size:12px;font-weight:900;color:#718096&quot;>2</span>
           </div>
-          <div class=&quot;btn&quot; onclick=&quot;go('s-payment2')&quot; style=&quot;flex-shrink:0;background:#1A56DB;border-radius:8px;padding:9px 14px;font-size:12px;font-weight:700;color:#fff;text-align:center;line-height:1.4&quot;>다시<br>예약</div>
-        </div>
-        <div style=&quot;margin-top:8px;text-align:center&quot;>
-          <span class=&quot;btn&quot; onclick=&quot;go('s-search')&quot; style=&quot;font-size:12px;color:#94A3B8;text-decoration:underline&quot;>찜한 선박이 없어요 · 선박 찜하러 가기</span>
-        </div>
-      </div>
-
-      <!-- CASE C: 비로그인 -->
-      <div id=&quot;fave-case-c&quot; style=&quot;display:none&quot;>
-        <div style=&quot;background:#fff;border:1.5px dashed #CBD5E0;border-radius:12px;padding:14px;display:flex;align-items:center;gap:12px&quot;>
-          <svg width=&quot;26&quot; height=&quot;26&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#94A3B8&quot; stroke-width=&quot;1.5&quot;><path d=&quot;M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z&quot;/></svg>
+          <div style=&quot;font-size:22px;flex-shrink:0&quot;>🐟</div>
           <div style=&quot;flex:1&quot;>
-            <div style=&quot;font-size:13px;font-weight:700;color:#374151;margin-bottom:2px&quot;>자주 가는 선박을 찜해보세요</div>
-            <div style=&quot;font-size:11px;color:#94A3B8&quot;>로그인 후 즉시 예약 가능</div>
+            <div style=&quot;font-size:13px;font-weight:700;color:#1A202C&quot;>씨마스터호</div>
+            <div style=&quot;font-size:11px;color:#718096&quot;>인천 남항 · 우럭 전문</div>
           </div>
-          <div class=&quot;btn&quot; style=&quot;flex-shrink:0;background:#1A56DB;border-radius:6px;padding:7px 14px;font-size:12px;font-weight:700;color:#fff&quot;>로그인</div>
+          <div style=&quot;text-align:right&quot;>
+            <div style=&quot;font-size:15px;font-weight:900;color:#1A56DB&quot;>34마리</div>
+            <div style=&quot;font-size:10px;color:#A0AEC0&quot;>우럭</div>
+          <div class=&quot;btn&quot; onclick=&quot;showToast('쇼핑 탭으로 이동합니다 🛒');event.stopPropagation()&quot; style=&quot;display:flex;align-items:center;gap:3px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:6px;padding:3px 7px&quot;><span style=&quot;font-size:13px&quot;>🎣</span><span style=&quot;font-size:10px;color:#64748B;font-weight:600&quot;>우럭대</span></div><div class=&quot;btn&quot; onclick=&quot;showToast('쇼핑 탭으로 이동합니다 🛒');event.stopPropagation()&quot; style=&quot;display:flex;align-items:center;gap:3px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:6px;padding:3px 7px&quot;><span style=&quot;font-size:13px&quot;>📦</span><span style=&quot;font-size:10px;color:#64748B;font-weight:600&quot;>바닥채비</span></div></div>
+          </div>
+        </div>
+        <!-- 3위 -->
+        <div class=&quot;btn&quot; onclick=&quot;goDetailShip('gangwon','s-home')&quot; style=&quot;display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid #F1F5F9&quot;>
+          <div style=&quot;width:28px;height:28px;background:#E2E8F0;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0&quot;>
+            <span style=&quot;font-size:12px;font-weight:900;color:#718096&quot;>3</span>
+          </div>
+          <div style=&quot;font-size:22px;flex-shrink:0&quot;>🐠</div>
+          <div style=&quot;flex:1&quot;>
+            <div style=&quot;font-size:13px;font-weight:700;color:#1A202C&quot;>강원낚시호</div>
+            <div style=&quot;font-size:11px;color:#718096&quot;>강원 속초항 · 가자미 전문</div>
+          </div>
+          <div style=&quot;text-align:right&quot;>
+            <div style=&quot;font-size:15px;font-weight:900;color:#1A56DB&quot;>28마리</div>
+            <div style=&quot;font-size:10px;color:#A0AEC0&quot;>가자미</div>
+          </div>
+        </div>
+        <!-- 4위 -->
+        <div class=&quot;btn&quot; onclick=&quot;goDetailShip('bada','s-home')&quot; style=&quot;display:flex;align-items:center;gap:12px;padding:12px 14px&quot;>
+          <div style=&quot;width:28px;height:28px;background:#E2E8F0;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0&quot;>
+            <span style=&quot;font-size:12px;font-weight:900;color:#718096&quot;>4</span>
+          </div>
+          <div style=&quot;font-size:22px;flex-shrink:0&quot;>🎣</div>
+          <div style=&quot;flex:1&quot;>
+            <div style=&quot;font-size:13px;font-weight:700;color:#1A202C&quot;>바다정복호</div>
+            <div style=&quot;font-size:11px;color:#718096&quot;>경남 통영항 · 참돔 전문</div>
+          </div>
+          <div style=&quot;text-align:right&quot;>
+            <div style=&quot;font-size:15px;font-weight:900;color:#1A56DB&quot;>19마리</div>
+            <div style=&quot;font-size:10px;color:#A0AEC0&quot;>참돔</div>
+          </div>
         </div>
       </div>
-
     </div>
 
-    <!-- ③ 실시간 조황 리포트 -->
-    <div style=&quot;padding:14px 16px 0&quot;>
-      <div style=&quot;display:flex;align-items:center;justify-content:space-between;margin-bottom:10px&quot;>
-        <div style=&quot;display:flex;align-items:center;gap:6px&quot;>
-          <div class=&quot;pulse&quot; style=&quot;width:7px;height:7px;border-radius:50%;background:#E53E3E&quot;></div>
-          <span style=&quot;font-size:14px;font-weight:800&quot;>실시간 조황 리포트</span>
+    <!-- ★ 조황 에디토리얼 카드 -->
+    <div style=&quot;padding:0 0 14px&quot;>
+      <div style=&quot;display:flex;align-items:center;justify-content:space-between;padding:0 8px;margin-bottom:12px&quot;>
+        <div>
+          <span style=&quot;font-size:15px;font-weight:900&quot;>📰 조황 리포트</span>
+          <span style=&quot;font-size:11px;color:#718096;margin-left:6px&quot;>이번 주 핫 어종</span>
         </div>
-        <span class=&quot;btn&quot; onclick=&quot;goDetail('s-detail','s-home')&quot; style=&quot;font-size:12px;color:#1A56DB;font-weight:600&quot;>전체보기</span>
+        <div class=&quot;btn&quot; onclick=&quot;showToast('조황 리포트 전체보기 준비 중')&quot; style=&quot;font-size:12px;color:#1A56DB;font-weight:600&quot;>전체보기 ›</div>
       </div>
-      <div class=&quot;btn&quot; onclick=&quot;goDetail('s-detail','s-home')&quot; style=&quot;background:#fff;border-radius:10px;padding:10px 12px;margin-bottom:8px;display:flex;align-items:center;gap:12px;border:1px solid #E2E8F0&quot;>
-        <div style=&quot;width:52px;height:44px;background:linear-gradient(160deg,#0B2747,#0B274788);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0&quot;>🐟</div>
-        <div style=&quot;flex:1;min-width:0&quot;>
-          <div style=&quot;font-size:12px;font-weight:700;color:#1A202C;margin-bottom:2px&quot;>오천항 · 볼루마린호</div>
-          <div style=&quot;font-size:13px;font-weight:600;color:#1A7F54&quot;>광어 82cm 외 15수</div>
-          <div style=&quot;font-size:10px;color:#A0AEC0;margin-top:2px&quot;>12분 전 업데이트</div>
+      <div style=&quot;display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding:0 8px 4px&quot;>
+        <!-- 에디토리얼 카드 1 -->
+        <div class=&quot;btn&quot; onclick=&quot;showToast('조황 리포트 상세보기')&quot; style=&quot;flex-shrink:0;width:210px;background:#fff;border:1px solid #E2E8F0;border-radius:18px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.07)&quot;>
+          <div style=&quot;height:110px;background:linear-gradient(160deg,#0B2747,#1A56DB66);position:relative;display:flex;align-items:center;justify-content:center;font-size:48px&quot;>
+            🦑
+            <div style=&quot;position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6) 0%,transparent 55%)&quot;></div>
+            <div style=&quot;position:absolute;top:8px;left:8px;background:#1A56DB;border-radius:6px;padding:3px 8px&quot;>
+              <span style=&quot;font-size:10px;font-weight:800;color:#fff&quot;>이번 주 HOT</span>
+            </div>
+            <div style=&quot;position:absolute;bottom:8px;left:10px;right:10px;display:flex;justify-content:space-between;align-items:center&quot;>
+              <span style=&quot;font-size:11px;color:#4ADE80;font-weight:700&quot;>● 조황 최상급</span>
+              <span style=&quot;font-size:10px;color:rgba(255,255,255,.65)&quot;>오천항 일대</span>
+            </div>
+          </div>
+          <div style=&quot;padding:10px 12px 12px&quot;>
+            <div style=&quot;display:flex;gap:5px;margin-bottom:6px&quot;>
+              <span style=&quot;background:#EBF4FF;color:#1A56DB;font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px&quot;>갑오징어</span>
+              <span style=&quot;background:#F0FDF4;color:#15803D;font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px&quot;>충남</span>
+            </div>
+            <div style=&quot;font-size:13px;font-weight:800;color:#1A202C;line-height:1.4;margin-bottom:6px&quot;>이번 주 갑오징어<br>황금어장 포인트 공개</div>
+            <div style=&quot;display:flex;align-items:center;justify-content:space-between&quot;>
+              <span style=&quot;font-size:11px;color:#A0AEC0&quot;>2026.04.08</span>
+              <div style=&quot;display:flex;align-items:center;gap:4px&quot;>
+                <svg width=&quot;11&quot; height=&quot;11&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#A0AEC0&quot; stroke-width=&quot;2&quot;><path d=&quot;M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z&quot;/><circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;3&quot;/></svg>
+                <span style=&quot;font-size:11px;color:#A0AEC0&quot;>14.2만</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <svg width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#CBD5E0&quot; stroke-width=&quot;2&quot;><polyline points=&quot;9 18 15 12 9 6&quot;/></svg>
-      </div>
-      <div class=&quot;btn&quot; onclick=&quot;goDetail('s-detail','s-home')&quot; style=&quot;background:#fff;border-radius:10px;padding:10px 12px;margin-bottom:8px;display:flex;align-items:center;gap:12px;border:1px solid #E2E8F0&quot;>
-        <div style=&quot;width:52px;height:44px;background:linear-gradient(160deg,#0A1F3A,#0A1F3A88);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0&quot;>🐟</div>
-        <div style=&quot;flex:1;min-width:0&quot;>
-          <div style=&quot;font-size:12px;font-weight:700;color:#1A202C;margin-bottom:2px&quot;>인천항 · 블랙이글스호</div>
-          <div style=&quot;font-size:13px;font-weight:600;color:#1A7F54&quot;>갑오징어 42마리 · 최대 1.2kg</div>
-          <div style=&quot;font-size:10px;color:#A0AEC0;margin-top:2px&quot;>방금 업데이트</div>
+        <!-- 에디토리얼 카드 2 -->
+        <div class=&quot;btn&quot; onclick=&quot;showToast('조황 리포트 상세보기')&quot; style=&quot;flex-shrink:0;width:210px;background:#fff;border:1px solid #E2E8F0;border-radius:18px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.07)&quot;>
+          <div style=&quot;height:110px;background:linear-gradient(160deg,#1A0A3A,#5B21B688);position:relative;display:flex;align-items:center;justify-content:center;font-size:48px&quot;>
+            🐟
+            <div style=&quot;position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6) 0%,transparent 55%)&quot;></div>
+            <div style=&quot;position:absolute;top:8px;left:8px;background:#5B21B6;border-radius:6px;padding:3px 8px&quot;>
+              <span style=&quot;font-size:10px;font-weight:800;color:#fff&quot;>3월 베스트</span>
+            </div>
+            <div style=&quot;position:absolute;bottom:8px;left:10px;right:10px;display:flex;justify-content:space-between;align-items:center&quot;>
+              <span style=&quot;font-size:11px;color:#FCD34D;font-weight:700&quot;>● 조황 우수</span>
+              <span style=&quot;font-size:10px;color:rgba(255,255,255,.65)&quot;>인천 일대</span>
+            </div>
+          </div>
+          <div style=&quot;padding:10px 12px 12px&quot;>
+            <div style=&quot;display:flex;gap:5px;margin-bottom:6px&quot;>
+              <span style=&quot;background:#F5F3FF;color:#5B21B6;font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px&quot;>우럭</span>
+              <span style=&quot;background:#F0FDF4;color:#15803D;font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px&quot;>인천</span>
+            </div>
+            <div style=&quot;font-size:13px;font-weight:800;color:#1A202C;line-height:1.4;margin-bottom:6px&quot;>3월 우럭 베스트<br>포인트 & 채비 가이드</div>
+            <div style=&quot;display:flex;align-items:center;justify-content:space-between&quot;>
+              <span style=&quot;font-size:11px;color:#A0AEC0&quot;>2026.03.31</span>
+              <div style=&quot;display:flex;align-items:center;gap:4px&quot;>
+                <svg width=&quot;11&quot; height=&quot;11&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#A0AEC0&quot; stroke-width=&quot;2&quot;><path d=&quot;M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z&quot;/><circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;3&quot;/></svg>
+                <span style=&quot;font-size:11px;color:#A0AEC0&quot;>8.7만</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <svg width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#CBD5E0&quot; stroke-width=&quot;2&quot;><polyline points=&quot;9 18 15 12 9 6&quot;/></svg>
+        <!-- 에디토리얼 카드 3 -->
+        <div class=&quot;btn&quot; onclick=&quot;showToast('조황 리포트 상세보기')&quot; style=&quot;flex-shrink:0;width:210px;background:#fff;border:1px solid #E2E8F0;border-radius:18px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.07)&quot;>
+          <div style=&quot;height:110px;background:linear-gradient(160deg,#064E3B,#05966988);position:relative;display:flex;align-items:center;justify-content:center;font-size:48px&quot;>
+            🐠
+            <div style=&quot;position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6) 0%,transparent 55%)&quot;></div>
+            <div style=&quot;position:absolute;top:8px;left:8px;background:#059669;border-radius:6px;padding:3px 8px&quot;>
+              <span style=&quot;font-size:10px;font-weight:800;color:#fff&quot;>조행기</span>
+            </div>
+            <div style=&quot;position:absolute;bottom:8px;left:10px;right:10px;display:flex;justify-content:space-between;align-items:center&quot;>
+              <span style=&quot;font-size:11px;color:#6EE7B7;font-weight:700&quot;>● 시즌 개막</span>
+              <span style=&quot;font-size:10px;color:rgba(255,255,255,.65)&quot;>경남 통영</span>
+            </div>
+          </div>
+          <div style=&quot;padding:10px 12px 12px&quot;>
+            <div style=&quot;display:flex;gap:5px;margin-bottom:6px&quot;>
+              <span style=&quot;background:#F0FDF4;color:#15803D;font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px&quot;>참돔</span>
+              <span style=&quot;background:#F0FDF4;color:#15803D;font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px&quot;>경남</span>
+            </div>
+            <div style=&quot;font-size:13px;font-weight:800;color:#1A202C;line-height:1.4;margin-bottom:6px&quot;>참돔 시즌 개막<br>통영 조행기 & 후기</div>
+            <div style=&quot;display:flex;align-items:center;justify-content:space-between&quot;>
+              <span style=&quot;font-size:11px;color:#A0AEC0&quot;>2026.04.05</span>
+              <div style=&quot;display:flex;align-items:center;gap:4px&quot;>
+                <svg width=&quot;11&quot; height=&quot;11&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#A0AEC0&quot; stroke-width=&quot;2&quot;><path d=&quot;M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z&quot;/><circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;3&quot;/></svg>
+                <span style=&quot;font-size:11px;color:#A0AEC0&quot;>6.1만</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- ④ 추천 예약 선박 -->
-    <div style=&quot;padding:14px 16px 20px&quot;>
-      <div style=&quot;display:flex;align-items:center;justify-content:space-between;margin-bottom:12px&quot;>
-        <span style=&quot;font-size:14px;font-weight:800&quot;>추천 예약 선박</span>
-        <span class=&quot;btn&quot; onclick=&quot;go('s-result')&quot; style=&quot;font-size:12px;color:#1A56DB;font-weight:600&quot;>전체보기 ›</span>
+    <div style=&quot;padding:0 0 14px&quot;>
+      <div style=&quot;display:flex;align-items:center;justify-content:space-between;padding:0 8px;margin-bottom:12px&quot;>
+        <div>
+          <span style=&quot;font-size:16px;font-weight:900&quot;>오늘의 특가 선박</span>
+          <span style=&quot;margin-left:6px;background:#FEE2E2;color:#DC2626;font-size:11px;font-weight:700;padding:2px 7px;border-radius:4px&quot;>마감임박</span>
+        </div>
+        <div class=&quot;btn&quot; onclick=&quot;go('s-result')&quot; style=&quot;font-size:12px;color:#1A56DB;font-weight:600&quot;>전체보기 ›</div>
       </div>
-      <div class=&quot;btn&quot; onclick=&quot;goDetail('s-detail','s-home')&quot; style=&quot;background:#fff;border-radius:12px;overflow:hidden;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,.07);border:1px solid #E2E8F0&quot;>
-        <div style=&quot;height:130px;background:linear-gradient(160deg,#0B2747,#0B274788);display:flex;align-items:center;justify-content:center;font-size:44px;position:relative&quot;>
-          ⛵
-          <div style=&quot;position:absolute;top:10px;left:0;background:#E53E3E;padding:4px 10px;font-size:11px;font-weight:700;color:#fff;border-radius:0 4px 4px 0&quot;>마감임박</div>
-          <div style=&quot;position:absolute;top:10px;right:10px;background:#1A7F54;border-radius:4px;padding:3px 9px;font-size:10px;font-weight:700;color:#fff&quot;>● 오늘 42마리</div>
-          <div style=&quot;position:absolute;bottom:8px;right:10px;background:rgba(0,0,0,.5);border-radius:4px;padding:2px 9px;font-size:10px;color:#fff&quot;>잔여 2석</div>
-        </div>
-        <div style=&quot;padding:10px 12px&quot;>
-          <div style=&quot;font-size:11px;color:#718096;margin-bottom:2px&quot;>인천 연안부두</div>
-          <div style=&quot;font-size:15px;font-weight:800;color:#1A202C;margin-bottom:5px&quot;>블랙이글스호</div>
-          <div style=&quot;display:flex;align-items:center;justify-content:space-between&quot;>
-            <div style=&quot;display:flex;gap:5px&quot;><span style=&quot;font-size:11px;color:#2B6CB0;background:#EBF4FF;border-radius:4px;padding:2px 7px&quot;>⊙ 갑오징어</span><span style=&quot;font-size:11px;color:#2B6CB0;background:#EBF4FF;border-radius:4px;padding:2px 7px&quot;>⊙ 광어</span></div>
-            <span style=&quot;font-size:11px;color:#F59E0B;font-weight:600&quot;>★ 4.8</span>
+      <div style=&quot;display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding:0 8px 4px&quot;>
+        <div class=&quot;btn&quot; onclick=&quot;goDetailShip('blackeagle','s-home');updateCommerceBySpecies('오징어')&quot; style=&quot;flex-shrink:0;width:160px;background:#fff;border:1px solid #E2E8F0;border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.07)&quot;>
+          <div style=&quot;height:100px;background:linear-gradient(160deg,#0B2747,#1A56DB55);display:flex;align-items:center;justify-content:center;font-size:38px;position:relative&quot;>
+            ⛵
+            <div style=&quot;position:absolute;top:0;left:0;background:#1A56DB;padding:3px 9px;border-radius:0 0 8px 0;font-size:10px;font-weight:800;color:#fff&quot;>🏅 이달의선박</div>
+            <div style=&quot;position:absolute;bottom:6px;right:8px;background:#22C55E;border-radius:10px;padding:2px 7px;font-size:10px;font-weight:700;color:#fff&quot;>● 42마리</div>
           </div>
-          <div style=&quot;font-size:16px;font-weight:900;color:#1A56DB;margin-top:6px&quot;>90,000원~</div>
-        </div>
-      </div><div class=&quot;btn&quot; onclick=&quot;goDetail('s-detail','s-home')&quot; style=&quot;background:#fff;border-radius:12px;overflow:hidden;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,.07);border:1px solid #E2E8F0&quot;>
-        <div style=&quot;height:130px;background:linear-gradient(160deg,#1A3A1A,#1A3A1A88);display:flex;align-items:center;justify-content:center;font-size:44px;position:relative&quot;>
-          ⛵
-          
-          <div style=&quot;position:absolute;top:10px;right:10px;background:#1A7F54;border-radius:4px;padding:3px 9px;font-size:10px;font-weight:700;color:#fff&quot;>● 뚜무리 7.5kg</div>
-          <div style=&quot;position:absolute;bottom:8px;right:10px;background:rgba(0,0,0,.5);border-radius:4px;padding:2px 9px;font-size:10px;color:#fff&quot;>잔여 8석</div>
-        </div>
-        <div style=&quot;padding:10px 12px&quot;>
-          <div style=&quot;font-size:11px;color:#718096;margin-bottom:2px&quot;>경남 통영항</div>
-          <div style=&quot;font-size:15px;font-weight:800;color:#1A202C;margin-bottom:5px&quot;>바다정복호</div>
-          <div style=&quot;display:flex;align-items:center;justify-content:space-between&quot;>
-            <div style=&quot;display:flex;gap:5px&quot;><span style=&quot;font-size:11px;color:#2B6CB0;background:#EBF4FF;border-radius:4px;padding:2px 7px&quot;>⊙ 참돔</span><span style=&quot;font-size:11px;color:#2B6CB0;background:#EBF4FF;border-radius:4px;padding:2px 7px&quot;>⊙ 뚝지</span></div>
-            <span style=&quot;font-size:11px;color:#F59E0B;font-weight:600&quot;>★ 4.9</span>
+          <div style=&quot;padding:10px 10px 12px&quot;>
+            <div style=&quot;font-size:13px;font-weight:900;color:#1A202C;margin-bottom:2px&quot;>블랙이글스호</div>
+            <div style=&quot;font-size:10px;color:#718096;margin-bottom:6px&quot;>충남 오천항 · 갑오징어</div>
+            <div style=&quot;display:flex;align-items:center;justify-content:space-between&quot;>
+              <div>
+                <div style=&quot;font-size:10px;color:#A0AEC0;text-decoration:line-through&quot;>100,000원~</div>
+                <div style=&quot;font-size:14px;font-weight:900;color:#1A56DB&quot;>90,000원~</div>
+              </div>
+              <div style=&quot;background:#EBF4FF;border-radius:4px;padding:2px 6px;font-size:9px;color:#1A56DB;font-weight:700&quot;>잔여 2석</div>
+            </div>
+          <div style=&quot;border-top:1px solid #F1F5F9;padding:8px 10px 4px;background:#EFF6FF33&quot;><div style=&quot;display:flex;align-items:center;justify-content:space-between;margin-bottom:6px&quot;><span style=&quot;font-size:10px;color:#1E40AF;font-weight:700&quot;>🦑 이 어종 필수 채비</span><div onclick=&quot;showToast('쇼핑 탭으로 이동합니다 🛒');event.stopPropagation()&quot; style=&quot;font-size:9px;color:#1A56DB;font-weight:600;cursor:pointer&quot;>전체보기 ›</div></div><div style=&quot;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px&quot;><div onclick=&quot;showToast('쇼핑 탭으로 이동합니다 🛒');event.stopPropagation()&quot; style=&quot;flex-shrink:0;text-align:center;background:#fff;border:1px solid #BFDBFE;border-radius:8px;padding:6px 8px;min-width:60px;cursor:pointer&quot;><div style=&quot;font-size:18px;margin-bottom:3px&quot;>🎯</div><div style=&quot;font-size:9px;color:#1E40AF;font-weight:700;margin-bottom:2px&quot;>에기 3.5호</div><div style=&quot;font-size:10px;font-weight:900;color:#1A202C&quot;>12,900원</div></div><div onclick=&quot;showToast('쇼핑 탭으로 이동합니다 🛒');event.stopPropagation()&quot; style=&quot;flex-shrink:0;text-align:center;background:#fff;border:1px solid #BFDBFE;border-radius:8px;padding:6px 8px;min-width:60px;cursor:pointer&quot;><div style=&quot;font-size:18px;margin-bottom:3px&quot;>🎣</div><div style=&quot;font-size:9px;color:#1E40AF;font-weight:700;margin-bottom:2px&quot;>에깅로드</div><div style=&quot;font-size:10px;font-weight:900;color:#1A202C&quot;>89,000원</div></div><div onclick=&quot;showToast('쇼핑 탭으로 이동합니다 🛒');event.stopPropagation()&quot; style=&quot;flex-shrink:0;text-align:center;background:#fff;border:1px solid #BFDBFE;border-radius:8px;padding:6px 8px;min-width:60px;cursor:pointer&quot;><div style=&quot;font-size:18px;margin-bottom:3px&quot;>🧤</div><div style=&quot;font-size:9px;color:#1E40AF;font-weight:700;margin-bottom:2px&quot;>방수장갑</div><div style=&quot;font-size:10px;font-weight:900;color:#1A202C&quot;>8,500원</div></div></div></div>
           </div>
-          <div style=&quot;font-size:16px;font-weight:900;color:#1A56DB;margin-top:6px&quot;>85,000원~</div>
         </div>
-      </div><div class=&quot;btn&quot; onclick=&quot;goDetail('s-detail','s-home')&quot; style=&quot;background:#fff;border-radius:12px;overflow:hidden;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,.07);border:1px solid #E2E8F0&quot;>
-        <div style=&quot;height:130px;background:linear-gradient(160deg,#2A1A0A,#2A1A0A88);display:flex;align-items:center;justify-content:center;font-size:44px;position:relative&quot;>
-          ⛵
-          <div style=&quot;position:absolute;top:10px;left:0;background:#E53E3E;padding:4px 10px;font-size:11px;font-weight:700;color:#fff;border-radius:0 4px 4px 0&quot;>마감임박</div>
-          <div style=&quot;position:absolute;top:10px;right:10px;background:#1A7F54;border-radius:4px;padding:3px 9px;font-size:10px;font-weight:700;color:#fff&quot;>● 곧 마감</div>
-          <div style=&quot;position:absolute;bottom:8px;right:10px;background:rgba(0,0,0,.5);border-radius:4px;padding:2px 9px;font-size:10px;color:#fff&quot;>잔여 1석</div>
-        </div>
-        <div style=&quot;padding:10px 12px&quot;>
-          <div style=&quot;font-size:11px;color:#718096;margin-bottom:2px&quot;>인천 남항</div>
-          <div style=&quot;font-size:15px;font-weight:800;color:#1A202C;margin-bottom:5px&quot;>씨마스터호</div>
-          <div style=&quot;display:flex;align-items:center;justify-content:space-between&quot;>
-            <div style=&quot;display:flex;gap:5px&quot;><span style=&quot;font-size:11px;color:#2B6CB0;background:#EBF4FF;border-radius:4px;padding:2px 7px&quot;>⊙ 우럭</span><span style=&quot;font-size:11px;color:#2B6CB0;background:#EBF4FF;border-radius:4px;padding:2px 7px&quot;>⊙ 갑오징어</span></div>
-            <span style=&quot;font-size:11px;color:#F59E0B;font-weight:600&quot;>★ 4.7</span>
+        <div class=&quot;btn&quot; onclick=&quot;goDetailShip('ssea','s-home');updateCommerceBySpecies('우럭')&quot; style=&quot;flex-shrink:0;width:160px;background:#fff;border:1px solid #E2E8F0;border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.07)&quot;>
+          <div style=&quot;height:100px;background:linear-gradient(160deg,#2A1A0A,#92400E55);display:flex;align-items:center;justify-content:center;font-size:38px;position:relative&quot;>
+            ⛵
+            <div style=&quot;position:absolute;top:0;left:0;background:#F59E0B;padding:3px 9px;border-radius:0 0 8px 0;font-size:10px;font-weight:800;color:#fff&quot;>⚡ 마감임박</div>
+            <div style=&quot;position:absolute;bottom:6px;right:8px;background:#F59E0B;border-radius:10px;padding:2px 7px;font-size:10px;font-weight:700;color:#fff&quot;>잔여 1석</div>
           </div>
-          <div style=&quot;font-size:16px;font-weight:900;color:#1A56DB;margin-top:6px&quot;>110,000원~</div>
+          <div style=&quot;padding:10px 10px 12px&quot;>
+            <div style=&quot;font-size:13px;font-weight:900;color:#1A202C;margin-bottom:2px&quot;>씨마스터호</div>
+            <div style=&quot;font-size:10px;color:#718096;margin-bottom:6px&quot;>인천 남항 · 우럭</div>
+            <div style=&quot;display:flex;align-items:center;justify-content:space-between&quot;>
+              <div>
+                <div style=&quot;font-size:10px;color:#A0AEC0;text-decoration:line-through&quot;>120,000원~</div>
+                <div style=&quot;font-size:14px;font-weight:900;color:#1A56DB&quot;>110,000원~</div>
+              </div>
+              <div style=&quot;background:#FEF3C7;border-radius:4px;padding:2px 6px;font-size:9px;color:#92400E;font-weight:700&quot;>마감임박</div>
+            </div>
+          <div style=&quot;border-top:1px solid #F1F5F9;padding:8px 10px 4px;background:#FFF7ED33&quot;><div style=&quot;display:flex;align-items:center;justify-content:space-between;margin-bottom:6px&quot;><span style=&quot;font-size:10px;color:#C2410C;font-weight:700&quot;>🐟 이 어종 필수 채비</span><div onclick=&quot;showToast('쇼핑 탭으로 이동합니다 🛒');event.stopPropagation()&quot; style=&quot;font-size:9px;color:#1A56DB;font-weight:600;cursor:pointer&quot;>전체보기 ›</div></div><div style=&quot;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px&quot;><div onclick=&quot;showToast('쇼핑 탭으로 이동합니다 🛒');event.stopPropagation()&quot; style=&quot;flex-shrink:0;text-align:center;background:#fff;border:1px solid #FED7AA;border-radius:8px;padding:6px 8px;min-width:60px;cursor:pointer&quot;><div style=&quot;font-size:18px;margin-bottom:3px&quot;>🪝</div><div style=&quot;font-size:9px;color:#C2410C;font-weight:700;margin-bottom:2px&quot;>지그헤드</div><div style=&quot;font-size:10px;font-weight:900;color:#1A202C&quot;>9,900원</div></div><div onclick=&quot;showToast('쇼핑 탭으로 이동합니다 🛒');event.stopPropagation()&quot; style=&quot;flex-shrink:0;text-align:center;background:#fff;border:1px solid #FED7AA;border-radius:8px;padding:6px 8px;min-width:60px;cursor:pointer&quot;><div style=&quot;font-size:18px;margin-bottom:3px&quot;>🎣</div><div style=&quot;font-size:9px;color:#C2410C;font-weight:700;margin-bottom:2px&quot;>우럭대 210</div><div style=&quot;font-size:10px;font-weight:900;color:#1A202C&quot;>65,000원</div></div><div onclick=&quot;showToast('쇼핑 탭으로 이동합니다 🛒');event.stopPropagation()&quot; style=&quot;flex-shrink:0;text-align:center;background:#fff;border:1px solid #FED7AA;border-radius:8px;padding:6px 8px;min-width:60px;cursor:pointer&quot;><div style=&quot;font-size:18px;margin-bottom:3px&quot;>📦</div><div style=&quot;font-size:9px;color:#C2410C;font-weight:700;margin-bottom:2px&quot;>바닥채비</div><div style=&quot;font-size:10px;font-weight:900;color:#1A202C&quot;>6,500원</div></div></div></div>
+          </div>
+        </div>
+        <div class=&quot;btn&quot; onclick=&quot;goDetailShip('bada','s-home');updateCommerceBySpecies('참돔')&quot; style=&quot;flex-shrink:0;width:160px;background:#fff;border:1px solid #E2E8F0;border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.07)&quot;>
+          <div style=&quot;height:100px;background:linear-gradient(160deg,#1A3A1A,#065F4655);display:flex;align-items:center;justify-content:center;font-size:38px;position:relative&quot;>
+            ⛵
+            <div style=&quot;position:absolute;top:0;left:0;background:#059669;padding:3px 9px;border-radius:0 0 8px 0;font-size:10px;font-weight:800;color:#fff&quot;>🆕 신규선박</div>
+            <div style=&quot;position:absolute;bottom:6px;right:8px;background:#22C55E;border-radius:10px;padding:2px 7px;font-size:10px;font-weight:700;color:#fff&quot;>잔여 8석</div>
+          </div>
+          <div style=&quot;padding:10px 10px 12px&quot;>
+            <div style=&quot;font-size:13px;font-weight:900;color:#1A202C;margin-bottom:2px&quot;>바다정복호</div>
+            <div style=&quot;font-size:10px;color:#718096;margin-bottom:6px&quot;>경남 통영항 · 참돔</div>
+            <div style=&quot;display:flex;align-items:center;justify-content:space-between&quot;>
+              <div>
+                <div style=&quot;font-size:14px;font-weight:900;color:#1A56DB&quot;>85,000원~</div>
+              </div>
+              <div style=&quot;background:#DCFCE7;border-radius:4px;padding:2px 6px;font-size:9px;color:#15803D;font-weight:700&quot;>여유있음</div>
+            </div>
+          <div style=&quot;border-top:1px solid #F1F5F9;padding:8px 10px 4px;background:#FFF1F233&quot;><div style=&quot;display:flex;align-items:center;justify-content:space-between;margin-bottom:6px&quot;><span style=&quot;font-size:10px;color:#9D174D;font-weight:700&quot;>🐠 이 어종 필수 채비</span><div onclick=&quot;showToast('쇼핑 탭으로 이동합니다 🛒');event.stopPropagation()&quot; style=&quot;font-size:9px;color:#1A56DB;font-weight:600;cursor:pointer&quot;>전체보기 ›</div></div><div style=&quot;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px&quot;><div onclick=&quot;showToast('쇼핑 탭으로 이동합니다 🛒');event.stopPropagation()&quot; style=&quot;flex-shrink:0;text-align:center;background:#fff;border:1px solid #FBCFE8;border-radius:8px;padding:6px 8px;min-width:60px;cursor:pointer&quot;><div style=&quot;font-size:18px;margin-bottom:3px&quot;>🎯</div><div style=&quot;font-size:9px;color:#9D174D;font-weight:700;margin-bottom:2px&quot;>타이라바</div><div style=&quot;font-size:10px;font-weight:900;color:#1A202C&quot;>18,900원</div></div><div onclick=&quot;showToast('쇼핑 탭으로 이동합니다 🛒');event.stopPropagation()&quot; style=&quot;flex-shrink:0;text-align:center;background:#fff;border:1px solid #FBCFE8;border-radius:8px;padding:6px 8px;min-width:60px;cursor:pointer&quot;><div style=&quot;font-size:18px;margin-bottom:3px&quot;>🎣</div><div style=&quot;font-size:9px;color:#9D174D;font-weight:700;margin-bottom:2px&quot;>참돔전용대</div><div style=&quot;font-size:10px;font-weight:900;color:#1A202C&quot;>120,000원</div></div><div onclick=&quot;showToast('쇼핑 탭으로 이동합니다 🛒');event.stopPropagation()&quot; style=&quot;flex-shrink:0;text-align:center;background:#fff;border:1px solid #FBCFE8;border-radius:8px;padding:6px 8px;min-width:60px;cursor:pointer&quot;><div style=&quot;font-size:18px;margin-bottom:3px&quot;>🧤</div><div style=&quot;font-size:9px;color:#9D174D;font-weight:700;margin-bottom:2px&quot;>방수장갑</div><div style=&quot;font-size:10px;font-weight:900;color:#1A202C&quot;>8,500원</div></div></div></div>
+          </div>
         </div>
       </div>
     </div>
 
-  </div>
-  <div style=&quot;display:flex;background:#fff;border-top:1px solid #E2E8F0;padding:4px 0 20px;flex-shrink:0&quot;>
+    <!-- ✦ 홈 커머스 추천 모듈 -->
+    <div style=&quot;padding:0 0 14px&quot;>
+      <div style=&quot;display:flex;align-items:center;justify-content:space-between;padding:0 8px;margin-bottom:12px&quot;>
+        <div>
+          <span style=&quot;font-size:16px;font-weight:900&quot;>낚시 용품 추천</span>
+          <span style=&quot;font-size:11px;color:#718096;margin-left:6px&quot;>오늘 인기 상품</span>
+        </div>
+        <div class=&quot;btn&quot; onclick=&quot;showToast('쇼핑 탭으로 이동합니다 🛒')&quot; style=&quot;font-size:12px;color:#1A56DB;font-weight:600&quot;>전체보기 ›</div>
+      </div>
+      <!-- GS25 스타일 가로 스크롤 상품 -->
+      <div id=&quot;commerce-products&quot; style=&quot;display:flex;gap:0;overflow-x:auto;scrollbar-width:none;padding:0 8px 4px&quot;>
+        <!-- 상품 1 -->
+        <div class=&quot;btn&quot; onclick=&quot;showToast('쇼핑 탭으로 이동합니다 🛒')&quot; style=&quot;flex-shrink:0;width:120px;margin-right:10px&quot;>
+          <div style=&quot;position:relative;height:120px;background:linear-gradient(135deg,#E0F2FE,#BAE6FD);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:40px;margin-bottom:8px&quot;>
+            🦑
+            <div style=&quot;position:absolute;top:6px;left:6px;background:#EF4444;border-radius:4px;padding:2px 6px;font-size:9px;font-weight:800;color:#fff&quot;>BEST</div>
+          </div>
+          <div style=&quot;font-size:10px;color:#94A3B8;margin-bottom:2px&quot;>에기</div>
+          <div style=&quot;font-size:12px;font-weight:700;color:#1A202C;line-height:1.3;margin-bottom:4px&quot;>갑오징어 에기 3.5호 세트</div>
+          <div style=&quot;font-size:13px;font-weight:900;color:#1A56DB&quot;>12,900원</div>
+        </div>
+        <!-- 상품 2 -->
+        <div class=&quot;btn&quot; onclick=&quot;showToast('쇼핑 탭으로 이동합니다 🛒')&quot; style=&quot;flex-shrink:0;width:120px;margin-right:10px&quot;>
+          <div style=&quot;height:120px;background:linear-gradient(135deg,#FEF3C7,#FDE68A);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:40px;margin-bottom:8px&quot;>🎣</div>
+          <div style=&quot;font-size:10px;color:#94A3B8;margin-bottom:2px&quot;>낚싯대</div>
+          <div style=&quot;font-size:12px;font-weight:700;color:#1A202C;line-height:1.3;margin-bottom:4px&quot;>에깅로드 입문 210</div>
+          <div style=&quot;font-size:13px;font-weight:900;color:#1A56DB&quot;>89,000원</div>
+        </div>
+        <!-- 상품 3 -->
+        <div class=&quot;btn&quot; onclick=&quot;showToast('쇼핑 탭으로 이동합니다 🛒')&quot; style=&quot;flex-shrink:0;width:120px;margin-right:10px&quot;>
+          <div style=&quot;height:120px;background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:40px;margin-bottom:8px&quot;>🧤</div>
+          <div style=&quot;font-size:10px;color:#94A3B8;margin-bottom:2px&quot;>장갑</div>
+          <div style=&quot;font-size:12px;font-weight:700;color:#1A202C;line-height:1.3;margin-bottom:4px&quot;>방수 낚시 장갑</div>
+          <div style=&quot;font-size:13px;font-weight:900;color:#1A56DB&quot;>8,500원</div>
+        </div>
+        <!-- 상품 4 -->
+        <div class=&quot;btn&quot; onclick=&quot;showToast('쇼핑 탭으로 이동합니다 🛒')&quot; style=&quot;flex-shrink:0;width:120px;margin-right:10px&quot;>
+          <div style=&quot;height:120px;background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:40px;margin-bottom:8px&quot;>🪣</div>
+          <div style=&quot;font-size:10px;color:#94A3B8;margin-bottom:2px&quot;>소품</div>
+          <div style=&quot;font-size:12px;font-weight:700;color:#1A202C;line-height:1.3;margin-bottom:4px&quot;>아이스박스 20L</div>
+          <div style=&quot;font-size:13px;font-weight:900;color:#1A56DB&quot;>35,000원</div>
+        </div>
+        <!-- 상품 5 -->
+        <div class=&quot;btn&quot; onclick=&quot;showToast('쇼핑 탭으로 이동합니다 🛒')&quot; style=&quot;flex-shrink:0;width:120px&quot;>
+          <div style=&quot;height:120px;background:linear-gradient(135deg,#FFF7ED,#FED7AA);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:40px;margin-bottom:8px&quot;>🪝</div>
+          <div style=&quot;font-size:10px;color:#94A3B8;margin-bottom:2px&quot;>채비</div>
+          <div style=&quot;font-size:12px;font-weight:700;color:#1A202C;line-height:1.3;margin-bottom:4px&quot;>우럭 바닥채비 세트</div>
+          <div style=&quot;font-size:13px;font-weight:900;color:#1A56DB&quot;>6,500원</div>
+        </div>
+      </div>
+    </div>
+    <!-- ✦ /홈 커머스 추천 모듈 -->
+
+
+  </div><!-- /scr -->
+
+  </div><!-- /scr -->
+  <div class=&quot;bnav&quot;>
   <div class=&quot;ni&quot; style=&quot;color:#A0AEC0&quot;><svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot;><path d=&quot;M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z&quot;/><polyline points=&quot;9 22 9 12 15 12 15 22&quot;/></svg><span>홈</span></div>
   <div class=&quot;ni&quot; style=&quot;color:#A0AEC0&quot;><svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot;><path d=&quot;M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2&quot;/><circle cx=&quot;9&quot; cy=&quot;7&quot; r=&quot;4&quot;/></svg><span>커뮤니티</span></div>
   <div class=&quot;ni&quot; style=&quot;color:#1A56DB&quot;><svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot;><rect x=&quot;3&quot; y=&quot;4&quot; width=&quot;18&quot; height=&quot;18&quot; rx=&quot;2&quot;/><line x1=&quot;16&quot; y1=&quot;2&quot; x2=&quot;16&quot; y2=&quot;6&quot;/><line x1=&quot;8&quot; y1=&quot;2&quot; x2=&quot;8&quot; y2=&quot;6&quot;/><line x1=&quot;3&quot; y1=&quot;10&quot; x2=&quot;21&quot; y2=&quot;10&quot;/></svg><span style=&quot;font-weight:700&quot;>예약</span></div>
   <div class=&quot;ni&quot; style=&quot;color:#A0AEC0&quot;><svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot;><circle cx=&quot;9&quot; cy=&quot;21&quot; r=&quot;1&quot;/><circle cx=&quot;20&quot; cy=&quot;21&quot; r=&quot;1&quot;/><path d=&quot;M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6&quot;/></svg><span>마켓</span></div>
   <div class=&quot;ni&quot; style=&quot;color:#A0AEC0&quot;><svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot;><path d=&quot;M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2&quot;/><circle cx=&quot;12&quot; cy=&quot;7&quot; r=&quot;4&quot;/></svg><span>내 정보</span></div>
+
+  
 </div>
+</div>
+
 </div>
 
 <!-- ═══ S-SEARCH ═══ -->
@@ -517,7 +817,7 @@ body{font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;b
 
 <!-- ═══ S-DETAIL ═══ -->
 <div id=&quot;s-detail&quot; class=&quot;sc&quot;>
-  <div style=&quot;height:220px;background:linear-gradient(160deg,#0B2747,#0B274788);display:flex;align-items:center;justify-content:center;font-size:70px;position:relative;flex-shrink:0&quot;>
+  <div style=&quot;height:220px;background:linear-gradient(160deg,#0B2747,#0D3466);display:flex;align-items:center;justify-content:center;font-size:70px;position:relative;flex-shrink:0&quot;>
     ⛵
     <div style=&quot;position:absolute;top:0;left:0;right:0;padding:50px 14px 0;display:flex;align-items:center;justify-content:space-between&quot;>
       <div class=&quot;btn&quot; onclick=&quot;back()&quot; style=&quot;width:36px;height:36px;background:rgba(0,0,0,.35);border-radius:50%;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)&quot;>
@@ -569,6 +869,7 @@ body{font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;b
         <span style=&quot;font-size:12px;color:#718096&quot;>뚜무리 전문</span>
       </div>
           </div>
+
 
     <!-- ✦ 조황 섹션 (날짜 선택 위) -->
     <div id=&quot;johwang-section&quot; style=&quot;padding:14px 14px 0&quot;>
@@ -707,6 +1008,18 @@ body{font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;b
 
     <!-- 출조 상품 선택 (NEW: Stitch 스타일) -->
     <div style=&quot;padding:14px 14px 0&quot;>
+      <!-- ✦ 커머스 배너 (인라인 슬림형) -->
+      <div class=&quot;btn&quot; onclick=&quot;showToast('쇼핑 탭으로 이동합니다 🛒')&quot; style=&quot;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border:1.5px solid #BFDBFE;border-radius:10px;padding:12px 14px;margin-bottom:14px&quot;>
+        <div style=&quot;display:flex;align-items:center;gap:10px&quot;>
+          <span style=&quot;font-size:22px&quot;>🛒</span>
+          <div>
+            <div style=&quot;font-size:12px;font-weight:800;color:#1E40AF&quot;>갑오징어 출조 채비 준비하셨나요?</div>
+            <div style=&quot;font-size:11px;color:#3B82F6;margin-top:1px&quot;>에기·낚싯대·장갑 특가 상품 보기</div>
+          </div>
+        </div>
+        <svg width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#93C5FD&quot; stroke-width=&quot;2.5&quot;><polyline points=&quot;9 18 15 12 9 6&quot;/></svg>
+      </div>
+      <!-- ✦ /커머스 배너 -->
       <div id=&quot;product-section&quot; style=&quot;display:flex;align-items:center;justify-content:space-between;margin-bottom:10px&quot;>
         <div>
           <span style=&quot;font-size:14px;font-weight:800&quot;>출조 상품 선택</span>
@@ -797,6 +1110,84 @@ body{font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;b
       </div>
 
       
+
+      <!-- ★ 취소/환불 정책 아코디언 -->
+      <div style=&quot;border:1px solid #E2E8F0;border-radius:18px;overflow:hidden;margin-bottom:14px&quot;>
+        <div class=&quot;btn&quot; id=&quot;cancel-policy-hd&quot; onclick=&quot;toggleCancelPolicy()&quot; style=&quot;display:flex;align-items:center;justify-content:space-between;padding:13px 14px;background:#F8FAFC&quot;>
+          <div style=&quot;display:flex;align-items:center;gap:8px&quot;>
+            <span style=&quot;font-size:14px&quot;>📋</span>
+            <span style=&quot;font-size:13px;font-weight:700;color:#1A202C&quot;>취소·환불 정책</span>
+          </div>
+          <svg id=&quot;cancel-policy-chevron&quot; width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#A0AEC0&quot; stroke-width=&quot;2.5&quot; style=&quot;transition:transform .25s&quot;><polyline points=&quot;6 9 12 15 18 9&quot;/></svg>
+        </div>
+        <div id=&quot;cancel-policy-body&quot; style=&quot;max-height:0;overflow:hidden;transition:max-height .3s ease&quot;>
+          <div style=&quot;padding:12px 14px 14px;border-top:1px solid #E2E8F0;background:#fff&quot;>
+            <div style=&quot;display:flex;flex-direction:column;gap:8px;font-size:12px;color:#4A5568;line-height:1.65&quot;>
+              <div style=&quot;display:flex;gap:8px&quot;>
+                <span style=&quot;flex-shrink:0;background:#DCFCE7;color:#166534;font-weight:700;padding:2px 7px;border-radius:4px;font-size:11px;white-space:nowrap&quot;>7일 이전</span>
+                <span>출조일 7일 이전 취소 시 <strong style=&quot;color:#166534&quot;>전액 환불</strong></span>
+              </div>
+              <div style=&quot;display:flex;gap:8px&quot;>
+                <span style=&quot;flex-shrink:0;background:#FEF3C7;color:#92400E;font-weight:700;padding:2px 7px;border-radius:4px;font-size:11px;white-space:nowrap&quot;>3~6일 전</span>
+                <span>출조일 3~6일 이전 취소 시 <strong style=&quot;color:#92400E&quot;>50% 환불</strong></span>
+              </div>
+              <div style=&quot;display:flex;gap:8px&quot;>
+                <span style=&quot;flex-shrink:0;background:#FEE2E2;color:#991B1B;font-weight:700;padding:2px 7px;border-radius:4px;font-size:11px;white-space:nowrap&quot;>당일·전날</span>
+                <span>출조일 1~2일 이전 / 당일 취소 시 <strong style=&quot;color:#991B1B&quot;>환불 불가</strong></span>
+              </div>
+              <div style=&quot;background:#EFF6FF;border-radius:8px;padding:9px 12px;margin-top:4px&quot;>
+                <div style=&quot;font-size:11px;color:#1E40AF;font-weight:600&quot;>🌤️ 기상 악화로 선주가 출조를 취소할 경우 전액 환불됩니다.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ★ 이 항구의 다른 선박 -->
+      <div style=&quot;margin-bottom:14px&quot;>
+        <div style=&quot;display:flex;align-items:center;justify-content:space-between;margin-bottom:10px&quot;>
+          <span style=&quot;font-size:13px;font-weight:800;color:#1A202C&quot;>⚓ 오천항의 다른 선박</span>
+          <div class=&quot;btn&quot; onclick=&quot;go('s-result')&quot; style=&quot;font-size:12px;color:#1A56DB;font-weight:600&quot;>전체보기 ›</div>
+        </div>
+        <div style=&quot;display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;margin:0 -14px;padding-left:14px;padding-bottom:4px&quot;>
+          <!-- 다른 선박 카드 1 -->
+          <div class=&quot;btn&quot; onclick=&quot;showToast('씨스타호로 이동')&quot; style=&quot;flex-shrink:0;width:150px;background:#fff;border:1px solid #E2E8F0;border-radius:16px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06)&quot;>
+            <div style=&quot;height:80px;background:linear-gradient(135deg,#0B2747,#1A56DB44);display:flex;align-items:center;justify-content:center;font-size:32px;position:relative&quot;>
+              ⛵
+              <div style=&quot;position:absolute;bottom:5px;right:7px;background:#22C55E;border-radius:8px;padding:2px 7px;font-size:9px;font-weight:700;color:#fff&quot;>잔여 8석</div>
+            </div>
+            <div style=&quot;padding:8px 10px&quot;>
+              <div style=&quot;font-size:12px;font-weight:800;color:#1A202C;margin-bottom:2px&quot;>씨스타호</div>
+              <div style=&quot;font-size:10px;color:#718096&quot;>오천항 · 갑오징어</div>
+              <div style=&quot;font-size:12px;font-weight:900;color:#1A56DB;margin-top:4px&quot;>80,000원~</div>
+            </div>
+          </div>
+          <!-- 다른 선박 카드 2 -->
+          <div class=&quot;btn&quot; onclick=&quot;showToast('오천마린호로 이동')&quot; style=&quot;flex-shrink:0;width:150px;background:#fff;border:1px solid #E2E8F0;border-radius:16px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06)&quot;>
+            <div style=&quot;height:80px;background:linear-gradient(135deg,#0A1A2A,#15803D33);display:flex;align-items:center;justify-content:center;font-size:32px;position:relative&quot;>
+              ⛵
+              <div style=&quot;position:absolute;bottom:5px;right:7px;background:#F59E0B;border-radius:8px;padding:2px 7px;font-size:9px;font-weight:700;color:#fff&quot;>잔여 5석</div>
+            </div>
+            <div style=&quot;padding:8px 10px&quot;>
+              <div style=&quot;font-size:12px;font-weight:800;color:#1A202C;margin-bottom:2px&quot;>오천마린호</div>
+              <div style=&quot;font-size:10px;color:#718096&quot;>오천항 · 뚜무리</div>
+              <div style=&quot;font-size:12px;font-weight:900;color:#1A56DB;margin-top:4px&quot;>75,000원~</div>
+            </div>
+          </div>
+          <!-- 다른 선박 카드 3 -->
+          <div class=&quot;btn&quot; onclick=&quot;showToast('보령해양호로 이동')&quot; style=&quot;flex-shrink:0;width:150px;background:#fff;border:1px solid #E2E8F0;border-radius:16px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06)&quot;>
+            <div style=&quot;height:80px;background:linear-gradient(135deg,#1A0A3A,#5B21B633);display:flex;align-items:center;justify-content:center;font-size:32px;position:relative&quot;>
+              ⛵
+              <div style=&quot;position:absolute;bottom:5px;right:7px;background:#22C55E;border-radius:8px;padding:2px 7px;font-size:9px;font-weight:700;color:#fff&quot;>잔여 12석</div>
+            </div>
+            <div style=&quot;padding:8px 10px&quot;>
+              <div style=&quot;font-size:12px;font-weight:800;color:#1A202C;margin-bottom:2px&quot;>보령해양호</div>
+              <div style=&quot;font-size:10px;color:#718096&quot;>오천항 · 우럭·광어</div>
+              <div style=&quot;font-size:12px;font-weight:900;color:#1A56DB;margin-top:4px&quot;>65,000원~</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
   </div><!-- /panel-product -->
@@ -929,7 +1320,63 @@ body{font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;b
       <div style=&quot;font-size:13px;font-weight:700;color:#744210&quot;>📝 후기 작성 시 다음 예약 5,000원 할인</div>
       <div style=&quot;font-size:12px;color:#92400E;margin-top:3px&quot;>출조 후 30일 이내 · 다음 예약 시 자동 적용</div>
     </div>
-    <div style=&quot;display:flex;gap:10px;width:100%&quot;>
+    <!-- ✦ 커머스 추천 모듈 -->
+    <div style=&quot;margin-bottom:16px&quot;>
+      <div style=&quot;display:flex;align-items:center;justify-content:space-between;margin-bottom:10px&quot;>
+        <div>
+          <span style=&quot;font-size:14px;font-weight:800&quot;>🛒 갑오징어 채비 추천</span>
+          <span style=&quot;font-size:11px;color:#718096;margin-left:6px&quot;>예약 어종 기반</span>
+        </div>
+        <div class=&quot;btn&quot; onclick=&quot;showToast('쇼핑 탭으로 이동합니다 🛒')&quot; style=&quot;font-size:12px;color:#1A56DB;font-weight:600&quot;>전체보기 ›</div>
+      </div>
+      <div style=&quot;display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;margin:0 -14px;padding-left:14px&quot;>
+
+        <!-- 상품 1 -->
+        <div class=&quot;btn&quot; onclick=&quot;showToast('쇼핑 탭으로 이동합니다 🛒')&quot; style=&quot;flex-shrink:0;width:130px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;overflow:hidden&quot;>
+          <div style=&quot;height:90px;background:linear-gradient(135deg,#E0F2FE,#BAE6FD);display:flex;align-items:center;justify-content:center;font-size:36px&quot;>🦑</div>
+          <div style=&quot;padding:8px 10px&quot;>
+            <div style=&quot;font-size:11px;color:#718096;margin-bottom:2px&quot;>에기</div>
+            <div style=&quot;font-size:12px;font-weight:800;color:#1A202C;line-height:1.3;margin-bottom:4px&quot;>갑오징어 에기 3.5호 세트</div>
+            <div style=&quot;font-size:13px;font-weight:900;color:#1A56DB&quot;>12,900원</div>
+          </div>
+        </div>
+
+        <!-- 상품 2 -->
+        <div class=&quot;btn&quot; onclick=&quot;showToast('쇼핑 탭으로 이동합니다 🛒')&quot; style=&quot;flex-shrink:0;width:130px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;overflow:hidden&quot;>
+          <div style=&quot;height:90px;background:linear-gradient(135deg,#FEF3C7,#FDE68A);display:flex;align-items:center;justify-content:center;font-size:36px&quot;>🎣</div>
+          <div style=&quot;padding:8px 10px&quot;>
+            <div style=&quot;font-size:11px;color:#718096;margin-bottom:2px&quot;>낚싯대</div>
+            <div style=&quot;font-size:12px;font-weight:800;color:#1A202C;line-height:1.3;margin-bottom:4px&quot;>오징어 전용 에깅로드</div>
+            <div style=&quot;font-size:13px;font-weight:900;color:#1A56DB&quot;>89,000원</div>
+          </div>
+        </div>
+
+        <!-- 상품 3 -->
+        <div class=&quot;btn&quot; onclick=&quot;showToast('쇼핑 탭으로 이동합니다 🛒')&quot; style=&quot;flex-shrink:0;width:130px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;overflow:hidden&quot;>
+          <div style=&quot;position:relative;height:90px;background:linear-gradient(135deg,#F0FDF4,#DCFCE7);display:flex;align-items:center;justify-content:center;font-size:36px&quot;>
+            🧤
+            <span style=&quot;position:absolute;top:6px;left:6px;background:#EF4444;color:#fff;font-size:9px;font-weight:800;padding:2px 6px;border-radius:4px&quot;>BEST</span>
+          </div>
+          <div style=&quot;padding:8px 10px&quot;>
+            <div style=&quot;font-size:11px;color:#718096;margin-bottom:2px&quot;>장갑/보호대</div>
+            <div style=&quot;font-size:12px;font-weight:800;color:#1A202C;line-height:1.3;margin-bottom:4px&quot;>방수 낚시 장갑</div>
+            <div style=&quot;font-size:13px;font-weight:900;color:#1A56DB&quot;>8,500원</div>
+          </div>
+        </div>
+
+        <!-- 상품 4 -->
+        <div class=&quot;btn&quot; onclick=&quot;showToast('쇼핑 탭으로 이동합니다 🛒')&quot; style=&quot;flex-shrink:0;width:130px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;overflow:hidden&quot;>
+          <div style=&quot;height:90px;background:linear-gradient(135deg,#F5F3FF,#EDE9FE);display:flex;align-items:center;justify-content:center;font-size:36px&quot;>🪣</div>
+          <div style=&quot;padding:8px 10px&quot;>
+            <div style=&quot;font-size:11px;color:#718096;margin-bottom:2px&quot;>소품</div>
+            <div style=&quot;font-size:12px;font-weight:800;color:#1A202C;line-height:1.3;margin-bottom:4px&quot;>아이스박스 20L</div>
+            <div style=&quot;font-size:13px;font-weight:900;color:#1A56DB&quot;>35,000원</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- ✦ /커머스 추천 모듈 -->    <div style=&quot;display:flex;gap:10px;width:100%&quot;>
       <div class=&quot;btn&quot; onclick=&quot;go('s-home')&quot; style=&quot;flex:1;border:2px solid #1A56DB;border-radius:8px;padding:14px;text-align:center;color:#1A56DB;font-size:14px;font-weight:700&quot;>홈으로</div>
       <div class=&quot;btn&quot; onclick=&quot;go('s-book-detail')&quot; style=&quot;flex:1;background:#1A56DB;border-radius:8px;padding:14px;text-align:center;color:#fff;font-size:14px;font-weight:700&quot;>예약내역 보기</div>
     </div>
@@ -1109,17 +1556,23 @@ body{font-family:-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif;b
 <div id=&quot;m-reg&quot; class=&quot;ov&quot; onclick=&quot;if(event.target===this)closeOv()&quot;>
   <div class=&quot;sheet&quot;>
     <div style=&quot;width:40px;height:4px;background:#E2E8F0;border-radius:2px;margin:14px auto 18px&quot;></div>
-    <div style=&quot;font-size:16px;font-weight:800;margin-bottom:14px&quot;>지역 선택</div>
-    <div style=&quot;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px&quot;><div class=&quot;btn&quot; onclick=&quot;pickReg(this,'전체')&quot; style=&quot;background:#1A56DB;border:1.5px solid #1A56DB;border-radius:6px;padding:10px 16px;font-size:14px;font-weight:700;color:#fff&quot;>전체</div><div class=&quot;btn&quot; onclick=&quot;pickReg(this,'인천·경기')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:10px 16px;font-size:14px;font-weight:400;color:#2D3748&quot;>인천·경기</div><div class=&quot;btn&quot; onclick=&quot;pickReg(this,'경남·부산')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:10px 16px;font-size:14px;font-weight:400;color:#2D3748&quot;>경남·부산</div><div class=&quot;btn&quot; onclick=&quot;pickReg(this,'전남·여수')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:10px 16px;font-size:14px;font-weight:400;color:#2D3748&quot;>전남·여수</div><div class=&quot;btn&quot; onclick=&quot;pickReg(this,'강원·동해')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:10px 16px;font-size:14px;font-weight:400;color:#2D3748&quot;>강원·동해</div><div class=&quot;btn&quot; onclick=&quot;pickReg(this,'충남·태안')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:10px 16px;font-size:14px;font-weight:400;color:#2D3748&quot;>충남·태안</div><div class=&quot;btn&quot; onclick=&quot;pickReg(this,'제주')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:10px 16px;font-size:14px;font-weight:400;color:#2D3748&quot;>제주</div></div>
-    <div class=&quot;btn&quot; onclick=&quot;applyOv()&quot; style=&quot;background:#1A56DB;border-radius:8px;padding:14px;text-align:center;color:#fff;font-size:15px;font-weight:700&quot;>적용</div>
+    <div style=&quot;display:flex;align-items:center;justify-content:space-between;margin-bottom:14px&quot;>
+      <span style=&quot;font-size:16px;font-weight:800&quot;>출조지역 선택</span>
+      <div class=&quot;btn&quot; onclick=&quot;resetReg()&quot; style=&quot;font-size:12px;color:#718096&quot;>초기화</div>
+    </div>
+    <div style=&quot;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px&quot;><div class=&quot;btn&quot; onclick=&quot;pickReg(this,'전체')&quot; style=&quot;background:#1A56DB;border:1.5px solid #1A56DB;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:700;color:#fff&quot;>전체</div><div class=&quot;btn&quot; onclick=&quot;pickReg(this,'강원')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>강원</div><div class=&quot;btn&quot; onclick=&quot;pickReg(this,'경기도')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>경기도</div><div class=&quot;btn&quot; onclick=&quot;pickReg(this,'경남')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>경남</div><div class=&quot;btn&quot; onclick=&quot;pickReg(this,'경북')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>경북</div><div class=&quot;btn&quot; onclick=&quot;pickReg(this,'광주')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>광주</div><div class=&quot;btn&quot; onclick=&quot;pickReg(this,'대구')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>대구</div><div class=&quot;btn&quot; onclick=&quot;pickReg(this,'대전')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>대전</div><div class=&quot;btn&quot; onclick=&quot;pickReg(this,'부산')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>부산</div><div class=&quot;btn&quot; onclick=&quot;pickReg(this,'서울')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>서울</div><div class=&quot;btn&quot; onclick=&quot;pickReg(this,'세종')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>세종</div><div class=&quot;btn&quot; onclick=&quot;pickReg(this,'울산')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>울산</div><div class=&quot;btn&quot; onclick=&quot;pickReg(this,'인천')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>인천</div><div class=&quot;btn&quot; onclick=&quot;pickReg(this,'전남')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>전남</div><div class=&quot;btn&quot; onclick=&quot;pickReg(this,'전북')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>전북</div><div class=&quot;btn&quot; onclick=&quot;pickReg(this,'제주도')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>제주도</div><div class=&quot;btn&quot; onclick=&quot;pickReg(this,'충남')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>충남</div><div class=&quot;btn&quot; onclick=&quot;pickReg(this,'충북')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>충북</div></div>
+    <div class=&quot;btn&quot; onclick=&quot;applyReg()&quot; style=&quot;width:100%;background:#1A56DB;border-radius:10px;padding:14px;text-align:center;font-size:15px;font-weight:700;color:#fff&quot;>적용하기</div>
   </div>
 </div>
 <div id=&quot;m-fish&quot; class=&quot;ov&quot; onclick=&quot;if(event.target===this)closeOv()&quot;>
   <div class=&quot;sheet&quot;>
     <div style=&quot;width:40px;height:4px;background:#E2E8F0;border-radius:2px;margin:14px auto 18px&quot;></div>
-    <div style=&quot;font-size:16px;font-weight:800;margin-bottom:14px&quot;>어종 선택</div>
-    <div style=&quot;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px&quot;><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'전체')&quot; style=&quot;background:#1A56DB;border:1.5px solid #1A56DB;border-radius:6px;padding:10px 16px;font-size:14px;font-weight:700;color:#fff&quot;>전체</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'참돔')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:10px 16px;font-size:14px;font-weight:400;color:#2D3748&quot;>참돔</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'갑오징어')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:10px 16px;font-size:14px;font-weight:400;color:#2D3748&quot;>갑오징어</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'갈치')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:10px 16px;font-size:14px;font-weight:400;color:#2D3748&quot;>갈치</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'우럭')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:10px 16px;font-size:14px;font-weight:400;color:#2D3748&quot;>우럭</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'방어')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:10px 16px;font-size:14px;font-weight:400;color:#2D3748&quot;>방어</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'광어')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:10px 16px;font-size:14px;font-weight:400;color:#2D3748&quot;>광어</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'농어')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:10px 16px;font-size:14px;font-weight:400;color:#2D3748&quot;>농어</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'감성돔')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:10px 16px;font-size:14px;font-weight:400;color:#2D3748&quot;>감성돔</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'삼치')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:10px 16px;font-size:14px;font-weight:400;color:#2D3748&quot;>삼치</div></div>
-    <div class=&quot;btn&quot; onclick=&quot;applyOv()&quot; style=&quot;background:#1A56DB;border-radius:8px;padding:14px;text-align:center;color:#fff;font-size:15px;font-weight:700&quot;>적용</div>
+    <div style=&quot;display:flex;align-items:center;justify-content:space-between;margin-bottom:14px&quot;>
+      <span style=&quot;font-size:16px;font-weight:800&quot;>어종 선택</span>
+      <div class=&quot;btn&quot; onclick=&quot;resetFish()&quot; style=&quot;font-size:12px;color:#718096&quot;>초기화</div>
+    </div>
+    <div style=&quot;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px&quot;><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'전체')&quot; style=&quot;background:#1A56DB;border:1.5px solid #1A56DB;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:700;color:#fff&quot;>전체</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'가자미')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>가자미</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'갈치')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>갈치</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'감성돔')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>감성돔</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'갑오징어')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>갑오징어</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'고등어')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>고등어</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'광어')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>광어</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'낙지')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>낙지</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'노래미')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>노래미</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'농어')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>농어</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'대구')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>대구</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'도다리')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>도다리</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'문어')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>문어</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'민어')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>민어</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'방어')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>방어</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'백조기')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>백조기</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'부시리')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>부시리</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'붕어')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>붕어</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'뽈락')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>뽈락</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'삼치')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>삼치</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'숭어')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>숭어</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'열기')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>열기</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'오징어')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>오징어</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'우럭')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>우럭</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'주꾸미')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>주꾸미</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'참돔')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>참돔</div><div class=&quot;btn&quot; onclick=&quot;pickFish(this,'한치')&quot; style=&quot;background:#fff;border:1.5px solid #CBD5E0;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:400;color:#2D3748&quot;>한치</div></div>
+    <div class=&quot;btn&quot; onclick=&quot;applyFish()&quot; style=&quot;width:100%;background:#1A56DB;border-radius:10px;padding:14px;text-align:center;font-size:15px;font-weight:700;color:#fff&quot;>적용하기</div>
   </div>
 </div>
 
@@ -1417,20 +1870,62 @@ function pickDate(d, el) {
   var v = document.getElementById('v-date');
   if(v) v.textContent = (d<10?'0':'')+d+'.'+(d<10?'0':'')+d+' ('+DOW[new Date(2026,3,d).getDay()]+')';
 }
+/* ─── 다중 선택 지역/어종 ─── */
+var _selReg  = ['전체'];
+var _selFish = ['전체'];
+
+function _updateChips(containerId, selected) {
+  var first = selected[0] === '전체';
+  document.querySelectorAll('#' + containerId + ' .btn[onclick]').forEach(function(el) {
+    var val = el.textContent.trim();
+    if (!el.onclick || el.onclick.toString().indexOf('pick') < 0) return;
+    var active = first ? val === '전체' : selected.indexOf(val) > -1;
+    el.style.background  = active ? '#1A56DB' : '#fff';
+    el.style.borderColor = active ? '#1A56DB' : '#CBD5E0';
+    el.style.color       = active ? '#fff'    : '#2D3748';
+    el.style.fontWeight  = active ? '700'     : '400';
+  });
+}
+
+function _labelText(selected, placeholder) {
+  if (!selected.length || selected[0] === '전체') return placeholder;
+  if (selected.length === 1) return selected[0];
+  return selected[0] + ' 외 ' + (selected.length - 1);
+}
+
 function pickReg(el, val) {
-  document.querySelectorAll('#m-reg .btn').forEach(function(c){
-    c.style.background='#fff'; c.style.borderColor='#CBD5E0'; c.style.color='#2D3748'; c.style.fontWeight='400';
-  });
-  el.style.background='#1A56DB'; el.style.borderColor='#1A56DB'; el.style.color='#fff'; el.style.fontWeight='700';
-  var v = document.getElementById('v-reg'); if(v) v.textContent = val;
+  if (val === '전체') { _selReg = ['전체']; }
+  else {
+    var i = _selReg.indexOf('전체'); if (i > -1) _selReg.splice(i, 1);
+    var j = _selReg.indexOf(val);
+    if (j > -1) _selReg.splice(j, 1); else _selReg.push(val);
+    if (!_selReg.length) _selReg = ['전체'];
+  }
+  _updateChips('m-reg', _selReg);
 }
+function applyReg() {
+  var v = document.getElementById('v-reg');
+  if (v) v.textContent = _labelText(_selReg, '전체 지역');
+  closeOv();
+}
+function resetReg() { _selReg = ['전체']; _updateChips('m-reg', _selReg); }
+
 function pickFish(el, val) {
-  document.querySelectorAll('#m-fish .btn').forEach(function(c){
-    c.style.background='#fff'; c.style.borderColor='#CBD5E0'; c.style.color='#2D3748'; c.style.fontWeight='400';
-  });
-  el.style.background='#1A56DB'; el.style.borderColor='#1A56DB'; el.style.color='#fff'; el.style.fontWeight='700';
-  var v = document.getElementById('v-fish'); if(v) v.textContent = val;
+  if (val === '전체') { _selFish = ['전체']; }
+  else {
+    var i = _selFish.indexOf('전체'); if (i > -1) _selFish.splice(i, 1);
+    var j = _selFish.indexOf(val);
+    if (j > -1) _selFish.splice(j, 1); else _selFish.push(val);
+    if (!_selFish.length) _selFish = ['전체'];
+  }
+  _updateChips('m-fish', _selFish);
 }
+function applyFish() {
+  var v = document.getElementById('v-fish');
+  if (v) v.textContent = _labelText(_selFish, '전체 어종');
+  closeOv();
+}
+function resetFish() { _selFish = ['전체']; _updateChips('m-fish', _selFish); }
 
 /* 정렬 드롭다운 */
 function toggleSort() {
@@ -1866,6 +2361,75 @@ function pickDateChip2AndScroll(el, label) {
   }, 50);
 }
 
+/* ─── 어종별 쇼핑 상품 연동 ─── */
+var SPECIES_PRODUCTS = {
+  '오징어': {
+    label: '갑오징어 채비 추천',
+    products: [
+      {icon:'🦑', bg1:'#E0F2FE', bg2:'#BAE6FD', cat:'에기', name:'갑오징어 에기 3.5호', price:'12,900원', badge:''},
+      {icon:'🎣', bg1:'#FEF3C7', bg2:'#FDE68A', cat:'낚싯대', name:'에깅로드 입문', price:'89,000원', badge:'BEST'},
+      {icon:'🧤', bg1:'#F0FDF4', bg2:'#DCFCE7', cat:'장갑', name:'방수 낚시 장갑', price:'8,500원', badge:''},
+      {icon:'🪣', bg1:'#F5F3FF', bg2:'#EDE9FE', cat:'소품', name:'아이스박스 20L', price:'35,000원', badge:''},
+    ]
+  },
+  '우럭': {
+    label: '우럭 채비 추천',
+    products: [
+      {icon:'🐟', bg1:'#FFF7ED', bg2:'#FED7AA', cat:'루어', name:'우럭 지그헤드 세트', price:'9,900원', badge:'BEST'},
+      {icon:'🎣', bg1:'#EFF6FF', bg2:'#DBEAFE', cat:'낚싯대', name:'선상 우럭대 210', price:'65,000원', badge:''},
+      {icon:'🪝', bg1:'#F0FDF4', bg2:'#DCFCE7', cat:'채비', name:'우럭 바닥채비 5종', price:'6,500원', badge:''},
+      {icon:'🧊', bg1:'#F5F3FF', bg2:'#EDE9FE', cat:'소품', name:'아이스박스 15L', price:'28,000원', badge:''},
+    ]
+  },
+  '참돔': {
+    label: '참돔 채비 추천',
+    products: [
+      {icon:'🐠', bg1:'#FFF1F2', bg2:'#FFE4E6', cat:'루어', name:'참돔 타이라바 세트', price:'18,900원', badge:'BEST'},
+      {icon:'🎣', bg1:'#EFF6FF', bg2:'#DBEAFE', cat:'낚싯대', name:'타이라바 전용대', price:'120,000원', badge:''},
+      {icon:'🧤', bg1:'#F0FDF4', bg2:'#DCFCE7', cat:'장갑', name:'방수 낚시 장갑', price:'8,500원', badge:''},
+      {icon:'🪣', bg1:'#F5F3FF', bg2:'#EDE9FE', cat:'소품', name:'아이스박스 20L', price:'35,000원', badge:''},
+    ]
+  },
+};
+
+function updateCommerceBySpecies(species) {
+  var data = SPECIES_PRODUCTS[species] || SPECIES_PRODUCTS['오징어'];
+  var label = document.getElementById('commerce-species-label');
+  var container = document.getElementById('commerce-products');
+  if(label) label.textContent = data.label;
+  if(!container) return;
+  container.innerHTML = data.products.map(function(p){
+    var badgeHtml = p.badge ? '<span style=&quot;position:absolute;top:5px;left:5px;background:#EF4444;color:#fff;font-size:8px;font-weight:800;padding:1px 5px;border-radius:3px&quot;>'+p.badge+'</span>' : '';
+    return '<div class=&quot;btn&quot; onclick=&quot;showToast(\'쇼핑 탭으로 이동합니다 🛒\')&quot; style=&quot;flex-shrink:0;width:110px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;overflow:hidden&quot;>'
+      +'<div style=&quot;position:relative;height:75px;background:linear-gradient(135deg,'+p.bg1+','+p.bg2+');display:flex;align-items:center;justify-content:center;font-size:30px&quot;>'+p.icon+badgeHtml+'</div>'
+      +'<div style=&quot;padding:6px 8px&quot;>'
+      +'<div style=&quot;font-size:10px;color:#718096&quot;>'+p.cat+'</div>'
+      +'<div style=&quot;font-size:11px;font-weight:800;color:#1A202C;line-height:1.3&quot;>'+p.name+'</div>'
+      +'<div style=&quot;font-size:12px;font-weight:900;color:#1A56DB;margin-top:2px&quot;>'+p.price+'</div>'
+      +'</div></div>';
+  }).join('');
+  /* 쇼핑 섹션으로 부드럽게 스크롤 */
+  setTimeout(function(){
+    var scr = document.querySelector('#s-home .scr');
+    var shopEl = document.getElementById('commerce-products');
+    if(scr &amp;&amp; shopEl) {
+      var scrRect = scr.getBoundingClientRect();
+      var shopRect = shopEl.getBoundingClientRect();
+      scr.scrollBy({ top: shopRect.top - scrRect.top - 60, behavior: 'smooth' });
+    }
+  }, 100);
+}
+
+var _jjimIdx=0;
+function jjimSlide(dir){
+  _jjimIdx=(_jjimIdx+dir+3)%3;
+  var s=document.getElementById('jjim-slider');
+  if(s)s.style.transform='translateX(-'+(_jjimIdx*100)+'%)';
+  document.querySelectorAll('.jjim-dot').forEach(function(d,i){
+    d.style.width=i===_jjimIdx?'18px':'6px';
+    d.style.background=i===_jjimIdx?'#fff':'rgba(255,255,255,.5)';
+  });
+}
 function showDateChangeNudge() {
   var el = document.getElementById('date-change-nudge');
   if(el) el.style.display = 'block';
@@ -2379,7 +2943,7 @@ window.addEventListener('message', function(e){
   </div>
   <div class=&quot;scr&quot; style=&quot;background:#fff&quot;>
     <!-- 필터 조건 안내 -->
-    <div style=&quot;background:#FFF9E6;border-bottom:1px solid #F6E05E;padding:14px 16px;display:flex;align-items:flex-start;gap:10px&quot;>
+    <div style=&quot;background:#FFF9E6;border-bottom:1px solid #F6E05E;padding:14px 8px;display:flex;align-items:flex-start;gap:10px&quot;>
       <div style=&quot;font-size:18px;flex-shrink:0;margin-top:1px&quot;>⚠️</div>
       <div>
         <div style=&quot;font-size:13px;font-weight:700;color:#744210;margin-bottom:3px&quot;>필터 조건에 맞는 선박이 없어요</div>
@@ -3469,7 +4033,7 @@ window.addEventListener('message', function(e){
   <div style="padding:14px 28px 12px;background:#0F172A;border-bottom:2px solid #1A56DB;display:flex;align-items:center;justify-content:space-between">
     <div style="display:flex;align-items:center;gap:10px">
       <span style="font-size:13px;font-weight:800;color:#fff">어바웃피싱 · 예약검색 스토리보드</span>
-      <span style="font-size:11px;background:#1A56DB;color:#fff;border-radius:5px;padding:2px 10px;font-weight:700">v61</span>
+      <span style="font-size:11px;background:#1A56DB;color:#fff;border-radius:5px;padding:2px 10px;font-weight:700">v75</span>
     </div>
     <div style="display:flex;align-items:center;gap:16px">
       <span style="font-size:11px;color:rgba(255,255,255,.4)">섹션 헤더 클릭 → 좌측 화면 이동</span>
@@ -4154,6 +4718,52 @@ window.addEventListener('message', function(e){
     </tr></tbody></table>
   </div>
 </section>
+
+<section style="border-bottom:1px solid #E2E8F0">
+  <div style="position:sticky;top:0;z-index:10;background:#0F172A;color:#fff;display:flex;align-items:center;gap:10px;padding:11px 28px;border-bottom:2px solid #22C55E;cursor:pointer" onclick="document.getElementById('pf').contentWindow.postMessage({type:'nav',k:'s-home'},'*')">
+    <span style="font-size:11px;font-weight:800;background:#22C55E;color:#fff;border-radius:5px;padding:3px 10px;font-family:monospace">COMMERCE</span>
+    <span style="font-size:13px;font-weight:700">커머스 연계</span>
+    <span style="font-size:11px;color:rgba(255,255,255,.45);margin-left:2px">— 어종 기반 채비 추천 · 쇼핑탭 딥링크</span>
+    <span style="margin-left:auto;font-size:10px;color:rgba(255,255,255,.3)">클릭 시 이동 →</span>
+  </div>
+  <div style="padding:20px 28px;display:flex;flex-direction:column;gap:14px">
+
+    <table style="width:100%;border-collapse:collapse;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden;font-size:12px"><tbody>
+      <tr><td colspan="2" style="background:#F1F5F9;font-size:11px;font-weight:800;color:#475569;letter-spacing:.4px;padding:9px 14px;border-top:2px solid #E2E8F0">노출 위치 (4곳)</td></tr>
+      <tr onclick="document.getElementById('pf').contentWindow.postMessage({type:'nav',k:'s-home'},'*')" style="cursor:pointer">
+        <td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;font-weight:700;color:#374151;white-space:nowrap;width:130px;vertical-align:top">예약 홈<span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#DCFCE7;color:#166534;margin-left:6px">항상노출</span></td>
+        <td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;color:#4B5563;line-height:1.75">오늘 인기 상품 가로 스크롤 · 인기상품 기본 노출 (어종 비특정)</td>
+      </tr>
+      <tr onclick="document.getElementById('pf').contentWindow.postMessage({type:'nav',k:'s-detail'},'*')" style="cursor:pointer">
+        <td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;font-weight:700;color:#374151;white-space:nowrap;vertical-align:top">선박 상세<span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#FEF3C7;color:#92400E;margin-left:6px">조건부</span></td>
+        <td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;color:#4B5563;line-height:1.75">날짜 선택 아래 슬림 배너 · 해당 선박 어종 기반 채비 추천<br><span style="color:#94A3B8">ex) 갑오징어 선박 → 에기·에깅로드 노출</span></td>
+      </tr>
+      <tr onclick="document.getElementById('pf').contentWindow.postMessage({type:'nav',k:'s-done'},'*')" style="cursor:pointer">
+        <td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;font-weight:700;color:#374151;white-space:nowrap;vertical-align:top">예약완료<span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#DCFCE7;color:#166534;margin-left:6px">항상노출</span></td>
+        <td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;color:#4B5563;line-height:1.75">상품 카드 4개 · 예약 직후 구매 의향 최고점 · 가장 높은 CVR 기대 구간</td>
+      </tr>
+      <tr>
+        <td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;font-weight:700;color:#374151;white-space:nowrap;vertical-align:top">카카오 알림톡<span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#FEF3C7;color:#92400E;margin-left:6px">조건부</span></td>
+        <td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;color:#4B5563;line-height:1.75">출항 D-1 알림 내 채비 상품 딥링크 삽입 · "내일 출항! 채비 준비됐나요?" 문구</td>
+      </tr>
+    </tbody></table>
+
+    <table style="width:100%;border-collapse:collapse;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden;font-size:12px"><tbody>
+      <tr><td colspan="2" style="background:#F1F5F9;font-size:11px;font-weight:800;color:#475569;letter-spacing:.4px;padding:9px 14px;border-top:2px solid #E2E8F0">어종 → 상품 매핑 정책</td></tr>
+      <tr><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;font-weight:700;color:#374151;white-space:nowrap;vertical-align:top">매핑 기준</td><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;color:#4B5563;line-height:1.75">예약 시 선택 어종 = 커머스 카테고리 태그<br>ex) 갑오징어 → "갑오징어용" 태그 상품 자동 노출</td></tr>
+      <tr><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;font-weight:700;color:#374151;white-space:nowrap;vertical-align:top">Fallback<span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#F5F3FF;color:#6D28D9;margin-left:6px">미정</span></td><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;color:#4B5563;line-height:1.75">어종 매핑 불가 시 → 낚시 인기상품 TOP4 기본 노출</td></tr>
+      <tr style="background:#FAFFF5"><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;font-weight:700;color:#15803D;white-space:nowrap;vertical-align:top">수익 구조 <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#F0FDF4;color:#15803D">정책</span></td><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;color:#4B5563;line-height:1.75">내부 쇼핑탭 딥링크 연결 · 별도 수수료 구조 없음 (GMV 기여만)<br>추후 외부 제휴(쿠팡파트너스 등) 검토 시 수수료 3~5% 가능</td></tr>
+    </tbody></table>
+
+    <table style="width:100%;border-collapse:collapse;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden;font-size:12px"><tbody>
+      <tr><td colspan="2" style="background:#F1F5F9;font-size:11px;font-weight:800;color:#475569;letter-spacing:.4px;padding:9px 14px;border-top:2px solid #E2E8F0">Phase 로드맵</td></tr>
+      <tr style="background:#FAFFF5"><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;font-weight:700;color:#15803D;white-space:nowrap;vertical-align:top">Phase 1 <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#F0FDF4;color:#15803D">정책</span></td><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;color:#4B5563;line-height:1.75">쇼핑탭 딥링크 삽입 → CTR 측정 · 개발 공수 최소</td></tr>
+      <tr style="background:#FAFFF5"><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;font-weight:700;color:#15803D;white-space:nowrap;vertical-align:top">Phase 2 <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#F0FDF4;color:#15803D">정책</span></td><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;color:#4B5563;line-height:1.75">어종 → 카테고리 자동 매핑 API 연동 · 개인화 추천</td></tr>
+      <tr style="background:#FAFFF5"><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;font-weight:700;color:#15803D;white-space:nowrap;vertical-align:top">Phase 3 <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#F0FDF4;color:#15803D">정책</span></td><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;color:#4B5563;line-height:1.75">선주 직접 채비 세트 판매 · "선장 추천 채비" 신뢰도 활용</td></tr>
+    </tbody></table>
+
+  </div>
+</section>
 </main>
 </div>
 </div>
@@ -4395,6 +5005,41 @@ function delC(sid,cid){
 })();
 
 
+/* ── 시즌 배너 슬라이더 ── */
+(function(){
+  var cur=0, total=3, timer;
+  function seasonGo(n){
+    cur=n;
+    var sl=document.getElementById('season-slider');
+    if(sl) sl.style.transform='translateX(-'+(cur*100/3*3)+'%)';
+    /* width:100%이므로 translateX -100% per slide */
+    if(sl) sl.style.transform='translateX(-'+(cur*100)+'%)';
+    var dots=document.querySelectorAll('.s-dot');
+    dots.forEach(function(d,i){
+      d.style.width=i===cur?'20px':'6px';
+      d.style.background=i===cur?'#fff':'rgba(255,255,255,.45)';
+    });
+  }
+  window.seasonGo=seasonGo;
+  function seasonNext(){ seasonGo((cur+1)%total); }
+  timer=setInterval(seasonNext,3000);
+  var wrap=document.getElementById('season-banner-wrap');
+  if(wrap){
+    wrap.addEventListener('mouseenter',function(){ clearInterval(timer); });
+    wrap.addEventListener('mouseleave',function(){ timer=setInterval(seasonNext,3000); });
+  }
+})();
+
+/* ── 취소정책 아코디언 ── */
+function toggleCancelPolicy(){
+  var body=document.getElementById('cancel-policy-body');
+  var chev=document.getElementById('cancel-policy-chevron');
+  if(!body) return;
+  var isOpen=body.style.maxHeight!=='0px'&&body.style.maxHeight!=='';
+  body.style.maxHeight=isOpen?'0':'300px';
+  if(chev) chev.style.transform=isOpen?'':'rotate(180deg)';
+}
+
 function downloadHTML(){
   try{
     var html = document.documentElement.outerHTML;
@@ -4402,7 +5047,7 @@ function downloadHTML(){
     var url = URL.createObjectURL(blob);
     var a = document.createElement('a');
     a.href = url;
-    a.download = 'aboutfishing-sb-v48.html';
+    a.download = 'aboutfishing-sb-v76.html';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
