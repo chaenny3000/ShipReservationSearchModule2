@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko"><head>
 <meta charset="UTF-8">
-<title>어바웃피싱 스토리보드 v183</title>
+<title>어바웃피싱 스토리보드 v148</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -2724,8 +2724,12 @@ function _clearDateChipUI() {
   });
 }
 function chipDateClick() {
-  if(_selDate) { _selDate=&#x27;&#x27;; _clearDateChipUI(); _updateResultSrchBar(); }
-  else         { openOv(&#x27;m-date&#x27;); }
+  /* 사용자가 직접 설정한 날짜 → 클릭 시 &#x27;tomorrow&#x27;(기본)으로 복원 */
+  if(_selDate &amp;&amp; _selDate !== &#x27;tomorrow&#x27;) {
+    _selDate = &#x27;tomorrow&#x27;; _clearDateChipUI(); _updateResultSrchBar();
+  } else {
+    openOv(&#x27;m-date&#x27;);
+  }
 }
 function chipFishClick() {
   if(_selFish[0]!==&#x27;전체&#x27;) {
@@ -2738,25 +2742,18 @@ function chipRegClick() {
   } else { openOv(&#x27;m-reg&#x27;); }
 }
 function chipPplClick() {
-  var cp = document.getElementById(&#x27;chip-ppl&#x27;);
-  var cpw = document.getElementById(&#x27;chip-ppl-wrap&#x27;);
-  /* 인원이 기본값(ppl)이 아니거나 칩에 숫자가 표시된 상태면 초기화 */
-  if(_selPpl !== ppl || (cp &amp;&amp; cp.textContent !== &#x27;인원&#x27;)) {
-    _selPpl = ppl;
-    if(cp)  cp.textContent = &#x27;인원&#x27;;
-    if(cpw) { cpw.style.background=&#x27;#fff&#x27;; cpw.style.border=&#x27;1px solid #E2E8F0&#x27;; cpw.style.color=&#x27;#4A5568&#x27;; cpw.style.fontWeight=&#x27;400&#x27;; }
-    _updateResultSrchBar();
-  } else { openOv(&#x27;m-ppl&#x27;); }
+  /* 인원은 항상 존재하는 값 → 클릭 시 변경 오버레이 */
+  openOv(&#x27;m-ppl&#x27;);
 }
 
 function _resetResultFilters() {
   /* 결과화면 이탈 시 필터 초기화 */
   _selFish = [&#x27;전체&#x27;];
   _selReg  = [&#x27;전체&#x27;];
-  _selDate = &#x27;&#x27;;
+  _selDate = &#x27;tomorrow&#x27;; /* 맥락 유지 - 칩은 비활성, 검색바엔 내일 날짜 */
   _selPpl  = ppl;
   resetChips();
-  /* 날짜 칩 초기화 (id 기반으로 정확히) */
+  /* 날짜 칩 비활성 UI로 */
   _clearDateChipUI();
 }
 
@@ -4665,7 +4662,7 @@ function _syncChipBarReg() {
 function _updateFilterAllChip() {
   var fishActive = (_selFish[0] !== &#x27;전체&#x27;);
   var regActive  = (_selReg[0]  !== &#x27;전체&#x27;);
-  var dateActive = !!_selDate;
+  var dateActive = !!_selDate &amp;&amp; _selDate !== &#x27;tomorrow&#x27;;
   var pplActive  = ((_selPpl || ppl || 1) &gt; 1);
   var total = (fishActive?1:0) + (regActive?1:0) + (dateActive?1:0) + (pplActive?1:0);
   var fc = document.getElementById(&#x27;chip-filter-all&#x27;);
@@ -4743,10 +4740,11 @@ function _updateResultSrchBar() {
 
 /* 홈 검색모듈의 _sel* 상태를 결과화면 필터칩 UI에 반영 */
 function _applyChipsFromSelState() {
-  /* 날짜 칩 */
+  /* 날짜 칩: &#x27;tomorrow&#x27;(디폴트)이면 비활성 UI, 사용자 직접 선택이면 활성 UI */
   var cd  = document.getElementById(&#x27;chip-date&#x27;);
   var cdw = document.getElementById(&#x27;chip-date-wrap&#x27;);
-  if(_selDate) {
+  var dateUserSet = _selDate &amp;&amp; _selDate !== &#x27;tomorrow&#x27;;
+  if(dateUserSet) {
     var di = _getDateInfo(_selDate);
     if(cd)  cd.textContent = di ? di.chip : &#x27;날짜&#x27;;
     if(cdw) { cdw.style.background=&#x27;#EBF4FF&#x27;; cdw.style.border=&#x27;1.5px solid #1A56DB&#x27;; cdw.style.color=&#x27;#1A56DB&#x27;; cdw.style.fontWeight=&#x27;700&#x27;; }
@@ -4762,13 +4760,8 @@ function _applyChipsFromSelState() {
   var cp  = document.getElementById(&#x27;chip-ppl&#x27;);
   var cpw = document.getElementById(&#x27;chip-ppl-wrap&#x27;);
   var curPpl = _selPpl || ppl || 1;
-  if(curPpl &gt; 1) {
-    if(cp)  cp.textContent = curPpl + &#x27;명&#x27;;
-    if(cpw) { cpw.style.background=&#x27;#EBF4FF&#x27;; cpw.style.border=&#x27;1.5px solid #1A56DB&#x27;; cpw.style.color=&#x27;#1A56DB&#x27;; cpw.style.fontWeight=&#x27;700&#x27;; }
-  } else {
-    if(cp)  cp.textContent = &#x27;인원&#x27;;
-    if(cpw) { cpw.style.background=&#x27;#fff&#x27;; cpw.style.border=&#x27;1px solid #E2E8F0&#x27;; cpw.style.color=&#x27;#4A5568&#x27;; cpw.style.fontWeight=&#x27;400&#x27;; }
-  }
+  if(cp)  cp.textContent = curPpl + &#x27;명&#x27;;
+  if(cpw) { cpw.style.background=&#x27;#EBF4FF&#x27;; cpw.style.border=&#x27;1.5px solid #1A56DB&#x27;; cpw.style.color=&#x27;#1A56DB&#x27;; cpw.style.fontWeight=&#x27;700&#x27;; }
   /* 전체필터 카운터 동기화 */
   _updateFilterAllChip();
   /* 검색바 텍스트 동기화 */
@@ -4830,7 +4823,7 @@ function syncSFOverlay() {
     var active=false;
     if(type===&#x27;fish&#x27;)   active = activeFish.indexOf(val) &gt;= 0;
     if(type===&#x27;region&#x27;) active = activeRegions.indexOf(val) &gt;= 0;
-    if(type===&#x27;date&#x27;)   active = (typeof _selDate!==&#x27;undefined&#x27;) &amp;&amp; _selDate === val;
+    if(type===&#x27;date&#x27;)   active = !!_selDate &amp;&amp; _selDate !== &#x27;tomorrow&#x27; &amp;&amp; _selDate === val;
     chip.style.background  = active ? &#x27;#1A56DB&#x27; : &#x27;#fff&#x27;;
     chip.style.color       = active ? &#x27;#fff&#x27;     : &#x27;#4A5568&#x27;;
     chip.style.borderColor = active ? &#x27;#1A56DB&#x27;  : &#x27;#E2E8F0&#x27;;
