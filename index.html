@@ -528,21 +528,7 @@ body{font-family:-apple-system,&#x27;Apple SD Gothic Neo&#x27;,&#x27;Noto Sans K
     &lt;/div&gt;
 
 
-    &lt;!-- 🔔 어종 시즌 알림 배너 (dismissible) --&gt;
-    &lt;div id=&quot;season-alert-bar&quot; style=&quot;margin:10px 8px 0;background:linear-gradient(135deg,#0B2747,#1A56DB);border-radius:14px;padding:14px;position:relative;overflow:hidden&quot;&gt;
-      &lt;div class=&quot;btn&quot; onclick=&quot;document.getElementById(&#x27;season-alert-bar&#x27;).style.display=&#x27;none&#x27;&quot; style=&quot;position:absolute;top:8px;right:10px;color:rgba(255,255,255,.45);font-size:16px;line-height:1&quot;&gt;✕&lt;/div&gt;
-      &lt;div style=&quot;display:flex;align-items:center;gap:10px;margin-bottom:10px&quot;&gt;
-        &lt;span style=&quot;font-size:26px&quot;&gt;🦑&lt;/span&gt;
-        &lt;div&gt;
-          &lt;div style=&quot;font-size:13px;font-weight:900;color:#fff&quot;&gt;이번 주 갑오징어 조황 급상승!&lt;/div&gt;
-          &lt;div style=&quot;font-size:11px;color:rgba(255,255,255,.7);margin-top:2px&quot;&gt;충남 오천항 기준 평균 38마리 · 지금이 시즌 피크&lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;div style=&quot;display:flex;gap:8px&quot;&gt;
-        &lt;div class=&quot;btn&quot; onclick=&quot;doSearchKw(&#x27;갑오징어&#x27;)&quot; style=&quot;flex:2;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:8px 12px;font-size:12px;font-weight:700;color:#fff;text-align:center&quot;&gt;갑오징어 선박 보러 가기 →&lt;/div&gt;
-        &lt;div class=&quot;btn&quot; onclick=&quot;showToast(&#x27;알림 구독 완료! 조황 변동 시 알려드릴게요 🔔&#x27;);document.getElementById(&#x27;season-alert-bar&#x27;).style.display=&#x27;none&#x27;&quot; style=&quot;flex:1;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:8px;font-size:11px;font-weight:700;color:rgba(255,255,255,.8);text-align:center&quot;&gt;🔔 알림 받기&lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
+    
 
     &lt;!-- ★ 시즌 배너 --&gt;
     &lt;div style=&quot;margin:12px 8px 14px;border-radius:14px;position:relative;overflow:hidden&quot; id=&quot;season-banner-wrap&quot;&gt;
@@ -881,66 +867,7 @@ body{font-family:-apple-system,&#x27;Apple SD Gothic Neo&#x27;,&#x27;Noto Sans K
       &lt;/div&gt;
     &lt;/div&gt;
 
-      &lt;!-- ── 📢 실시간 조황 알림 (인라인 섹션) ── --&gt;
-  &lt;div style=&quot;padding:0 16px 16px&quot;&gt;
-    &lt;div style=&quot;display:flex;align-items:center;justify-content:space-between;padding:16px 0 10px&quot;&gt;
-      &lt;div style=&quot;display:flex;align-items:center;gap:6px&quot;&gt;
-        &lt;span style=&quot;font-size:16px;font-weight:900&quot;&gt;📢 실시간 알림&lt;/span&gt;
-        &lt;span style=&quot;background:#EF4444;color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:20px&quot;&gt;LIVE&lt;/span&gt;
-      &lt;/div&gt;
-      &lt;div class=&quot;btn&quot; onclick=&quot;go(&#x27;s-notify&#x27;)&quot; style=&quot;font-size:12px;color:#6B7280&quot;&gt;전체보기 ›&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div id=&quot;alert-module&quot; style=&quot;border-radius:16px;overflow:hidden&quot;&gt;
-      &lt;div id=&quot;alert-card&quot;&gt;
-&lt;div id=&quot;alert-bg&quot; style=&quot;background:linear-gradient(135deg,#1A0A2E,#4C1D95);padding:12px 14px&quot;&gt;
-        &lt;div style=&quot;display:flex;align-items:flex-start;gap:10px&quot;&gt;
-          &lt;!-- 라이브 + 아이콘 --&gt;
-          &lt;div style=&quot;position:relative;flex-shrink:0;margin-top:2px&quot;&gt;
-            &lt;div id=&quot;alert-icon&quot; style=&quot;font-size:26px&quot;&gt;🦑&lt;/div&gt;
-            &lt;div id=&quot;alert-live&quot; style=&quot;position:absolute;top:-4px;right:-4px;width:9px;height:9px;background:#22C55E;border-radius:50%;border:1.5px solid #fff;animation:livePulse 1.4s infinite&quot;&gt;&lt;/div&gt;
-          &lt;/div&gt;
-          &lt;!-- 텍스트 --&gt;
-          &lt;div style=&quot;flex:1;min-width:0&quot;&gt;
-            &lt;div style=&quot;display:flex;align-items:center;gap:6px;margin-bottom:3px&quot;&gt;
-              &lt;span id=&quot;alert-badge&quot; style=&quot;font-size:9px;font-weight:800;color:#fff;background:rgba(255,255,255,.2);border-radius:999px;padding:2px 7px;letter-spacing:.3px&quot;&gt;실시간 조황&lt;/span&gt;
-              &lt;span id=&quot;alert-time&quot; style=&quot;font-size:10px;color:rgba(255,255,255,.5)&quot;&gt;방금 업데이트&lt;/span&gt;
-            &lt;/div&gt;
-            &lt;div id=&quot;alert-title&quot; style=&quot;font-size:14px;font-weight:800;color:#fff;line-height:1.35;margin-bottom:3px&quot;&gt;이번 주 갑오징어 조황 급상승!&lt;/div&gt;
-            &lt;div id=&quot;alert-desc&quot; style=&quot;font-size:11px;color:rgba(255,255,255,.75);line-height:1.5&quot;&gt;충남 오천항 기준 평균 38마리 · 지금이 시즌 피크&lt;/div&gt;
-            &lt;!-- 스파크라인 트렌드 --&gt;
-            &lt;div id=&quot;alert-spark&quot; style=&quot;display:flex;align-items:flex-end;gap:2px;margin-top:8px;height:20px&quot;&gt;
-              &lt;div style=&quot;width:6px;background:rgba(255,255,255,.25);border-radius:2px 2px 0 0;height:30%&quot;&gt;&lt;/div&gt;
-              &lt;div style=&quot;width:6px;background:rgba(255,255,255,.3);border-radius:2px 2px 0 0;height:40%&quot;&gt;&lt;/div&gt;
-              &lt;div style=&quot;width:6px;background:rgba(255,255,255,.35);border-radius:2px 2px 0 0;height:45%&quot;&gt;&lt;/div&gt;
-              &lt;div style=&quot;width:6px;background:rgba(255,255,255,.4);border-radius:2px 2px 0 0;height:55%&quot;&gt;&lt;/div&gt;
-              &lt;div style=&quot;width:6px;background:rgba(255,255,255,.5);border-radius:2px 2px 0 0;height:65%&quot;&gt;&lt;/div&gt;
-              &lt;div style=&quot;width:6px;background:rgba(255,255,255,.65);border-radius:2px 2px 0 0;height:75%&quot;&gt;&lt;/div&gt;
-              &lt;div style=&quot;width:6px;background:#22C55E;border-radius:2px 2px 0 0;height:100%&quot;&gt;&lt;/div&gt;
-              &lt;span style=&quot;font-size:9px;color:#22C55E;font-weight:700;margin-left:4px;align-self:flex-end&quot;&gt;▲ 급상승&lt;/span&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-          &lt;!-- 닫기 --&gt;
-          &lt;div class=&quot;btn&quot; onclick=&quot;document.getElementById(&#x27;alert-module&#x27;).style.display=&#x27;none&#x27;&quot; style=&quot;padding:4px;opacity:.6&quot;&gt;
-            &lt;svg width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#fff&quot; stroke-width=&quot;2.5&quot;&gt;&lt;line x1=&quot;18&quot; y1=&quot;6&quot; x2=&quot;6&quot; y2=&quot;18&quot;/&gt;&lt;line x1=&quot;6&quot; y1=&quot;6&quot; x2=&quot;18&quot; y2=&quot;18&quot;/&gt;&lt;/svg&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;!-- CTA 버튼 --&gt;
-        &lt;div style=&quot;display:flex;gap:8px;margin-top:10px&quot;&gt;
-          &lt;div id=&quot;alert-cta1&quot; class=&quot;btn&quot; onclick=&quot;go(&#x27;s-search&#x27;)&quot; style=&quot;flex:1;background:rgba(255,255,255,.95);border-radius:8px;padding:8px 10px;text-align:center;font-size:12px;font-weight:800;color:#4C1D95&quot;&gt;갑오징어 선박 보러 가기 →&lt;/div&gt;
-          &lt;div id=&quot;alert-cta2&quot; class=&quot;btn&quot; onclick=&quot;showToast(&#x27;조황 알림이 설정됐어요! 🔔&#x27;);cycleAlert()&quot; style=&quot;background:rgba(255,255,255,.15);border-radius:8px;padding:8px 12px;font-size:12px;font-weight:700;color:#fff;white-space:nowrap&quot;&gt;🔔 알림 받기&lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-        &lt;!-- 페이지 인디케이터 --&gt;
-&lt;div style=&quot;display:flex;justify-content:center;gap:4px;padding:6px 0;background:#fff&quot;&gt;
-        &lt;div id=&quot;dot-0&quot; style=&quot;width:16px;height:4px;background:#1A56DB;border-radius:2px;transition:all .3s&quot;&gt;&lt;/div&gt;
-        &lt;div id=&quot;dot-1&quot; style=&quot;width:4px;height:4px;background:#E2E8F0;border-radius:2px;transition:all .3s&quot;&gt;&lt;/div&gt;
-        &lt;div id=&quot;dot-2&quot; style=&quot;width:4px;height:4px;background:#E2E8F0;border-radius:2px;transition:all .3s&quot;&gt;&lt;/div&gt;
-        &lt;div id=&quot;dot-3&quot; style=&quot;width:4px;height:4px;background:#E2E8F0;border-radius:2px;transition:all .3s&quot;&gt;&lt;/div&gt;
-        &lt;div class=&quot;btn&quot; onclick=&quot;go(&#x27;s-notify&#x27;)&quot; style=&quot;margin-left:8px;font-size:10px;color:#A0AEC0;font-weight:600;padding:0 4px&quot;&gt;전체보기&lt;/div&gt;
-      &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
+      
   &lt;!-- /📢 실시간 조황 알림 --&gt;
 
 
