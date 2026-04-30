@@ -1145,135 +1145,211 @@ body{font-family:-apple-system,&#x27;Apple SD Gothic Neo&#x27;,&#x27;Noto Sans K
 
 &lt;!-- ═══ S-SEARCH ═══ --&gt;
 &lt;div id=&quot;s-search&quot; class=&quot;sc&quot;&gt;
+  &lt;!-- 검색 GNB --&gt;
   &lt;div style=&quot;background:#fff;padding:46px 14px 10px;flex-shrink:0;border-bottom:1px solid #E2E8F0&quot;&gt;
     &lt;div style=&quot;display:flex;align-items:center;gap:10px&quot;&gt;
-      &lt;div class=&quot;btn&quot; onclick=&quot;back()&quot;&gt;&lt;svg width=&quot;22&quot; height=&quot;22&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#1A202C&quot; stroke-width=&quot;2.5&quot;&gt;&lt;path d=&quot;M19 12H5&quot;/&gt;&lt;path d=&quot;M12 19l-7-7 7-7&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;
-      &lt;div style=&quot;flex:1;background:#F7F8FA;border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:8px;border:1.5px solid #E2E8F0&quot;&gt;
-        &lt;svg width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#A0AEC0&quot; stroke-width=&quot;2&quot;&gt;&lt;circle cx=&quot;11&quot; cy=&quot;11&quot; r=&quot;8&quot;/&gt;&lt;line x1=&quot;21&quot; y1=&quot;21&quot; x2=&quot;16.65&quot; y2=&quot;16.65&quot;/&gt;&lt;/svg&gt;
-        &lt;input id=&quot;srch-inp&quot; type=&quot;text&quot; style=&quot;border:none;background:transparent;font:14px sans-serif;flex:1;outline:none;color:#1A202C&quot; placeholder=&quot;낚싯배, 배 검색&quot; oninput=&quot;onSrchInput(this.value)&quot; onkeydown=&quot;if(event.key===&#x27;Enter&#x27;){doSearch();}&quot;&gt;
-        &lt;div id=&quot;srch-clear&quot; style=&quot;display:none;cursor:pointer&quot; onclick=&quot;clearSrch()&quot;&gt;&lt;svg width=&quot;15&quot; height=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#A0AEC0&quot; stroke-width=&quot;2&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot;/&gt;&lt;line x1=&quot;15&quot; y1=&quot;9&quot; x2=&quot;9&quot; y2=&quot;15&quot;/&gt;&lt;line x1=&quot;9&quot; y1=&quot;9&quot; x2=&quot;15&quot; y2=&quot;15&quot;/&gt;&lt;/svg&gt;&lt;/div&gt;
+      &lt;div class=&quot;btn&quot; onclick=&quot;back()&quot; style=&quot;flex-shrink:0&quot;&gt;
+        &lt;svg width=&quot;22&quot; height=&quot;22&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#1A202C&quot; stroke-width=&quot;2.5&quot;&gt;&lt;path d=&quot;M19 12H5&quot;/&gt;&lt;path d=&quot;M12 19l-7-7 7-7&quot;/&gt;&lt;/svg&gt;
       &lt;/div&gt;
-      &lt;div class=&quot;btn&quot; onclick=&quot;doSearch()&quot; style=&quot;font-size:14px;font-weight:700;color:#1A56DB&quot;&gt;검색&lt;/div&gt;
+      &lt;div style=&quot;flex:1;display:flex;align-items:center;background:#F7F8FA;border:1.5px solid #E2E8F0;border-radius:12px;padding:10px 12px;gap:8px&quot;&gt;
+        &lt;svg width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#A0AEC0&quot; stroke-width=&quot;2.5&quot;&gt;&lt;circle cx=&quot;11&quot; cy=&quot;11&quot; r=&quot;8&quot;/&gt;&lt;line x1=&quot;21&quot; y1=&quot;21&quot; x2=&quot;16.65&quot; y2=&quot;16.65&quot;/&gt;&lt;/svg&gt;
+        &lt;input id=&quot;srch-inp&quot; oninput=&quot;onSrchInput(this.value)&quot; onkeydown=&quot;if(event.key===&#x27;Enter&#x27;)doSearch()&quot;
+          style=&quot;flex:1;border:none;background:transparent;font:15px/1 -apple-system,sans-serif;color:#1A202C;outline:none&quot;
+          placeholder=&quot;어종·지역·선박명으로 검색&quot; autocomplete=&quot;off&quot;&gt;
+        &lt;div id=&quot;srch-clear&quot; class=&quot;btn&quot; onclick=&quot;clearSrch()&quot; style=&quot;display:none;width:18px;height:18px;background:#CBD5E0;border-radius:50%;display:none;align-items:center;justify-content:center;flex-shrink:0&quot;&gt;
+          &lt;svg width=&quot;10&quot; height=&quot;10&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#fff&quot; stroke-width=&quot;3&quot;&gt;&lt;line x1=&quot;18&quot; y1=&quot;6&quot; x2=&quot;6&quot; y2=&quot;18&quot;/&gt;&lt;line x1=&quot;6&quot; y1=&quot;6&quot; x2=&quot;18&quot; y2=&quot;18&quot;/&gt;&lt;/svg&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;btn&quot; onclick=&quot;doSearch()&quot; style=&quot;flex-shrink:0;font-size:14px;font-weight:700;color:#1A56DB&quot;&gt;검색&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- 자동완성 --&gt;
+    &lt;div id=&quot;srch-auto&quot; style=&quot;display:none;margin-top:8px&quot;&gt;
+      &lt;div class=&quot;btn&quot; onclick=&quot;document.getElementById(&#x27;srch-inp&#x27;).value=&#x27;갑오징어&#x27;;doSearch()&quot; style=&quot;display:flex;align-items:center;gap:10px;padding:10px 4px;border-bottom:1px solid #F1F5F9&quot;&gt;
+        &lt;svg width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#A0AEC0&quot; stroke-width=&quot;2&quot;&gt;&lt;circle cx=&quot;11&quot; cy=&quot;11&quot; r=&quot;8&quot;/&gt;&lt;line x1=&quot;21&quot; y1=&quot;21&quot; x2=&quot;16.65&quot; y2=&quot;16.65&quot;/&gt;&lt;/svg&gt;
+        &lt;span id=&quot;srch-kw&quot; style=&quot;font-size:14px;color:#1A202C&quot;&gt;갑오징어&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;btn&quot; onclick=&quot;document.getElementById(&#x27;srch-inp&#x27;).value=&#x27;갑오징어 인천&#x27;;doSearch()&quot; style=&quot;display:flex;align-items:center;gap:10px;padding:10px 4px&quot;&gt;
+        &lt;svg width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#A0AEC0&quot; stroke-width=&quot;2&quot;&gt;&lt;circle cx=&quot;11&quot; cy=&quot;11&quot; r=&quot;8&quot;/&gt;&lt;line x1=&quot;21&quot; y1=&quot;21&quot; x2=&quot;16.65&quot; y2=&quot;16.65&quot;/&gt;&lt;/svg&gt;
+        &lt;span style=&quot;font-size:14px;color:#1A202C&quot;&gt;갑오징어 인천&lt;/span&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 
-  &lt;!-- 자동완성 리스트 (NEW: 아이콘 구분형) --&gt;
-  &lt;div id=&quot;srch-auto&quot; style=&quot;background:#fff;display:none;flex-shrink:0;border-bottom:1px solid #E2E8F0&quot;&gt;
-    &lt;div class=&quot;btn&quot; onclick=&quot;doSearchKw(&#x27;인천 갑오징어&#x27;)&quot; style=&quot;padding:12px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #F7F8FA&quot;&gt;
-      &lt;svg width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#A0AEC0&quot; stroke-width=&quot;2&quot;&gt;&lt;circle cx=&quot;11&quot; cy=&quot;11&quot; r=&quot;8&quot;/&gt;&lt;line x1=&quot;21&quot; y1=&quot;21&quot; x2=&quot;16.65&quot; y2=&quot;16.65&quot;/&gt;&lt;/svg&gt;
-      &lt;span style=&quot;font-size:14px;flex:1;color:#1A202C&quot;&gt;인천 갑오징어&lt;/span&gt;
-      &lt;svg width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#CBD5E0&quot; stroke-width=&quot;2&quot;&gt;&lt;line x1=&quot;18&quot; y1=&quot;6&quot; x2=&quot;6&quot; y2=&quot;18&quot;/&gt;&lt;line x1=&quot;6&quot; y1=&quot;6&quot; x2=&quot;18&quot; y2=&quot;18&quot;/&gt;&lt;/svg&gt;
-    &lt;/div&gt;&lt;div class=&quot;btn&quot; onclick=&quot;doSearchKw(&#x27;인천 참돔&#x27;)&quot; style=&quot;padding:12px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #F7F8FA&quot;&gt;
-      &lt;svg width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#A0AEC0&quot; stroke-width=&quot;2&quot;&gt;&lt;circle cx=&quot;11&quot; cy=&quot;11&quot; r=&quot;8&quot;/&gt;&lt;line x1=&quot;21&quot; y1=&quot;21&quot; x2=&quot;16.65&quot; y2=&quot;16.65&quot;/&gt;&lt;/svg&gt;
-      &lt;span style=&quot;font-size:14px;flex:1;color:#1A202C&quot;&gt;인천 참돔&lt;/span&gt;
-      &lt;svg width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#CBD5E0&quot; stroke-width=&quot;2&quot;&gt;&lt;line x1=&quot;18&quot; y1=&quot;6&quot; x2=&quot;6&quot; y2=&quot;18&quot;/&gt;&lt;line x1=&quot;6&quot; y1=&quot;6&quot; x2=&quot;18&quot; y2=&quot;18&quot;/&gt;&lt;/svg&gt;
-    &lt;/div&gt;&lt;div class=&quot;btn&quot; onclick=&quot;doSearchKw(&#x27;영흥도 인천호&#x27;)&quot; style=&quot;padding:12px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #F7F8FA&quot;&gt;
-      &lt;svg width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#1A56DB&quot; stroke-width=&quot;2&quot;&gt;&lt;path d=&quot;M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z&quot;/&gt;&lt;polyline points=&quot;14 2 14 8 20 8&quot;/&gt;&lt;/svg&gt;
-      &lt;span style=&quot;font-size:14px;flex:1;color:#1A202C&quot;&gt;영흥도 인천호&lt;/span&gt;
-      &lt;svg width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#CBD5E0&quot; stroke-width=&quot;2&quot;&gt;&lt;line x1=&quot;18&quot; y1=&quot;6&quot; x2=&quot;6&quot; y2=&quot;18&quot;/&gt;&lt;line x1=&quot;6&quot; y1=&quot;6&quot; x2=&quot;18&quot; y2=&quot;18&quot;/&gt;&lt;/svg&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-  &lt;!-- 목록 뷰 --&gt;
-  &lt;div id=&quot;search-list-view&quot; class=&quot;scr&quot; style=&quot;background:#fff&quot;&gt;
+  &lt;div class=&quot;scr&quot; style=&quot;background:#fff;padding:0 14px 24px&quot;&gt;
     &lt;!-- 최근 검색어 --&gt;
-    &lt;div style=&quot;padding:16px 14px 0&quot;&gt;
+    &lt;div style=&quot;margin-top:18px&quot;&gt;
       &lt;div style=&quot;display:flex;align-items:center;justify-content:space-between;margin-bottom:10px&quot;&gt;
-        &lt;span style=&quot;font-size:14px;font-weight:700&quot;&gt;최근 검색어&lt;/span&gt;
-        &lt;span style=&quot;font-size:12px;color:#A0AEC0;cursor:pointer&quot;&gt;전체 삭제&lt;/span&gt;
+        &lt;span style=&quot;font-size:13px;font-weight:800;color:#1A202C&quot;&gt;최근 검색어&lt;/span&gt;
+        &lt;span class=&quot;btn&quot; onclick=&quot;showToast(&#x27;검색 기록 삭제&#x27;)&quot; style=&quot;font-size:11px;color:#A0AEC0&quot;&gt;전체삭제&lt;/span&gt;
       &lt;/div&gt;
-      &lt;div style=&quot;display:flex;flex-wrap:wrap;gap:8px;padding-bottom:14px;border-bottom:1px solid #F0F2F5&quot;&gt;
-        &lt;div class=&quot;btn&quot; onclick=&quot;doSearchKw(&#x27;인천 갑오징어&#x27;)&quot; style=&quot;display:flex;align-items:center;gap:6px;border:1px solid #E2E8F0;border-radius:20px;padding:7px 14px;font-size:13px;color:#2D3748&quot;&gt;
-          인천 갑오징어
-          &lt;svg width=&quot;11&quot; height=&quot;11&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#A0AEC0&quot; stroke-width=&quot;2.5&quot;&gt;&lt;line x1=&quot;18&quot; y1=&quot;6&quot; x2=&quot;6&quot; y2=&quot;18&quot;/&gt;&lt;line x1=&quot;6&quot; y1=&quot;6&quot; x2=&quot;18&quot; y2=&quot;18&quot;/&gt;&lt;/svg&gt;
-        &lt;/div&gt;&lt;div class=&quot;btn&quot; onclick=&quot;doSearchKw(&#x27;경남 참돔&#x27;)&quot; style=&quot;display:flex;align-items:center;gap:6px;border:1px solid #E2E8F0;border-radius:20px;padding:7px 14px;font-size:13px;color:#2D3748&quot;&gt;
-          경남 참돔
-          &lt;svg width=&quot;11&quot; height=&quot;11&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#A0AEC0&quot; stroke-width=&quot;2.5&quot;&gt;&lt;line x1=&quot;18&quot; y1=&quot;6&quot; x2=&quot;6&quot; y2=&quot;18&quot;/&gt;&lt;line x1=&quot;6&quot; y1=&quot;6&quot; x2=&quot;18&quot; y2=&quot;18&quot;/&gt;&lt;/svg&gt;
-        &lt;/div&gt;&lt;div class=&quot;btn&quot; onclick=&quot;doSearchKw(&#x27;여수 문어&#x27;)&quot; style=&quot;display:flex;align-items:center;gap:6px;border:1px solid #E2E8F0;border-radius:20px;padding:7px 14px;font-size:13px;color:#2D3748&quot;&gt;
-          여수 문어
-          &lt;svg width=&quot;11&quot; height=&quot;11&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#A0AEC0&quot; stroke-width=&quot;2.5&quot;&gt;&lt;line x1=&quot;18&quot; y1=&quot;6&quot; x2=&quot;6&quot; y2=&quot;18&quot;/&gt;&lt;line x1=&quot;6&quot; y1=&quot;6&quot; x2=&quot;18&quot; y2=&quot;18&quot;/&gt;&lt;/svg&gt;
-        &lt;/div&gt;&lt;div class=&quot;btn&quot; onclick=&quot;doSearchKw(&#x27;추뮤미&#x27;)&quot; style=&quot;display:flex;align-items:center;gap:6px;border:1px solid #E2E8F0;border-radius:20px;padding:7px 14px;font-size:13px;color:#2D3748&quot;&gt;
-          추뮤미
-          &lt;svg width=&quot;11&quot; height=&quot;11&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#A0AEC0&quot; stroke-width=&quot;2.5&quot;&gt;&lt;line x1=&quot;18&quot; y1=&quot;6&quot; x2=&quot;6&quot; y2=&quot;18&quot;/&gt;&lt;line x1=&quot;6&quot; y1=&quot;6&quot; x2=&quot;18&quot; y2=&quot;18&quot;/&gt;&lt;/svg&gt;
+      &lt;div style=&quot;display:flex;flex-wrap:wrap;gap:8px&quot;&gt;
+        &lt;div class=&quot;btn&quot; onclick=&quot;document.getElementById(&#x27;srch-inp&#x27;).value=&#x27;갑오징어&#x27;;doSearch()&quot; style=&quot;display:flex;align-items:center;gap:6px;background:#F7F8FA;border:1px solid #E2E8F0;border-radius:20px;padding:7px 12px&quot;&gt;
+          &lt;span style=&quot;font-size:13px;color:#1A202C&quot;&gt;갑오징어&lt;/span&gt;
+          &lt;svg width=&quot;11&quot; height=&quot;11&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#CBD5E0&quot; stroke-width=&quot;2.5&quot;&gt;&lt;line x1=&quot;18&quot; y1=&quot;6&quot; x2=&quot;6&quot; y2=&quot;18&quot;/&gt;&lt;line x1=&quot;6&quot; y1=&quot;6&quot; x2=&quot;18&quot; y2=&quot;18&quot;/&gt;&lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;btn&quot; onclick=&quot;document.getElementById(&#x27;srch-inp&#x27;).value=&#x27;통영 참돔&#x27;;doSearch()&quot; style=&quot;display:flex;align-items:center;gap:6px;background:#F7F8FA;border:1px solid #E2E8F0;border-radius:20px;padding:7px 12px&quot;&gt;
+          &lt;span style=&quot;font-size:13px;color:#1A202C&quot;&gt;통영 참돔&lt;/span&gt;
+          &lt;svg width=&quot;11&quot; height=&quot;11&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#CBD5E0&quot; stroke-width=&quot;2.5&quot;&gt;&lt;line x1=&quot;18&quot; y1=&quot;6&quot; x2=&quot;6&quot; y2=&quot;18&quot;/&gt;&lt;line x1=&quot;6&quot; y1=&quot;6&quot; x2=&quot;18&quot; y2=&quot;18&quot;/&gt;&lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;btn&quot; onclick=&quot;document.getElementById(&#x27;srch-inp&#x27;).value=&#x27;블랙이글스&#x27;;doSearch()&quot; style=&quot;display:flex;align-items:center;gap:6px;background:#F7F8FA;border:1px solid #E2E8F0;border-radius:20px;padding:7px 12px&quot;&gt;
+          &lt;span style=&quot;font-size:13px;color:#1A202C&quot;&gt;블랙이글스&lt;/span&gt;
+          &lt;svg width=&quot;11&quot; height=&quot;11&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#CBD5E0&quot; stroke-width=&quot;2.5&quot;&gt;&lt;line x1=&quot;18&quot; y1=&quot;6&quot; x2=&quot;6&quot; y2=&quot;18&quot;/&gt;&lt;line x1=&quot;6&quot; y1=&quot;6&quot; x2=&quot;18&quot; y2=&quot;18&quot;/&gt;&lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;btn&quot; onclick=&quot;document.getElementById(&#x27;srch-inp&#x27;).value=&#x27;인천 광어&#x27;;doSearch()&quot; style=&quot;display:flex;align-items:center;gap:6px;background:#F7F8FA;border:1px solid #E2E8F0;border-radius:20px;padding:7px 12px&quot;&gt;
+          &lt;span style=&quot;font-size:13px;color:#1A202C&quot;&gt;인천 광어&lt;/span&gt;
+          &lt;svg width=&quot;11&quot; height=&quot;11&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;#CBD5E0&quot; stroke-width=&quot;2.5&quot;&gt;&lt;line x1=&quot;18&quot; y1=&quot;6&quot; x2=&quot;6&quot; y2=&quot;18&quot;/&gt;&lt;line x1=&quot;6&quot; y1=&quot;6&quot; x2=&quot;18&quot; y2=&quot;18&quot;/&gt;&lt;/svg&gt;
         &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 
-    &lt;!-- 인기 검색어 (리스트형 NEW) --&gt;
-    &lt;div style=&quot;padding:14px 14px 0&quot;&gt;
-      &lt;div style=&quot;font-size:14px;font-weight:700;margin-bottom:10px&quot;&gt;인기 검색어&lt;/div&gt;
-      &lt;div style=&quot;background:#F7F8FA;border-radius:10px;overflow:hidden&quot;&gt;
-        &lt;div class=&quot;btn&quot; onclick=&quot;doSearchKw(&#x27;오천항 뚜무리 낚시&#x27;)&quot; style=&quot;display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid #EDF2F7&quot;&gt;
-            &lt;span style=&quot;font-size:15px;font-weight:900;color:#1A56DB;width:16px&quot;&gt;1&lt;/span&gt;
-            &lt;span style=&quot;font-size:14px;font-weight:500;flex:1&quot;&gt;오천항 뚜무리 낚시&lt;/span&gt;
-            &lt;span style=&quot;font-size:10px;font-weight:800;color:#E53E3E;background:#FFF5F5;border-radius:3px;padding:1px 5px&quot;&gt;NEW&lt;/span&gt;
-          &lt;/div&gt;&lt;div class=&quot;btn&quot; onclick=&quot;doSearchKw(&#x27;대천함 갑오징어 전용선&#x27;)&quot; style=&quot;display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid #EDF2F7&quot;&gt;
-            &lt;span style=&quot;font-size:15px;font-weight:900;color:#1A56DB;width:16px&quot;&gt;2&lt;/span&gt;
-            &lt;span style=&quot;font-size:14px;font-weight:500;flex:1&quot;&gt;대천함 갑오징어 전용선&lt;/span&gt;
-            &lt;span style=&quot;font-size:11px;color:#CBD5E0&quot;&gt;—&lt;/span&gt;
-          &lt;/div&gt;&lt;div class=&quot;btn&quot; onclick=&quot;doSearchKw(&#x27;군산 비용항 광어다운샷&#x27;)&quot; style=&quot;display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid #EDF2F7&quot;&gt;
-            &lt;span style=&quot;font-size:15px;font-weight:900;color:#1A56DB;width:16px&quot;&gt;3&lt;/span&gt;
-            &lt;span style=&quot;font-size:14px;font-weight:500;flex:1&quot;&gt;군산 비용항 광어다운샷&lt;/span&gt;
-            &lt;span style=&quot;font-size:11px;color:#E53E3E&quot;&gt;▲&lt;/span&gt;
-          &lt;/div&gt;&lt;div class=&quot;btn&quot; onclick=&quot;doSearchKw(&#x27;여수 갈치 지깅&#x27;)&quot; style=&quot;display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid #EDF2F7&quot;&gt;
-            &lt;span style=&quot;font-size:15px;font-weight:900;color:#718096;width:16px&quot;&gt;4&lt;/span&gt;
-            &lt;span style=&quot;font-size:14px;font-weight:500;flex:1&quot;&gt;여수 갈치 지깅&lt;/span&gt;
-            &lt;span style=&quot;font-size:11px;color:#CBD5E0&quot;&gt;—&lt;/span&gt;
-          &lt;/div&gt;&lt;div class=&quot;btn&quot; onclick=&quot;doSearchKw(&#x27;속초 가자미 낚시 체험&#x27;)&quot; style=&quot;display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:none&quot;&gt;
-            &lt;span style=&quot;font-size:15px;font-weight:900;color:#718096;width:16px&quot;&gt;5&lt;/span&gt;
-            &lt;span style=&quot;font-size:14px;font-weight:500;flex:1&quot;&gt;속초 가자미 낚시 체험&lt;/span&gt;
-            &lt;span style=&quot;font-size:11px;color:#1A56DB&quot;&gt;▼&lt;/span&gt;
-          &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;div style=&quot;font-size:11px;color:#A0AEC0;margin-top:6px;padding-left:2px&quot;&gt;2023.10.27 14:00 기준&lt;/div&gt;
-    &lt;/div&gt;
-&lt;div class=&quot;btn&quot; style=&quot;margin:0 14px 0;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:8px;padding:9px 14px;display:flex;align-items:center;gap:8px;flex-shrink:0&quot; onclick=&quot;showToast(&#x27;광고 페이지로 이동합니다&#x27;)&quot;&gt;
-  &lt;span style=&quot;flex-shrink:0;font-size:9px;font-weight:800;background:#16A34A;color:#fff;border-radius:3px;padding:2px 5px&quot;&gt;광고&lt;/span&gt;
-  &lt;span style=&quot;flex:1;font-size:12px;font-weight:600;color:#1A202C;white-space:nowrap;overflow:hidden;text-overflow:ellipsis&quot;&gt;어바웃피싱 초보자 강좌 · 첫 출조 완전정복&lt;/span&gt;
-  &lt;span style=&quot;flex-shrink:0;font-size:11px;font-weight:700;color:#15803D&quot;&gt;수강 →&lt;/span&gt;
-&lt;/div&gt;
-
-    &lt;!-- HOT DESTINATION 광고 배너 (NEW) --&gt;
-    &lt;div style=&quot;padding:14px 14px 0&quot;&gt;
-      &lt;div class=&quot;btn&quot; onclick=&quot;go(&#x27;s-detail&#x27;)&quot; style=&quot;background:linear-gradient(135deg,#0B2747,#1A56DB);border-radius:12px;padding:16px;display:flex;align-items:center;justify-content:space-between;position:relative;overflow:hidden&quot;&gt;
-        &lt;div style=&quot;position:absolute;right:-20px;bottom:-20px;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,.08)&quot;&gt;&lt;/div&gt;
-        &lt;div&gt;
-          &lt;div style=&quot;background:rgba(255,255,255,.2);border-radius:4px;padding:2px 8px;font-size:10px;font-weight:800;color:#fff;display:inline-block;margin-bottom:6px&quot;&gt;HOT DESTINATION&lt;/div&gt;
-          &lt;div style=&quot;font-size:14px;font-weight:800;color:#fff;line-height:1.4;margin-bottom:4px&quot;&gt;지금 가장 핫한&lt;br&gt;인천 알바다 포인트&lt;/div&gt;
-          &lt;div style=&quot;font-size:12px;color:rgba(255,255,255,.7)&quot;&gt;현재 뚜무리 조황이 가장 좋습니다&lt;/div&gt;
-          &lt;div style=&quot;margin-top:10px;background:rgba(255,255,255,.2);border-radius:6px;padding:7px 14px;display:inline-block&quot;&gt;
-            &lt;span style=&quot;font-size:13px;font-weight:700;color:#fff&quot;&gt;자세히 보기&lt;/span&gt;
+    &lt;!-- 띠 광고 배너 --&gt;
+    &lt;div style=&quot;margin:16px -14px 0;overflow:hidden&quot;&gt;
+      &lt;!-- 배너 1: 봄 시즌 할인 --&gt;
+      &lt;div id=&quot;srch-bnr&quot; class=&quot;btn&quot; onclick=&quot;showToast(&#x27;이벤트 페이지로 이동합니다&#x27;)&quot;
+        style=&quot;display:flex;align-items:center;justify-content:space-between;
+        background:linear-gradient(90deg,#1A56DB,#3B82F6);
+        padding:10px 16px;gap:10px;animation:srchBnrSlide 8s infinite&quot;&gt;
+        &lt;div style=&quot;display:flex;align-items:center;gap:8px;min-width:0&quot;&gt;
+          &lt;span style=&quot;font-size:16px;flex-shrink:0&quot;&gt;🎣&lt;/span&gt;
+          &lt;div style=&quot;min-width:0&quot;&gt;
+            &lt;span style=&quot;font-size:12px;font-weight:900;color:#fff;white-space:nowrap&quot;&gt;봄 시즌 특가&lt;/span&gt;
+            &lt;span style=&quot;font-size:11px;color:rgba(255,255,255,.8);margin-left:6px;white-space:nowrap&quot;&gt;선착순 50명 · 최대 30% 할인&lt;/span&gt;
           &lt;/div&gt;
         &lt;/div&gt;
-        &lt;div style=&quot;font-size:40px;flex-shrink:0;margin-left:10px&quot;&gt;🌊&lt;/div&gt;
+        &lt;div style=&quot;flex-shrink:0;background:rgba(255,255,255,.2);border-radius:20px;padding:4px 10px;border:1px solid rgba(255,255,255,.4)&quot;&gt;
+          &lt;span style=&quot;font-size:11px;font-weight:800;color:#fff;white-space:nowrap&quot;&gt;지금 보기 ›&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;!-- 배너 2: 신규가입 --&gt;
+      &lt;div id=&quot;srch-bnr2&quot; style=&quot;display:flex;align-items:center;justify-content:space-between;
+        background:linear-gradient(90deg,#7C3AED,#A855F7);
+        padding:10px 16px;gap:10px;margin-top:1px&quot; class=&quot;btn&quot; onclick=&quot;showToast(&#x27;쿠폰 발급 페이지&#x27;)&quot;&gt;
+        &lt;div style=&quot;display:flex;align-items:center;gap:8px&quot;&gt;
+          &lt;span style=&quot;font-size:16px;flex-shrink:0&quot;&gt;🎫&lt;/span&gt;
+          &lt;span style=&quot;font-size:12px;font-weight:900;color:#fff&quot;&gt;신규 가입 쿠폰&lt;/span&gt;
+          &lt;span style=&quot;font-size:11px;color:rgba(255,255,255,.8)&quot;&gt;첫 예약 10,000원 할인&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div style=&quot;flex-shrink:0;background:rgba(255,255,255,.2);border-radius:20px;padding:4px 10px;border:1px solid rgba(255,255,255,.4)&quot;&gt;
+          &lt;span style=&quot;font-size:11px;font-weight:800;color:#fff;white-space:nowrap&quot;&gt;받기 ›&lt;/span&gt;
+        &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 
-    &lt;!-- 최근 본 선박 --&gt;
-    &lt;div style=&quot;padding:14px 14px 20px&quot;&gt;
-      &lt;div style=&quot;font-size:14px;font-weight:700;margin-bottom:10px&quot;&gt;최근 본 선박&lt;/div&gt;
-      &lt;div style=&quot;display:flex;gap:10px;overflow-x:auto;scrollbar-width:none&quot;&gt;
-        &lt;div class=&quot;btn&quot; onclick=&quot;go(&#x27;s-detail&#x27;)&quot; style=&quot;flex-shrink:0;width:120px&quot;&gt;
-          &lt;div style=&quot;width:120px;height:88px;background:linear-gradient(160deg,#0B2747,#0B274788);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:6px;position:relative&quot;&gt;
-            ⛵&lt;div style=&quot;position:absolute;top:6px;right:6px;background:#1A7F54;border-radius:3px;padding:1px 6px;font-size:9px;font-weight:700;color:#fff&quot;&gt;오늘&lt;/div&gt;
-          &lt;/div&gt;
-          &lt;div style=&quot;font-size:12px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap&quot;&gt;블랙이글스호&lt;/div&gt;
-          &lt;div style=&quot;font-size:11px;color:#718096;margin-top:1px&quot;&gt;인천&lt;/div&gt;
-          &lt;div style=&quot;font-size:13px;font-weight:700;color:#1A56DB;margin-top:2px&quot;&gt;90,000원~&lt;/div&gt;
-        &lt;/div&gt;&lt;div class=&quot;btn&quot; onclick=&quot;go(&#x27;s-detail&#x27;)&quot; style=&quot;flex-shrink:0;width:120px&quot;&gt;
-          &lt;div style=&quot;width:120px;height:88px;background:linear-gradient(160deg,#1A3A1A,#1A3A1A88);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:6px;position:relative&quot;&gt;
-            ⛵&lt;div style=&quot;position:absolute;top:6px;right:6px;background:#1A7F54;border-radius:3px;padding:1px 6px;font-size:9px;font-weight:700;color:#fff&quot;&gt;뚜무리&lt;/div&gt;
-          &lt;/div&gt;
-          &lt;div style=&quot;font-size:12px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap&quot;&gt;바다정복호&lt;/div&gt;
-          &lt;div style=&quot;font-size:11px;color:#718096;margin-top:1px&quot;&gt;경남&lt;/div&gt;
-          &lt;div style=&quot;font-size:13px;font-weight:700;color:#1A56DB;margin-top:2px&quot;&gt;85,000원~&lt;/div&gt;
-        &lt;/div&gt;&lt;div class=&quot;btn&quot; onclick=&quot;go(&#x27;s-detail&#x27;)&quot; style=&quot;flex-shrink:0;width:120px&quot;&gt;
-          &lt;div style=&quot;width:120px;height:88px;background:linear-gradient(160deg,#2A1A0A,#2A1A0A88);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:6px;position:relative&quot;&gt;
-            ⛵&lt;div style=&quot;position:absolute;top:6px;right:6px;background:#1A7F54;border-radius:3px;padding:1px 6px;font-size:9px;font-weight:700;color:#fff&quot;&gt;곧&lt;/div&gt;
-          &lt;/div&gt;
-          &lt;div style=&quot;font-size:12px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap&quot;&gt;씨마스터호&lt;/div&gt;
-          &lt;div style=&quot;font-size:11px;color:#718096;margin-top:1px&quot;&gt;인천&lt;/div&gt;
-          &lt;div style=&quot;font-size:13px;font-weight:700;color:#1A56DB;margin-top:2px&quot;&gt;110,000원~&lt;/div&gt;
+    &lt;!-- 인기 검색어 --&gt;
+    &lt;div style=&quot;margin-top:22px&quot;&gt;
+      &lt;div style=&quot;font-size:13px;font-weight:800;color:#1A202C;margin-bottom:10px&quot;&gt;🔥 인기 검색어&lt;/div&gt;
+      &lt;div style=&quot;display:grid;grid-template-columns:1fr 1fr;gap:0&quot;&gt;
+        &lt;div class=&quot;btn&quot; onclick=&quot;document.getElementById(&#x27;srch-inp&#x27;).value=&#x27;갑오징어&#x27;;doSearch()&quot; style=&quot;display:flex;align-items:center;gap:10px;padding:10px 4px;border-bottom:1px solid #F1F5F9&quot;&gt;
+          &lt;span style=&quot;font-size:13px;font-weight:800;color:#1A56DB;min-width:18px&quot;&gt;1&lt;/span&gt;
+          &lt;span style=&quot;font-size:14px;color:#1A202C&quot;&gt;갑오징어&lt;/span&gt;
+          &lt;span style=&quot;margin-left:auto;font-size:10px;color:#22C55E;font-weight:700&quot;&gt;↑&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;btn&quot; onclick=&quot;document.getElementById(&#x27;srch-inp&#x27;).value=&#x27;광어&#x27;;doSearch()&quot; style=&quot;display:flex;align-items:center;gap:10px;padding:10px 4px;border-bottom:1px solid #F1F5F9;padding-left:16px&quot;&gt;
+          &lt;span style=&quot;font-size:13px;font-weight:800;color:#1A56DB;min-width:18px&quot;&gt;2&lt;/span&gt;
+          &lt;span style=&quot;font-size:14px;color:#1A202C&quot;&gt;광어&lt;/span&gt;
+          &lt;span style=&quot;margin-left:auto;font-size:10px;color:#E53E3E;font-weight:700&quot;&gt;↓&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;btn&quot; onclick=&quot;document.getElementById(&#x27;srch-inp&#x27;).value=&#x27;통영&#x27;;doSearch()&quot; style=&quot;display:flex;align-items:center;gap:10px;padding:10px 4px;border-bottom:1px solid #F1F5F9&quot;&gt;
+          &lt;span style=&quot;font-size:13px;font-weight:800;color:#1A56DB;min-width:18px&quot;&gt;3&lt;/span&gt;
+          &lt;span style=&quot;font-size:14px;color:#1A202C&quot;&gt;통영&lt;/span&gt;
+          &lt;span style=&quot;margin-left:auto;font-size:10px;color:#22C55E;font-weight:700&quot;&gt;NEW&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;btn&quot; onclick=&quot;document.getElementById(&#x27;srch-inp&#x27;).value=&#x27;우럭&#x27;;doSearch()&quot; style=&quot;display:flex;align-items:center;gap:10px;padding:10px 4px;border-bottom:1px solid #F1F5F9;padding-left:16px&quot;&gt;
+          &lt;span style=&quot;font-size:13px;font-weight:800;color:#1A56DB;min-width:18px&quot;&gt;4&lt;/span&gt;
+          &lt;span style=&quot;font-size:14px;color:#1A202C&quot;&gt;우럭&lt;/span&gt;
+          &lt;span style=&quot;margin-left:auto;font-size:10px;color:#A0AEC0;font-weight:700&quot;&gt;-&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;btn&quot; onclick=&quot;document.getElementById(&#x27;srch-inp&#x27;).value=&#x27;인천&#x27;;doSearch()&quot; style=&quot;display:flex;align-items:center;gap:10px;padding:10px 4px;border-bottom:1px solid #F1F5F9&quot;&gt;
+          &lt;span style=&quot;font-size:13px;font-weight:800;color:#1A56DB;min-width:18px&quot;&gt;5&lt;/span&gt;
+          &lt;span style=&quot;font-size:14px;color:#1A202C&quot;&gt;인천&lt;/span&gt;
+          &lt;span style=&quot;margin-left:auto;font-size:10px;color:#E53E3E;font-weight:700&quot;&gt;↓&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;btn&quot; onclick=&quot;document.getElementById(&#x27;srch-inp&#x27;).value=&#x27;참돔&#x27;;doSearch()&quot; style=&quot;display:flex;align-items:center;gap:10px;padding:10px 4px;border-bottom:1px solid #F1F5F9;padding-left:16px&quot;&gt;
+          &lt;span style=&quot;font-size:13px;font-weight:800;color:#1A56DB;min-width:18px&quot;&gt;6&lt;/span&gt;
+          &lt;span style=&quot;font-size:14px;color:#1A202C&quot;&gt;참돔&lt;/span&gt;
+          &lt;span style=&quot;margin-left:auto;font-size:10px;color:#22C55E;font-weight:700&quot;&gt;↑&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;btn&quot; onclick=&quot;document.getElementById(&#x27;srch-inp&#x27;).value=&#x27;부산&#x27;;doSearch()&quot; style=&quot;display:flex;align-items:center;gap:10px;padding:10px 4px;border-bottom:1px solid #F1F5F9&quot;&gt;
+          &lt;span style=&quot;font-size:13px;font-weight:800;color:#1A56DB;min-width:18px&quot;&gt;7&lt;/span&gt;
+          &lt;span style=&quot;font-size:14px;color:#1A202C&quot;&gt;부산&lt;/span&gt;
+          &lt;span style=&quot;margin-left:auto;font-size:10px;color:#A0AEC0;font-weight:700&quot;&gt;-&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;btn&quot; onclick=&quot;document.getElementById(&#x27;srch-inp&#x27;).value=&#x27;갈치&#x27;;doSearch()&quot; style=&quot;display:flex;align-items:center;gap:10px;padding:10px 4px;border-bottom:1px solid #F1F5F9;padding-left:16px&quot;&gt;
+          &lt;span style=&quot;font-size:13px;font-weight:800;color:#1A56DB;min-width:18px&quot;&gt;8&lt;/span&gt;
+          &lt;span style=&quot;font-size:14px;color:#1A202C&quot;&gt;갈치&lt;/span&gt;
+          &lt;span style=&quot;margin-left:auto;font-size:10px;color:#22C55E;font-weight:700&quot;&gt;↑&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;btn&quot; onclick=&quot;document.getElementById(&#x27;srch-inp&#x27;).value=&#x27;블랙이글스&#x27;;doSearch()&quot; style=&quot;display:flex;align-items:center;gap:10px;padding:10px 4px&quot;&gt;
+          &lt;span style=&quot;font-size:13px;font-weight:800;color:#1A56DB;min-width:18px&quot;&gt;9&lt;/span&gt;
+          &lt;span style=&quot;font-size:14px;color:#1A202C&quot;&gt;블랙이글스&lt;/span&gt;
+          &lt;span style=&quot;margin-left:auto;font-size:10px;color:#22C55E;font-weight:700&quot;&gt;NEW&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;btn&quot; onclick=&quot;document.getElementById(&#x27;srch-inp&#x27;).value=&#x27;방어&#x27;;doSearch()&quot; style=&quot;display:flex;align-items:center;gap:10px;padding:10px 4px;padding-left:16px&quot;&gt;
+          &lt;span style=&quot;font-size:13px;font-weight:800;color:#1A56DB;min-width:18px&quot;&gt;10&lt;/span&gt;
+          &lt;span style=&quot;font-size:14px;color:#1A202C&quot;&gt;방어&lt;/span&gt;
+          &lt;span style=&quot;margin-left:auto;font-size:10px;color:#E53E3E;font-weight:700&quot;&gt;↓&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 어종별 빠른 검색 --&gt;
+    &lt;div style=&quot;margin-top:22px&quot;&gt;
+      &lt;div style=&quot;font-size:13px;font-weight:800;color:#1A202C;margin-bottom:10px&quot;&gt;🎣 어종별 빠른 검색&lt;/div&gt;
+      &lt;div style=&quot;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px&quot;&gt;
+        &lt;div class=&quot;btn&quot; onclick=&quot;doSearchKw(&#x27;갑오징어&#x27;)&quot; style=&quot;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:5px;padding:10px 8px;background:#EFF6FF;border-radius:14px;min-width:54px&quot;&gt;
+          &lt;span style=&quot;font-size:26px&quot;&gt;🦑&lt;/span&gt;&lt;span style=&quot;font-size:10px;font-weight:700;color:#1A56DB&quot;&gt;갑오징어&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;btn&quot; onclick=&quot;doSearchKw(&#x27;광어&#x27;)&quot; style=&quot;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:5px;padding:10px 8px;background:#F0FDF4;border-radius:14px;min-width:54px&quot;&gt;
+          &lt;span style=&quot;font-size:26px&quot;&gt;🐟&lt;/span&gt;&lt;span style=&quot;font-size:10px;font-weight:700;color:#15803D&quot;&gt;광어&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;btn&quot; onclick=&quot;doSearchKw(&#x27;우럭&#x27;)&quot; style=&quot;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:5px;padding:10px 8px;background:#FFF7ED;border-radius:14px;min-width:54px&quot;&gt;
+          &lt;span style=&quot;font-size:26px&quot;&gt;🐡&lt;/span&gt;&lt;span style=&quot;font-size:10px;font-weight:700;color:#C2410C&quot;&gt;우럭&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;btn&quot; onclick=&quot;doSearchKw(&#x27;참돔&#x27;)&quot; style=&quot;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:5px;padding:10px 8px;background:#FFF1F2;border-radius:14px;min-width:54px&quot;&gt;
+          &lt;span style=&quot;font-size:26px&quot;&gt;🐠&lt;/span&gt;&lt;span style=&quot;font-size:10px;font-weight:700;color:#BE123C&quot;&gt;참돔&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;btn&quot; onclick=&quot;doSearchKw(&#x27;갈치&#x27;)&quot; style=&quot;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:5px;padding:10px 8px;background:#F5F3FF;border-radius:14px;min-width:54px&quot;&gt;
+          &lt;span style=&quot;font-size:26px&quot;&gt;🐟&lt;/span&gt;&lt;span style=&quot;font-size:10px;font-weight:700;color:#6D28D9&quot;&gt;갈치&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;btn&quot; onclick=&quot;doSearchKw(&#x27;방어&#x27;)&quot; style=&quot;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:5px;padding:10px 8px;background:#ECFDF5;border-radius:14px;min-width:54px&quot;&gt;
+          &lt;span style=&quot;font-size:26px&quot;&gt;🐬&lt;/span&gt;&lt;span style=&quot;font-size:10px;font-weight:700;color:#059669&quot;&gt;방어&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 지역별 빠른 탐색 --&gt;
+    &lt;div style=&quot;margin-top:22px&quot;&gt;
+      &lt;div style=&quot;font-size:13px;font-weight:800;color:#1A202C;margin-bottom:10px&quot;&gt;🗺 지역별 탐색&lt;/div&gt;
+      &lt;div style=&quot;display:grid;grid-template-columns:repeat(3,1fr);gap:8px&quot;&gt;
+        &lt;div class=&quot;btn&quot; onclick=&quot;doSearchKw(&#x27;인천&#x27;)&quot; style=&quot;background:#EFF6FF;border-radius:12px;padding:10px 6px;text-align:center&quot;&gt;
+          &lt;div style=&quot;font-size:18px;margin-bottom:3px&quot;&gt;⚓&lt;/div&gt;
+          &lt;div style=&quot;font-size:11px;font-weight:800;color:#1A202C&quot;&gt;인천·경기&lt;/div&gt;
+          &lt;div style=&quot;font-size:10px;color:#64748B;margin-top:1px&quot;&gt;선박 24척&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;btn&quot; onclick=&quot;doSearchKw(&#x27;통영&#x27;)&quot; style=&quot;background:#F0FDF4;border-radius:12px;padding:10px 6px;text-align:center&quot;&gt;
+          &lt;div style=&quot;font-size:18px;margin-bottom:3px&quot;&gt;🏝&lt;/div&gt;
+          &lt;div style=&quot;font-size:11px;font-weight:800;color:#1A202C&quot;&gt;경남·통영&lt;/div&gt;
+          &lt;div style=&quot;font-size:10px;color:#64748B;margin-top:1px&quot;&gt;선박 31척&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;btn&quot; onclick=&quot;doSearchKw(&#x27;부산&#x27;)&quot; style=&quot;background:#FFF7ED;border-radius:12px;padding:10px 6px;text-align:center&quot;&gt;
+          &lt;div style=&quot;font-size:18px;margin-bottom:3px&quot;&gt;🌊&lt;/div&gt;
+          &lt;div style=&quot;font-size:11px;font-weight:800;color:#1A202C&quot;&gt;부산&lt;/div&gt;
+          &lt;div style=&quot;font-size:10px;color:#64748B;margin-top:1px&quot;&gt;선박 18척&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;btn&quot; onclick=&quot;doSearchKw(&#x27;보령&#x27;)&quot; style=&quot;background:#FFF1F2;border-radius:12px;padding:10px 6px;text-align:center&quot;&gt;
+          &lt;div style=&quot;font-size:18px;margin-bottom:3px&quot;&gt;🐚&lt;/div&gt;
+          &lt;div style=&quot;font-size:11px;font-weight:800;color:#1A202C&quot;&gt;충청·보령&lt;/div&gt;
+          &lt;div style=&quot;font-size:10px;color:#64748B;margin-top:1px&quot;&gt;선박 27척&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;btn&quot; onclick=&quot;doSearchKw(&#x27;강원&#x27;)&quot; style=&quot;background:#F5F3FF;border-radius:12px;padding:10px 6px;text-align:center&quot;&gt;
+          &lt;div style=&quot;font-size:18px;margin-bottom:3px&quot;&gt;⛰&lt;/div&gt;
+          &lt;div style=&quot;font-size:11px;font-weight:800;color:#1A202C&quot;&gt;강원&lt;/div&gt;
+          &lt;div style=&quot;font-size:10px;color:#64748B;margin-top:1px&quot;&gt;선박 12척&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;btn&quot; onclick=&quot;go(&#x27;s-result&#x27;)&quot; style=&quot;background:#1A56DB;border-radius:12px;padding:10px 6px;text-align:center&quot;&gt;
+          &lt;div style=&quot;font-size:18px;margin-bottom:3px&quot;&gt;🔍&lt;/div&gt;
+          &lt;div style=&quot;font-size:11px;font-weight:800;color:#fff&quot;&gt;전체보기&lt;/div&gt;
+          &lt;div style=&quot;font-size:10px;color:rgba(255,255,255,.7);margin-top:1px&quot;&gt;전국 선박&lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
@@ -9696,6 +9772,8 @@ function selectSavedCard() {
 <!-- ══════════════════════════════════════════════════════════════ -->
 <!-- 기획의도 & 퍼널 분석 섹션 -->
 <!-- ══════════════════════════════════════════════════════════════ -->
+
+<section style="border-bottom:2px solid #7C3AED"><div style="position:sticky;top:0;z-index:10;background:#4C1D95;color:#fff;display:flex;align-items:center;gap:10px;padding:11px 28px;border-bottom:2px solid #7C3AED;cursor:pointer" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'"><span style="font-size:11px;font-weight:800;background:#7C3AED;color:#fff;border-radius:5px;padding:3px 10px;font-family:monospace">SPRINT</span><span style="font-size:13px;font-weight:700">2개월 스프린트 개요</span><span style="font-size:11px;color:rgba(255,255,255,.45);margin-left:2px">— 범위·타임라인·리스크</span><span style="margin-left:auto;font-size:10px;color:rgba(255,255,255,.5)">클릭 시 접기/펼치기 ↕</span></div><div style="padding:24px 28px;display:flex;flex-direction:column;gap:14px"><table class="spec-table" style="width:100%;border-collapse:collapse;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden;font-size:12px"><tbody><tr><td colspan="3" style="background:#F1F5F9;font-size:11px;font-weight:800;color:#475569;letter-spacing:.4px;padding:9px 14px;border-top:2px solid #E2E8F0">2개월 스프린트 범위 요약</td></tr><tr class="adm-col-hdr"><th style="padding:6px 14px;font-size:10px;color:#94A3B8;font-weight:700;text-align:left;width:150px">UI 요소 / 항목</th><th style="padding:6px 14px;font-size:10px;color:#94A3B8;font-weight:700;text-align:left">정책 / 상세 동작</th><th style="padding:6px 14px;font-size:10px;color:#94A3B8;font-weight:700;text-align:left;text-align:center;width:32px">삭제</th></tr><tr><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;font-weight:700;white-space:nowrap;width:150px;vertical-align:top">목표 <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#FEE2E2;color:#991B1B">필수</span></td><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;color:#4B5563;line-height:1.8;vertical-align:top"><div contenteditable="false" class="spec-content">예약 완결 루프 완성 — 검색 → 상세 → 예약 → 완료 → 내역 → 취소 → 일자변경. 수익 발생 가능한 최단 경로</div></td><td style="padding:4px 8px;border-bottom:1px solid #F1F5F9;vertical-align:middle;text-align:center"><button class='adm-row-del' onclick="this.closest('tr').remove()">×</button></td></tr><tr><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;font-weight:700;white-space:nowrap;width:150px;vertical-align:top">신규 개발 <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#EFF6FF;color:#1E40AF">신규</span></td><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;color:#4B5563;line-height:1.8;vertical-align:top"><div contenteditable="false" class="spec-content">선박예약검색 모듈 / 일자변경(유저 앱) / 다음 예약 바로예약하기 / 찜한 선박 · 최근 본 선박</div></td><td style="padding:4px 8px;border-bottom:1px solid #F1F5F9;vertical-align:middle;text-align:center"><button class='adm-row-del' onclick="this.closest('tr').remove()">×</button></td></tr><tr><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;font-weight:700;white-space:nowrap;width:150px;vertical-align:top">기존 연동 <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#F3F4F6;color:#374151">기존연동</span></td><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;color:#4B5563;line-height:1.8;vertical-align:top"><div contenteditable="false" class="spec-content">선박 상세 / 예약하기(좌석선택·쿠폰) / 예약완료 / 예약내역 / 취소</div></td><td style="padding:4px 8px;border-bottom:1px solid #F1F5F9;vertical-align:middle;text-align:center"><button class='adm-row-del' onclick="this.closest('tr').remove()">×</button></td></tr><tr><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;font-weight:700;white-space:nowrap;width:150px;vertical-align:top">PG 연동 ⚠ <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#FFF7ED;color:#C2410C">⚠ 리스크</span></td><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;color:#4B5563;line-height:1.8;vertical-align:top"><div contenteditable="false" class="spec-content">토스페이먼츠 등 심사 2~4주. 1주차에 즉시 신청 필수. 지연 시 6주차 병목</div></td><td style="padding:4px 8px;border-bottom:1px solid #F1F5F9;vertical-align:middle;text-align:center"><button class='adm-row-del' onclick="this.closest('tr').remove()">×</button></td></tr><tr><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;font-weight:700;white-space:nowrap;width:150px;vertical-align:top">일자변경 API ⚠ <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#FFF7ED;color:#C2410C">⚠ 리스크</span></td><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;color:#4B5563;line-height:1.8;vertical-align:top"><div contenteditable="false" class="spec-content">어드민용 API 호환성 확인 필요. 환불+재결제 트랜잭션 구조에 따라 백엔드 추가 작업 가능성</div></td><td style="padding:4px 8px;border-bottom:1px solid #F1F5F9;vertical-align:middle;text-align:center"><button class='adm-row-del' onclick="this.closest('tr').remove()">×</button></td></tr><tr><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;font-weight:700;white-space:nowrap;width:150px;vertical-align:top">찜 기능 DB ⚠ <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#FFF7ED;color:#C2410C">⚠ 리스크</span></td><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;color:#4B5563;line-height:1.8;vertical-align:top"><div contenteditable="false" class="spec-content">기존 찜 DB/API 없으면 신규 설계 필요. 1주차 확인 후 공수 확정</div></td><td style="padding:4px 8px;border-bottom:1px solid #F1F5F9;vertical-align:middle;text-align:center"><button class='adm-row-del' onclick="this.closest('tr').remove()">×</button></td></tr></tbody></table><button class="adm-row-add" onclick="addSpecRow(this)">+ 행 추가</button><table class="spec-table" style="width:100%;border-collapse:collapse;border:1px solid #E2E8F0;border-radius:8px;overflow:hidden;font-size:12px"><tbody><tr><td colspan="3" style="background:#F1F5F9;font-size:11px;font-weight:800;color:#475569;letter-spacing:.4px;padding:9px 14px;border-top:2px solid #E2E8F0">주차별 타임라인</td></tr><tr class="adm-col-hdr"><th style="padding:6px 14px;font-size:10px;color:#94A3B8;font-weight:700;text-align:left;width:150px">UI 요소 / 항목</th><th style="padding:6px 14px;font-size:10px;color:#94A3B8;font-weight:700;text-align:left">정책 / 상세 동작</th><th style="padding:6px 14px;font-size:10px;color:#94A3B8;font-weight:700;text-align:left;text-align:center;width:32px">삭제</th></tr><tr><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;font-weight:700;white-space:nowrap;width:150px;vertical-align:top">1~2주차 <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#EFF6FF;color:#1E40AF">신규</span></td><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;color:#4B5563;line-height:1.8;vertical-align:top"><div contenteditable="false" class="spec-content">선박예약검색 모듈 + 검색결과 화면 + 필터칩 / PG 심사 신청 / 찜·일자변경 API 호환성 사전 확인</div></td><td style="padding:4px 8px;border-bottom:1px solid #F1F5F9;vertical-align:middle;text-align:center"><button class='adm-row-del' onclick="this.closest('tr').remove()">×</button></td></tr><tr><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;font-weight:700;white-space:nowrap;width:150px;vertical-align:top">3주차 <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#F3F4F6;color:#374151">기존연동</span></td><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;color:#4B5563;line-height:1.8;vertical-align:top"><div contenteditable="false" class="spec-content">선박 상세 기존 연동 + 간소화 버전 QA</div></td><td style="padding:4px 8px;border-bottom:1px solid #F1F5F9;vertical-align:middle;text-align:center"><button class='adm-row-del' onclick="this.closest('tr').remove()">×</button></td></tr><tr><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;font-weight:700;white-space:nowrap;width:150px;vertical-align:top">4~5주차 <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#F3F4F6;color:#374151">기존연동</span></td><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;color:#4B5563;line-height:1.8;vertical-align:top"><div contenteditable="false" class="spec-content">예약하기 — 좌석선택·쿠폰 기존 연동 + 예약자 정보 + AF머니 제외 기본 결제</div></td><td style="padding:4px 8px;border-bottom:1px solid #F1F5F9;vertical-align:middle;text-align:center"><button class='adm-row-del' onclick="this.closest('tr').remove()">×</button></td></tr><tr><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;font-weight:700;white-space:nowrap;width:150px;vertical-align:top">6주차 <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#F3F4F6;color:#374151">기존연동</span></td><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;color:#4B5563;line-height:1.8;vertical-align:top"><div contenteditable="false" class="spec-content">예약완료 + PG 연동 실결제 테스트</div></td><td style="padding:4px 8px;border-bottom:1px solid #F1F5F9;vertical-align:middle;text-align:center"><button class='adm-row-del' onclick="this.closest('tr').remove()">×</button></td></tr><tr><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;font-weight:700;white-space:nowrap;width:150px;vertical-align:top">7주차 <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#F3F4F6;color:#374151">기존연동</span><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#EFF6FF;color:#1E40AF">신규</span></td><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;color:#4B5563;line-height:1.8;vertical-align:top"><div contenteditable="false" class="spec-content">예약내역(목록) + 취소 기존 연동 / 일자변경 어드민 API → 유저 앱 프론트 구현</div></td><td style="padding:4px 8px;border-bottom:1px solid #F1F5F9;vertical-align:middle;text-align:center"><button class='adm-row-del' onclick="this.closest('tr').remove()">×</button></td></tr><tr><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;font-weight:700;white-space:nowrap;width:150px;vertical-align:top">8주차 <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#EFF6FF;color:#1E40AF">신규</span></td><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;color:#4B5563;line-height:1.8;vertical-align:top"><div contenteditable="false" class="spec-content">찜한 선박 + 최근 본 선박 + 다음 예약 바로예약하기 / 전체 QA·버그픽스</div></td><td style="padding:4px 8px;border-bottom:1px solid #F1F5F9;vertical-align:middle;text-align:center"><button class='adm-row-del' onclick="this.closest('tr').remove()">×</button></td></tr></tbody></table><button class="adm-row-add" onclick="addSpecRow(this)">+ 행 추가</button></div></section>
 <section style="border-bottom:2px solid #7C3AED">
   <div style="position:sticky;top:0;z-index:10;background:#4C1D95;color:#fff;display:flex;align-items:center;gap:10px;padding:11px 28px;border-bottom:2px solid #7C3AED;cursor:pointer" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
     <span style="font-size:11px;font-weight:800;background:#7C3AED;color:#fff;border-radius:5px;padding:3px 10px;font-family:monospace">PLANNING</span>
@@ -10499,6 +10577,549 @@ function selectSavedCard() {
       <tr style="background:#FAFFF5"><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;font-weight:700;color:#15803D;white-space:nowrap;vertical-align:top">Phase 2 <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#F0FDF4;color:#15803D">정책</span></td><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;color:#4B5563;line-height:1.75">어종 → 카테고리 자동 매핑 API 연동 · 개인화 추천</td></tr>
       <tr style="background:#FAFFF5"><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;font-weight:700;color:#15803D;white-space:nowrap;vertical-align:top">Phase 3 <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#F0FDF4;color:#15803D">정책</span></td><td style="padding:10px 14px;border-bottom:1px solid #F1F5F9;font-size:12px;color:#4B5563;line-height:1.75">선주 직접 채비 세트 판매 · "선장 추천 채비" 신뢰도 활용</td></tr>
     </tbody></table><button class="adm-row-add" onclick="addSpecRow(this)">+ 행 추가</button>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- 기능 정의 (Feature Spec) 섹션 -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<section style="border-bottom:2px solid #0EA5E9">
+  <div style="position:sticky;top:0;z-index:10;background:#0C4A6E;color:#fff;display:flex;align-items:center;gap:10px;padding:11px 28px;border-bottom:2px solid #0EA5E9;cursor:pointer" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
+    <span style="font-size:11px;font-weight:800;background:#0EA5E9;color:#fff;border-radius:5px;padding:3px 10px;font-family:monospace">FEATURE SPEC</span>
+    <span style="font-size:13px;font-weight:700">기능 정의서 — 데이터·노출 조건·정책</span>
+    <span style="font-size:11px;color:rgba(255,255,255,.45);margin-left:2px">— 미정의 시 개발/운영 판단 불가</span>
+    <span style="margin-left:auto;font-size:10px;color:rgba(255,255,255,.5)">클릭 시 접기/펼치기 ↕</span>
+  </div>
+  <div style="padding:28px;background:#F0F9FF">
+
+    <!-- ── 공통 안내 ── -->
+    <div style="background:linear-gradient(135deg,#0C4A6E,#0EA5E9);border-radius:12px;padding:16px 20px;margin-bottom:28px">
+      <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:.5px;margin-bottom:6px">WHY THIS MATTERS</div>
+      <div style="font-size:14px;font-weight:800;color:#fff;line-height:1.6">"조황·잔여석·랭킹 같은 실시간 데이터는 <br>데이터 소스·업데이트 주기·노출 기준이 정의되지 않으면<br>개발 추정치가 나올 수 없고, QA 기준도 세울 수 없다."</div>
+      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+        <span style="background:rgba(255,255,255,.2);border-radius:6px;padding:3px 10px;font-size:11px;font-weight:700;color:#fff">미정 → 개발 차단</span>
+        <span style="background:rgba(255,255,255,.2);border-radius:6px;padding:3px 10px;font-size:11px;font-weight:700;color:#fff">기준 불명 → QA 불가</span>
+        <span style="background:rgba(255,255,255,.2);border-radius:6px;padding:3px 10px;font-size:11px;font-weight:700;color:#fff">정책 공백 → 운영 분쟁</span>
+      </div>
+    </div>
+
+    <!-- ───────────────────────────────────── -->
+    <!-- SPEC 01: 실시간 조황 -->
+    <!-- ───────────────────────────────────── -->
+    <div style="margin-bottom:32px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #0EA5E9">
+        <span style="background:#0EA5E9;color:#fff;font-size:10px;font-weight:800;border-radius:5px;padding:3px 10px;font-family:monospace">SPEC 01</span>
+        <span style="font-size:14px;font-weight:900;color:#0C4A6E">실시간 조황 (Live Catch Report)</span>
+        <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#FEF3C7;color:#92400E">미정 항목 포함</span>
+      </div>
+
+      <!-- 노출 위치 -->
+      <div style="font-size:11px;font-weight:800;color:#0369A1;letter-spacing:.5px;margin-bottom:8px">▸ 노출 위치</div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:1px solid #BAE6FD;border-radius:8px;overflow:hidden;margin-bottom:16px">
+        <thead><tr style="background:#E0F2FE">
+          <th style="padding:8px 12px;text-align:left;font-weight:700;color:#0369A1;width:25%">위치</th>
+          <th style="padding:8px 12px;text-align:left;font-weight:700;color:#0369A1">표시 내용</th>
+          <th style="padding:8px 12px;text-align:left;font-weight:700;color:#0369A1;width:20%">형태</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-top:1px solid #BAE6FD"><td style="padding:8px 12px;font-weight:700">홈 조황랭킹</td><td style="padding:8px 12px;color:#4A5568">선박별 오늘 대표어종 마릿수 TOP N</td><td style="padding:8px 12px;color:#4A5568">카드 배지</td></tr>
+          <tr style="border-top:1px solid #BAE6FD;background:#F0F9FF"><td style="padding:8px 12px;font-weight:700">홈 LIVE 배너</td><td style="padding:8px 12px;color:#4A5568">가장 최신 조황 1건</td><td style="padding:8px 12px;color:#4A5568">띠 배너 (LIVE 뱃지)</td></tr>
+          <tr style="border-top:1px solid #BAE6FD"><td style="padding:8px 12px;font-weight:700">결과목록 카드</td><td style="padding:8px 12px;color:#4A5568">선박별 오늘 대표 마릿수</td><td style="padding:8px 12px;color:#4A5568">초록 태그</td></tr>
+          <tr style="border-top:1px solid #BAE6FD;background:#F0F9FF"><td style="padding:8px 12px;font-weight:700">선박 상세</td><td style="padding:8px 12px;color:#4A5568">최근 7일 조황 히스토리</td><td style="padding:8px 12px;color:#4A5568">그래프 + 텍스트</td></tr>
+        </tbody>
+      </table>
+
+      <!-- 데이터 소스 -->
+      <div style="font-size:11px;font-weight:800;color:#0369A1;letter-spacing:.5px;margin-bottom:8px">▸ 데이터 소스 & 입력 주체</div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:1px solid #BAE6FD;border-radius:8px;overflow:hidden;margin-bottom:16px">
+        <thead><tr style="background:#E0F2FE">
+          <th style="padding:8px 12px;text-align:left;font-weight:700;color:#0369A1;width:25%">방식</th>
+          <th style="padding:8px 12px;text-align:left;font-weight:700;color:#0369A1">설명</th>
+          <th style="padding:8px 12px;text-align:left;font-weight:700;color:#0369A1;width:15%">리소스</th>
+          <th style="padding:8px 12px;text-align:left;font-weight:700;color:#0369A1;width:15%">신뢰도</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-top:1px solid #BAE6FD;background:#F0FDF4"><td style="padding:8px 12px;font-weight:800;color:#166534">✅ 선장 직접 입력</td><td style="padding:8px 12px;color:#4A5568">선장 앱/웹에서 귀항 후 마릿수·어종 직접 등록</td><td style="padding:8px 12px;color:#4A5568">低</td><td style="padding:8px 12px;color:#166534;font-weight:700">High</td></tr>
+          <tr style="border-top:1px solid #BAE6FD;background:#FFF7ED"><td style="padding:8px 12px;font-weight:800;color:#92400E">⚡ 크루 대리 입력</td><td style="padding:8px 12px;color:#4A5568">출조 참여 예약자가 후기 입력 시 자동 집계</td><td style="padding:8px 12px;color:#4A5568">中</td><td style="padding:8px 12px;color:#92400E;font-weight:700">Medium</td></tr>
+          <tr style="border-top:1px solid #BAE6FD"><td style="padding:8px 12px;font-weight:800;color:#6B7280">🔮 자동 추정 (미정)</td><td style="padding:8px 12px;color:#4A5568">기상·시즌·어종 데이터 기반 ML 추정 (Phase 2)</td><td style="padding:8px 12px;color:#4A5568">高</td><td style="padding:8px 12px;color:#6B7280;font-weight:700">Low</td></tr>
+        </tbody>
+      </table>
+
+      <!-- 노출 조건 정의 -->
+      <div style="font-size:11px;font-weight:800;color:#0369A1;letter-spacing:.5px;margin-bottom:8px">▸ 노출 조건 & 엣지케이스</div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:1px solid #BAE6FD;border-radius:8px;overflow:hidden;margin-bottom:16px">
+        <thead><tr style="background:#E0F2FE">
+          <th style="padding:8px 12px;text-align:left;font-weight:700;color:#0369A1;width:35%">상황</th>
+          <th style="padding:8px 12px;text-align:left;font-weight:700;color:#0369A1">처리 방식</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-top:1px solid #BAE6FD"><td style="padding:8px 12px;font-weight:700">당일 조황 미입력</td><td style="padding:8px 12px;color:#4A5568">전일 데이터 표시 + "어제 기준" 레이블 부착 / 없으면 미노출</td></tr>
+          <tr style="border-top:1px solid #BAE6FD;background:#F0F9FF"><td style="padding:8px 12px;font-weight:700">신규 선박 (조황 데이터 없음)</td><td style="padding:8px 12px;color:#4A5568">조황 태그 미노출, 🆕 뱃지로 대체</td></tr>
+          <tr style="border-top:1px solid #BAE6FD"><td style="padding:8px 12px;font-weight:700">기상 악화로 출항 취소</td><td style="padding:8px 12px;color:#4A5568">해당일 조황 "출항 취소" 표기, 랭킹 제외</td></tr>
+          <tr style="border-top:1px solid #BAE6FD;background:#F0F9FF"><td style="padding:8px 12px;font-weight:700">비정상 수치 (ex. 999마리)</td><td style="padding:8px 12px;color:#4A5568">운영팀 검수 후 노출 / 자동 상한선 <span style="font-weight:800;color:#DC2626">TBD</span></td></tr>
+          <tr style="border-top:1px solid #BAE6FD"><td style="padding:8px 12px;font-weight:700">LIVE 배너 기준</td><td style="padding:8px 12px;color:#4A5568">귀항 후 <span style="font-weight:800">N시간 이내</span> 입력 건만 LIVE 표기 <span style="font-weight:800;color:#DC2626">N = TBD</span></td></tr>
+        </tbody>
+      </table>
+
+      <div style="background:#FEF3C7;border-left:3px solid #F59E0B;border-radius:0 8px 8px 0;padding:10px 14px;font-size:12px;color:#92400E">
+        <strong>⚠ 결정 필요 항목:</strong> ① LIVE 뱃지 유효 시간 (귀항 후 몇 시간?) ② 랭킹 산정 기준 (마릿수 단순합 vs 어종별 가중치) ③ 입력 마감 시한 (다음날 오전 몇 시?)
+      </div>
+    </div>
+
+    <!-- ───────────────────────────────────── -->
+    <!-- SPEC 02: 잔여석 / 마감 상태 -->
+    <!-- ───────────────────────────────────── -->
+    <div style="margin-bottom:32px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #0EA5E9">
+        <span style="background:#0EA5E9;color:#fff;font-size:10px;font-weight:800;border-radius:5px;padding:3px 10px;font-family:monospace">SPEC 02</span>
+        <span style="font-size:14px;font-weight:900;color:#0C4A6E">잔여석 · 마감 상태 (Availability)</span>
+        <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#FEE2E2;color:#991B1B">전환율 직결</span>
+      </div>
+
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:1px solid #BAE6FD;border-radius:8px;overflow:hidden;margin-bottom:16px">
+        <thead><tr style="background:#E0F2FE">
+          <th style="padding:8px 12px;text-align:left;font-weight:700;color:#0369A1;width:20%">상태</th>
+          <th style="padding:8px 12px;text-align:left;font-weight:700;color:#0369A1;width:20%">조건 (잔여석 기준)</th>
+          <th style="padding:8px 12px;text-align:left;font-weight:700;color:#0369A1">UI 처리</th>
+          <th style="padding:8px 12px;text-align:left;font-weight:700;color:#0369A1;width:20%">예약 가능</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-top:1px solid #BAE6FD;background:#FEF2F2"><td style="padding:8px 12px;font-weight:800;color:#DC2626">긴급모집</td><td style="padding:8px 12px;color:#DC2626;font-weight:700">1~<span style="font-weight:900">N</span>석 <span style="color:#DC2626;font-size:10px">(TBD)</span></td><td style="padding:8px 12px;color:#4A5568">빨간 잔여석 배지 + PULSE 애니 + 홈 긴급모집 모듈 노출</td><td style="padding:8px 12px;color:#166534;font-weight:700">가능</td></tr>
+          <tr style="border-top:1px solid #BAE6FD;background:#F0FDF4"><td style="padding:8px 12px;font-weight:800;color:#166534">여유석</td><td style="padding:8px 12px;color:#166534;font-weight:700">N+1석 이상 <span style="color:#DC2626;font-size:10px">(TBD)</span></td><td style="padding:8px 12px;color:#4A5568">초록 잔여석 배지</td><td style="padding:8px 12px;color:#166534;font-weight:700">가능</td></tr>
+          <tr style="border-top:1px solid #BAE6FD"><td style="padding:8px 12px;font-weight:800;color:#6B7280">마감</td><td style="padding:8px 12px;color:#6B7280;font-weight:700">0석</td><td style="padding:8px 12px;color:#4A5568">회색 처리 + 날짜 변경 유도 + 웨이팅 등록 옵션</td><td style="padding:8px 12px;color:#DC2626;font-weight:700">불가 (웨이팅 가능)</td></tr>
+          <tr style="border-top:1px solid #BAE6FD;background:#F0F9FF"><td style="padding:8px 12px;font-weight:800;color:#0369A1">출항 취소</td><td style="padding:8px 12px;color:#0369A1;font-weight:700">기상 등 사유</td><td style="padding:8px 12px;color:#4A5568">출항 취소 배너 + 자동 환불 안내</td><td style="padding:8px 12px;color:#DC2626;font-weight:700">불가</td></tr>
+        </tbody>
+      </table>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div style="background:#fff;border:1px solid #BAE6FD;border-radius:8px;padding:12px">
+          <div style="font-size:11px;font-weight:800;color:#0369A1;margin-bottom:6px">업데이트 주기</div>
+          <div style="font-size:12px;color:#4A5568;line-height:1.7">• 예약 완료 시: <strong>즉시 반영</strong><br>• 취소 시: <strong>즉시 반영</strong><br>• 화면 진입 시: <strong>API 재호출</strong><br>• 캐시 TTL: <strong style="color:#DC2626">TBD</strong> (30초~5분)</div>
+        </div>
+        <div style="background:#fff;border:1px solid #BAE6FD;border-radius:8px;padding:12px">
+          <div style="font-size:11px;font-weight:800;color:#0369A1;margin-bottom:6px">동시성 처리</div>
+          <div style="font-size:12px;color:#4A5568;line-height:1.7">• 동시 결제 충돌 시: <strong>선착순 확정</strong><br>• 실패 유저: 토스트 안내 + 재시도<br>• 좌석 선택 Hold 시간: <strong style="color:#DC2626">TBD</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ───────────────────────────────────── -->
+    <!-- SPEC 03: 검색 랭킹 알고리즘 -->
+    <!-- ───────────────────────────────────── -->
+    <div style="margin-bottom:32px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #0EA5E9">
+        <span style="background:#0EA5E9;color:#fff;font-size:10px;font-weight:800;border-radius:5px;padding:3px 10px;font-family:monospace">SPEC 03</span>
+        <span style="font-size:14px;font-weight:900;color:#0C4A6E">검색 결과 랭킹 알고리즘</span>
+        <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#F5F3FF;color:#6D28D9">비즈니스 임팩트 高</span>
+      </div>
+
+      <div style="font-size:12px;color:#4A5568;margin-bottom:12px;line-height:1.7">검색 결과 기본 정렬은 아래 가중치 합산 스코어 기준. 필터 적용 시 해당 조건 우선 필터링 후 동일 로직 적용.</div>
+
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:1px solid #BAE6FD;border-radius:8px;overflow:hidden;margin-bottom:16px">
+        <thead><tr style="background:#E0F2FE">
+          <th style="padding:8px 12px;text-align:left;font-weight:700;color:#0369A1;width:25%">신호 (Signal)</th>
+          <th style="padding:8px 12px;text-align:center;font-weight:700;color:#0369A1;width:15%">가중치</th>
+          <th style="padding:8px 12px;text-align:left;font-weight:700;color:#0369A1">산정 방식</th>
+          <th style="padding:8px 12px;text-align:center;font-weight:700;color:#0369A1;width:15%">상태</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-top:1px solid #BAE6FD"><td style="padding:8px 12px;font-weight:700">평점 (별점)</td><td style="padding:8px 12px;text-align:center;color:#166534;font-weight:800">30%</td><td style="padding:8px 12px;color:#4A5568">리뷰 평점 가중평균 (최소 리뷰 N건 이상)</td><td style="padding:8px 12px;text-align:center"><span style="background:#DCFCE7;color:#166534;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px">확정</span></td></tr>
+          <tr style="border-top:1px solid #BAE6FD;background:#F0F9FF"><td style="padding:8px 12px;font-weight:700">예약 완료 수</td><td style="padding:8px 12px;text-align:center;color:#166534;font-weight:800">25%</td><td style="padding:8px 12px;color:#4A5568">최근 30일 예약 완료 건수</td><td style="padding:8px 12px;text-align:center"><span style="background:#DCFCE7;color:#166534;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px">확정</span></td></tr>
+          <tr style="border-top:1px solid #BAE6FD"><td style="padding:8px 12px;font-weight:700">조황 품질</td><td style="padding:8px 12px;text-align:center;color:#166534;font-weight:800">20%</td><td style="padding:8px 12px;color:#4A5568">최근 7일 조황 데이터 존재 + 마릿수 평균</td><td style="padding:8px 12px;text-align:center"><span style="background:#FEF3C7;color:#92400E;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px">미정</span></td></tr>
+          <tr style="border-top:1px solid #BAE6FD;background:#F0F9FF"><td style="padding:8px 12px;font-weight:700">응답률</td><td style="padding:8px 12px;text-align:center;color:#166534;font-weight:800">10%</td><td style="padding:8px 12px;color:#4A5568">예약 문의 24시간 내 응답률</td><td style="padding:8px 12px;text-align:center"><span style="background:#FEF3C7;color:#92400E;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px">미정</span></td></tr>
+          <tr style="border-top:1px solid #BAE6FD"><td style="padding:8px 12px;font-weight:700">광고 부스팅</td><td style="padding:8px 12px;text-align:center;color:#7E22CE;font-weight:800">+N%</td><td style="padding:8px 12px;color:#4A5568">프리미엄 광고 선박 상단 고정 (최대 2~3개)</td><td style="padding:8px 12px;text-align:center"><span style="background:#FDF4FF;color:#7E22CE;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px">AD</span></td></tr>
+          <tr style="border-top:1px solid #BAE6FD;background:#F0F9FF"><td style="padding:8px 12px;font-weight:700">신규 선박 부스팅</td><td style="padding:8px 12px;text-align:center;color:#0369A1;font-weight:800">+15%</td><td style="padding:8px 12px;color:#4A5568">등록 후 N일 이내 (콜드스타트 해소)</td><td style="padding:8px 12px;text-align:center"><span style="background:#FEF3C7;color:#92400E;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px">미정</span></td></tr>
+        </tbody>
+      </table>
+      <div style="background:#FEF3C7;border-left:3px solid #F59E0B;border-radius:0 8px 8px 0;padding:10px 14px;font-size:12px;color:#92400E">
+        <strong>⚠ 결정 필요:</strong> ① 조황 품질 가중치 산식 ② 신규 부스팅 기간 (N일) ③ 개인화 적용 여부 (찜·조회 이력 반영 Phase?)
+      </div>
+    </div>
+
+    <!-- ───────────────────────────────────── -->
+    <!-- SPEC 04: 알림 시스템 -->
+    <!-- ───────────────────────────────────── -->
+    <div style="margin-bottom:32px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #0EA5E9">
+        <span style="background:#0EA5E9;color:#fff;font-size:10px;font-weight:800;border-radius:5px;padding:3px 10px;font-family:monospace">SPEC 04</span>
+        <span style="font-size:14px;font-weight:900;color:#0C4A6E">알림 시스템 (Push / 카카오 알림톡)</span>
+      </div>
+
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:1px solid #BAE6FD;border-radius:8px;overflow:hidden;margin-bottom:16px">
+        <thead><tr style="background:#E0F2FE">
+          <th style="padding:8px 12px;text-align:left;font-weight:700;color:#0369A1;width:25%">이벤트</th>
+          <th style="padding:8px 12px;text-align:left;font-weight:700;color:#0369A1;width:15%">채널</th>
+          <th style="padding:8px 12px;text-align:left;font-weight:700;color:#0369A1">발송 시점</th>
+          <th style="padding:8px 12px;text-align:center;font-weight:700;color:#0369A1;width:15%">상태</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-top:1px solid #BAE6FD"><td style="padding:8px 12px;font-weight:700">예약 신청 완료</td><td style="padding:8px 12px;color:#4A5568">카카오 알림톡</td><td style="padding:8px 12px;color:#4A5568">결제 완료 즉시</td><td style="padding:8px 12px;text-align:center"><span style="background:#DCFCE7;color:#166534;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px">확정</span></td></tr>
+          <tr style="border-top:1px solid #BAE6FD;background:#F0F9FF"><td style="padding:8px 12px;font-weight:700">예약 확정</td><td style="padding:8px 12px;color:#4A5568">카카오 알림톡 + Push</td><td style="padding:8px 12px;color:#4A5568">선장 확정 처리 후 즉시</td><td style="padding:8px 12px;text-align:center"><span style="background:#DCFCE7;color:#166534;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px">확정</span></td></tr>
+          <tr style="border-top:1px solid #BAE6FD"><td style="padding:8px 12px;font-weight:700">출조 D-1 리마인드</td><td style="padding:8px 12px;color:#4A5568">카카오 알림톡 + Push</td><td style="padding:8px 12px;color:#4A5568">출조 전날 오후 <strong style="color:#DC2626">N시 TBD</strong></td><td style="padding:8px 12px;text-align:center"><span style="background:#FEF3C7;color:#92400E;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px">미정</span></td></tr>
+          <tr style="border-top:1px solid #BAE6FD;background:#F0F9FF"><td style="padding:8px 12px;font-weight:700">출항 당일 기상 알림</td><td style="padding:8px 12px;color:#4A5568">Push</td><td style="padding:8px 12px;color:#4A5568">출항 3시간 전 자동 발송</td><td style="padding:8px 12px;text-align:center"><span style="background:#FEF3C7;color:#92400E;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px">미정</span></td></tr>
+          <tr style="border-top:1px solid #BAE6FD"><td style="padding:8px 12px;font-weight:700">조황 등록 알림</td><td style="padding:8px 12px;color:#4A5568">Push</td><td style="padding:8px 12px;color:#4A5568">찜한 선박 조황 등록 시</td><td style="padding:8px 12px;text-align:center"><span style="background:#FEF3C7;color:#92400E;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px">미정</span></td></tr>
+          <tr style="border-top:1px solid #BAE6FD;background:#F0F9FF"><td style="padding:8px 12px;font-weight:700">취소 완료</td><td style="padding:8px 12px;color:#4A5568">카카오 알림톡</td><td style="padding:8px 12px;color:#4A5568">취소 처리 + 환불 안내 즉시</td><td style="padding:8px 12px;text-align:center"><span style="background:#DCFCE7;color:#166534;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px">확정</span></td></tr>
+          <tr style="border-top:1px solid #BAE6FD"><td style="padding:8px 12px;font-weight:700">긴급모집 알림</td><td style="padding:8px 12px;color:#4A5568">Push</td><td style="padding:8px 12px;color:#4A5568">찜한 선박 잔여석 N이하 + 출조 48h 이내</td><td style="padding:8px 12px;text-align:center"><span style="background:#FEF3C7;color:#92400E;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px">미정</span></td></tr>
+          <tr style="border-top:1px solid #BAE6FD;background:#F0F9FF"><td style="padding:8px 12px;font-weight:700">리뷰 작성 유도</td><td style="padding:8px 12px;color:#4A5568">Push</td><td style="padding:8px 12px;color:#4A5568">귀항 추정 시각 + <strong style="color:#DC2626">N시간 후 TBD</strong></td><td style="padding:8px 12px;text-align:center"><span style="background:#FEF3C7;color:#92400E;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px">미정</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ───────────────────────────────────── -->
+    <!-- SPEC 05: 취소 / 환불 정책 -->
+    <!-- ───────────────────────────────────── -->
+    <div style="margin-bottom:32px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #0EA5E9">
+        <span style="background:#0EA5E9;color:#fff;font-size:10px;font-weight:800;border-radius:5px;padding:3px 10px;font-family:monospace">SPEC 05</span>
+        <span style="font-size:14px;font-weight:900;color:#0C4A6E">취소 · 환불 정책</span>
+        <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#F0FDF4;color:#15803D">정책</span>
+      </div>
+
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:1px solid #BAE6FD;border-radius:8px;overflow:hidden;margin-bottom:16px">
+        <thead><tr style="background:#E0F2FE">
+          <th style="padding:8px 12px;text-align:left;font-weight:700;color:#0369A1;width:30%">취소 시점</th>
+          <th style="padding:8px 12px;text-align:center;font-weight:700;color:#0369A1;width:20%">환불율</th>
+          <th style="padding:8px 12px;text-align:left;font-weight:700;color:#0369A1">비고</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-top:1px solid #BAE6FD;background:#F0FDF4"><td style="padding:8px 12px;font-weight:700">출조 72시간 전</td><td style="padding:8px 12px;text-align:center;font-weight:800;color:#166534">100%</td><td style="padding:8px 12px;color:#4A5568">전액 환불 (스토리보드 반영 완료)</td></tr>
+          <tr style="border-top:1px solid #BAE6FD"><td style="padding:8px 12px;font-weight:700">출조 48~72시간 전</td><td style="padding:8px 12px;text-align:center;font-weight:800;color:#92400E">70%</td><td style="padding:8px 12px;color:#4A5568"><span style="color:#DC2626;font-weight:700">정책 확정 필요</span></td></tr>
+          <tr style="border-top:1px solid #BAE6FD;background:#F0F9FF"><td style="padding:8px 12px;font-weight:700">출조 24~48시간 전</td><td style="padding:8px 12px;text-align:center;font-weight:800;color:#DC2626">50%</td><td style="padding:8px 12px;color:#4A5568"><span style="color:#DC2626;font-weight:700">정책 확정 필요</span></td></tr>
+          <tr style="border-top:1px solid #BAE6FD"><td style="padding:8px 12px;font-weight:700">출조 24시간 이내</td><td style="padding:8px 12px;text-align:center;font-weight:800;color:#DC2626">0%</td><td style="padding:8px 12px;color:#4A5568">노쇼 방지 정책</td></tr>
+          <tr style="border-top:1px solid #BAE6FD;background:#EFF6FF"><td style="padding:8px 12px;font-weight:800;color:#1D4ED8">기상 취소 (선사 귀책)</td><td style="padding:8px 12px;text-align:center;font-weight:800;color:#166534">100%</td><td style="padding:8px 12px;color:#4A5568">기상청 API 연동 또는 운영팀 수동 처리 <span style="color:#DC2626;font-weight:700">TBD</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ───────────────────────────────────── -->
+    <!-- SPEC 06: 쿠폰 / 할인 정책 -->
+    <!-- ───────────────────────────────────── -->
+    <div style="margin-bottom:32px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #0EA5E9">
+        <span style="background:#0EA5E9;color:#fff;font-size:10px;font-weight:800;border-radius:5px;padding:3px 10px;font-family:monospace">SPEC 06</span>
+        <span style="font-size:14px;font-weight:900;color:#0C4A6E">쿠폰 · 할인 정책</span>
+      </div>
+
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:1px solid #BAE6FD;border-radius:8px;overflow:hidden;margin-bottom:16px">
+        <thead><tr style="background:#E0F2FE">
+          <th style="padding:8px 12px;text-align:left;font-weight:700;color:#0369A1;width:20%">쿠폰 유형</th>
+          <th style="padding:8px 12px;text-align:left;font-weight:700;color:#0369A1">발급 조건</th>
+          <th style="padding:8px 12px;text-align:left;font-weight:700;color:#0369A1">적용 범위</th>
+          <th style="padding:8px 12px;text-align:center;font-weight:700;color:#0369A1;width:15%">중복 사용</th>
+          <th style="padding:8px 12px;text-align:center;font-weight:700;color:#0369A1;width:15%">상태</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-top:1px solid #BAE6FD"><td style="padding:8px 12px;font-weight:700">신규가입 쿠폰</td><td style="padding:8px 12px;color:#4A5568">최초 가입 자동 발급</td><td style="padding:8px 12px;color:#4A5568">전 선박, 최소 결제금액 이상</td><td style="padding:8px 12px;text-align:center;color:#DC2626;font-weight:700">불가</td><td style="padding:8px 12px;text-align:center"><span style="background:#DCFCE7;color:#166534;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px">확정</span></td></tr>
+          <tr style="border-top:1px solid #BAE6FD;background:#F0F9FF"><td style="padding:8px 12px;font-weight:700">시즌 프로모션</td><td style="padding:8px 12px;color:#4A5568">운영팀 발급 (이벤트 기간)</td><td style="padding:8px 12px;color:#4A5568">대상 선박 지정 가능</td><td style="padding:8px 12px;text-align:center;color:#DC2626;font-weight:700">불가</td><td style="padding:8px 12px;text-align:center"><span style="background:#FEF3C7;color:#92400E;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px">미정</span></td></tr>
+          <tr style="border-top:1px solid #BAE6FD"><td style="padding:8px 12px;font-weight:700">재방문 쿠폰</td><td style="padding:8px 12px;color:#4A5568">N회 예약 완료 시 자동 발급</td><td style="padding:8px 12px;color:#4A5568">전 선박</td><td style="padding:8px 12px;text-align:center;color:#DC2626;font-weight:700">불가</td><td style="padding:8px 12px;text-align:center"><span style="background:#FEF3C7;color:#92400E;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px">미정</span></td></tr>
+        </tbody>
+      </table>
+      <div style="background:#FEF3C7;border-left:3px solid #F59E0B;border-radius:0 8px 8px 0;padding:10px 14px;font-size:12px;color:#92400E">
+        <strong>⚠ 결정 필요:</strong> ① 최소 결제금액 기준 ② 쿠폰 유효기간 ③ 포인트와 쿠폰 중복 사용 여부 ④ 취소 시 쿠폰 반환 정책
+      </div>
+    </div>
+
+    <!-- ───────────────────────────────────── -->
+    <!-- SPEC 07: 미결정 항목 종합 -->
+    <!-- ───────────────────────────────────── -->
+    <div style="margin-bottom:16px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #DC2626">
+        <span style="background:#DC2626;color:#fff;font-size:10px;font-weight:800;border-radius:5px;padding:3px 10px;font-family:monospace">TBD LIST</span>
+        <span style="font-size:14px;font-weight:900;color:#DC2626">미결정 항목 종합 — 개발 착수 전 필수 확정</span><span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;background:#FEF3C7;color:#92400E;margin-left:4px">🤝 P0 3건 파트너 협의 선행</span>
+      </div>
+
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:1px solid #FECACA;border-radius:8px;overflow:hidden">
+        <thead><tr style="background:#FEF2F2">
+          <th style="padding:8px 12px;text-align:left;font-weight:700;color:#991B1B;width:5%">#</th>
+          <th style="padding:8px 12px;text-align:left;font-weight:700;color:#991B1B;width:20%">항목</th>
+          <th style="padding:8px 12px;text-align:left;font-weight:700;color:#991B1B">결정 필요 내용</th>
+          <th style="padding:8px 12px;text-align:center;font-weight:700;color:#991B1B;width:15%">영향 범위</th>
+          <th style="padding:8px 12px;text-align:center;font-weight:700;color:#991B1B;width:10%">우선순위</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-top:1px solid #FECACA"><td style="padding:8px 12px;color:#991B1B;font-weight:800">1</td><td style="padding:8px 12px;font-weight:700">LIVE 유효 시간</td><td style="padding:8px 12px;color:#4A5568">귀항 후 몇 시간 이내 조황을 LIVE로 볼 것인가<br><span style="display:inline-flex;align-items:center;gap:4px;margin-top:4px;background:#FEF3C7;border-radius:4px;padding:2px 8px;font-size:10px;font-weight:700;color:#92400E">🤝 선장·파트너 운영 정책 협의 선행 필요</span></td><td style="padding:8px 12px;text-align:center;color:#4A5568">홈·상세</td><td style="padding:8px 12px;text-align:center"><span style="background:#FEE2E2;color:#991B1B;font-size:10px;font-weight:800;padding:2px 8px;border-radius:4px">P0</span></td></tr>
+          <tr style="border-top:1px solid #FECACA;background:#FFF5F5"><td style="padding:8px 12px;color:#991B1B;font-weight:800">2</td><td style="padding:8px 12px;font-weight:700">긴급모집 임계값</td><td style="padding:8px 12px;color:#4A5568">잔여석 몇 석부터 긴급모집 배지 노출?<br><span style="display:inline-flex;align-items:center;gap:4px;margin-top:4px;background:#FEF3C7;border-radius:4px;padding:2px 8px;font-size:10px;font-weight:700;color:#92400E">🤝 선장·파트너 운영 정책 협의 선행 필요</span></td><td style="padding:8px 12px;text-align:center;color:#4A5568">홈·결과·상세</td><td style="padding:8px 12px;text-align:center"><span style="background:#FEE2E2;color:#991B1B;font-size:10px;font-weight:800;padding:2px 8px;border-radius:4px">P0</span></td></tr>
+          <tr style="border-top:1px solid #FECACA"><td style="padding:8px 12px;color:#991B1B;font-weight:800">3</td><td style="padding:8px 12px;font-weight:700">좌석 Hold 시간</td><td style="padding:8px 12px;color:#4A5568">결제 중 좌석 임시 점유 시간 (동시성)<br><span style="display:inline-flex;align-items:center;gap:4px;margin-top:4px;background:#FEF3C7;border-radius:4px;padding:2px 8px;font-size:10px;font-weight:700;color:#92400E">🤝 선장·파트너 운영 정책 협의 선행 필요</span></td><td style="padding:8px 12px;text-align:center;color:#4A5568">결제 플로우</td><td style="padding:8px 12px;text-align:center"><span style="background:#FEE2E2;color:#991B1B;font-size:10px;font-weight:800;padding:2px 8px;border-radius:4px">P0</span></td></tr>
+          <tr style="border-top:1px solid #FECACA;background:#FFF5F5"><td style="padding:8px 12px;color:#991B1B;font-weight:800">4</td><td style="padding:8px 12px;font-weight:700">조황 랭킹 산식</td><td style="padding:8px 12px;color:#4A5568">마릿수 단순합 vs 어종별 가중치 (ex. 대물 보너스)</td><td style="padding:8px 12px;text-align:center;color:#4A5568">홈·랭킹</td><td style="padding:8px 12px;text-align:center"><span style="background:#FEF3C7;color:#92400E;font-size:10px;font-weight:800;padding:2px 8px;border-radius:4px">P1</span></td></tr>
+          <tr style="border-top:1px solid #FECACA"><td style="padding:8px 12px;color:#991B1B;font-weight:800">5</td><td style="padding:8px 12px;font-weight:700">알림 발송 시각</td><td style="padding:8px 12px;color:#4A5568">D-1 리마인드 · 리뷰 유도 발송 시각</td><td style="padding:8px 12px;text-align:center;color:#4A5568">알림 시스템</td><td style="padding:8px 12px;text-align:center"><span style="background:#FEF3C7;color:#92400E;font-size:10px;font-weight:800;padding:2px 8px;border-radius:4px">P1</span></td></tr>
+          <tr style="border-top:1px solid #FECACA;background:#FFF5F5"><td style="padding:8px 12px;color:#991B1B;font-weight:800">6</td><td style="padding:8px 12px;font-weight:700">취소 환불율 테이블</td><td style="padding:8px 12px;color:#4A5568">48~72h, 24~48h 구간 환불율 확정</td><td style="padding:8px 12px;text-align:center;color:#4A5568">결제·취소</td><td style="padding:8px 12px;text-align:center"><span style="background:#FEF3C7;color:#92400E;font-size:10px;font-weight:800;padding:2px 8px;border-radius:4px">P1</span></td></tr>
+          <tr style="border-top:1px solid #FECACA"><td style="padding:8px 12px;color:#991B1B;font-weight:800">7</td><td style="padding:8px 12px;font-weight:700">검색 랭킹 가중치</td><td style="padding:8px 12px;color:#4A5568">조황 품질 산식 + 신규 부스팅 기간 확정</td><td style="padding:8px 12px;text-align:center;color:#4A5568">검색 결과</td><td style="padding:8px 12px;text-align:center"><span style="background:#EDE9FE;color:#5B21B6;font-size:10px;font-weight:800;padding:2px 8px;border-radius:4px">P2</span></td></tr>
+          <tr style="border-top:1px solid #FECACA;background:#FFF5F5"><td style="padding:8px 12px;color:#991B1B;font-weight:800">8</td><td style="padding:8px 12px;font-weight:700">쿠폰 중복·유효기간</td><td style="padding:8px 12px;color:#4A5568">포인트+쿠폰 중복 사용, 취소 시 쿠폰 반환</td><td style="padding:8px 12px;text-align:center;color:#4A5568">결제·쿠폰</td><td style="padding:8px 12px;text-align:center"><span style="background:#EDE9FE;color:#5B21B6;font-size:10px;font-weight:800;padding:2px 8px;border-radius:4px">P2</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- 파트너 협의 아젠다 섹션 -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<section style="border-bottom:2px solid #F59E0B">
+  <div style="position:sticky;top:0;z-index:10;background:#78350F;color:#fff;display:flex;align-items:center;gap:10px;padding:11px 28px;border-bottom:2px solid #F59E0B;cursor:pointer" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
+    <span style="font-size:11px;font-weight:800;background:#F59E0B;color:#78350F;border-radius:5px;padding:3px 10px;font-family:monospace">INTERVIEW</span>
+    <span style="font-size:13px;font-weight:700">파트너 협의 아젠다 — TBD 전항목 인터뷰 가이드</span>
+    <span style="font-size:11px;color:rgba(255,255,255,.45);margin-left:2px">— 미팅 전 바로 사용 가능</span>
+    <span style="margin-left:auto;font-size:10px;color:rgba(255,255,255,.5)">클릭 시 접기/펼치기 ↕</span>
+  </div>
+  <div style="padding:28px;background:#FFFBEB">
+
+    <!-- 안내 배너 -->
+    <div style="background:linear-gradient(135deg,#78350F,#B45309);border-radius:12px;padding:16px 20px;margin-bottom:28px">
+      <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:.5px;margin-bottom:8px">HOW TO USE</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+        <div style="background:rgba(255,255,255,.12);border-radius:8px;padding:10px 12px">
+          <div style="font-size:10px;font-weight:800;color:#FDE68A;margin-bottom:4px">🎯 인터뷰 대상</div>
+          <div style="font-size:12px;color:#fff;line-height:1.6">① 파트너사 선장 3~5명<br>② 운영팀 담당자<br>③ 초기 유저 (베타 신청자)</div>
+        </div>
+        <div style="background:rgba(255,255,255,.12);border-radius:8px;padding:10px 12px">
+          <div style="font-size:10px;font-weight:800;color:#FDE68A;margin-bottom:4px">📋 진행 방식</div>
+          <div style="font-size:12px;color:#fff;line-height:1.6">30분 구조화 인터뷰<br>질문 → 가설 검증<br>결과 → 정책 확정</div>
+        </div>
+        <div style="background:rgba(255,255,255,.12);border-radius:8px;padding:10px 12px">
+          <div style="font-size:10px;font-weight:800;color:#FDE68A;margin-bottom:4px">⏰ 목표 일정</div>
+          <div style="font-size:12px;color:#fff;line-height:1.6">P0: 개발 착수 전 필수<br>P1: 1차 릴리즈 전<br>P2: 2차 릴리즈 전</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── P0 ─── -->
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+      <span style="background:#DC2626;color:#fff;font-size:11px;font-weight:800;border-radius:6px;padding:4px 14px">P0 — 개발 착수 전 필수 확정</span>
+      <span style="font-size:11px;color:#DC2626;font-weight:700">🤝 파트너 협의 선행 필요</span>
+    </div>
+
+    <!-- AGENDA 01: LIVE 유효 시간 -->
+    <div style="background:#fff;border:1.5px solid #FECACA;border-radius:12px;padding:18px;margin-bottom:16px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+        <span style="background:#FEE2E2;color:#DC2626;font-size:10px;font-weight:800;border-radius:5px;padding:3px 10px;font-family:monospace">AGENDA 01</span>
+        <span style="font-size:13px;font-weight:900;color:#1A202C">LIVE 조황 유효 시간</span>
+        <span style="font-size:10px;color:#6B7280">대상: 선장 · 운영팀</span>
+      </div>
+      <div style="background:#FEF2F2;border-radius:8px;padding:10px 14px;margin-bottom:12px;font-size:12px;color:#991B1B">
+        <strong>결정해야 할 것:</strong> 귀항 후 몇 시간 이내 입력된 조황에 "LIVE" 뱃지를 붙일 것인가
+      </div>
+      <div style="font-size:11px;font-weight:800;color:#B45309;letter-spacing:.5px;margin-bottom:8px">▸ 인터뷰 질문</div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:1px solid #FDE68A;border-radius:8px;overflow:hidden;margin-bottom:12px">
+        <thead><tr style="background:#FEF3C7"><th style="padding:8px 12px;text-align:left;font-weight:700;color:#92400E;width:5%">#</th><th style="padding:8px 12px;text-align:left;font-weight:700;color:#92400E">질문</th><th style="padding:8px 12px;text-align:left;font-weight:700;color:#92400E;width:30%">확인하려는 것</th></tr></thead>
+        <tbody>
+          <tr style="border-top:1px solid #FDE68A"><td style="padding:8px 12px;color:#92400E;font-weight:700">Q1</td><td style="padding:8px 12px;color:#4A5568">보통 귀항 후 몇 시간 안에 조황을 기록하시나요? 지금도 어딘가에 기록하고 계신가요?</td><td style="padding:8px 12px;color:#92400E">실제 입력 행동 패턴 파악</td></tr>
+          <tr style="border-top:1px solid #FDE68A;background:#FFFBEB"><td style="padding:8px 12px;color:#92400E;font-weight:700">Q2</td><td style="padding:8px 12px;color:#4A5568">조황을 다음 날 오전에 올려도 괜찮으신가요, 아니면 당일 귀항 직후에 올려야 의미가 있다고 생각하시나요?</td><td style="padding:8px 12px;color:#92400E">선장의 인식 vs 유저 기대 간극 측정</td></tr>
+          <tr style="border-top:1px solid #FDE68A"><td style="padding:8px 12px;color:#92400E;font-weight:700">Q3</td><td style="padding:8px 12px;color:#4A5568">귀항 시 배에서 바로 앱으로 입력이 가능한 상황인가요? (네트워크, 체력 등)</td><td style="padding:8px 12px;color:#92400E">입력 UX 제약 조건 파악</td></tr>
+          <tr style="border-top:1px solid #FDE68A;background:#FFFBEB"><td style="padding:8px 12px;color:#92400E;font-weight:700">Q4</td><td style="padding:8px 12px;color:#4A5568">"오늘 조황"을 확인하는 유저가 주로 몇 시쯤 앱을 보는 것 같으세요? (직관 기반 답변 OK)</td><td style="padding:8px 12px;color:#92400E">LIVE 배너 소비 시간대 추정</td></tr>
+          <tr style="border-top:1px solid #FDE68A"><td style="padding:8px 12px;color:#92400E;font-weight:700">Q5</td><td style="padding:8px 12px;color:#4A5568">조황 데이터 입력을 누락하면 어떤 불이익이 있으면 입력률이 올라갈 것 같으신가요? (ex. 랭킹 제외, 수수료 차등)</td><td style="padding:8px 12px;color:#92400E">입력 인센티브 설계 방향</td></tr>
+        </tbody>
+      </table>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div style="background:#FFFBEB;border:1px solid #FDE68A;border-radius:8px;padding:10px 12px">
+          <div style="font-size:11px;font-weight:800;color:#B45309;margin-bottom:6px">💡 PM 가설 (검증 대상)</div>
+          <div style="font-size:12px;color:#4A5568;line-height:1.7">귀항 후 <strong>3시간 이내</strong> 입력된 조황에만 LIVE 뱃지 부여.<br>이후 입력 건은 "어제 조황" 레이블로 표기.</div>
+        </div>
+        <div style="background:#FFFBEB;border:1px solid #FDE68A;border-radius:8px;padding:10px 12px">
+          <div style="font-size:11px;font-weight:800;color:#B45309;margin-bottom:6px">📌 기대 산출물</div>
+          <div style="font-size:12px;color:#4A5568;line-height:1.7">① LIVE 유효 시간 확정 (ex. 3h / 6h)<br>② 조황 입력 마감 시한 확정<br>③ 미입력 시 패널티 정책</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AGENDA 02: 긴급모집 임계값 -->
+    <div style="background:#fff;border:1.5px solid #FECACA;border-radius:12px;padding:18px;margin-bottom:16px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+        <span style="background:#FEE2E2;color:#DC2626;font-size:10px;font-weight:800;border-radius:5px;padding:3px 10px;font-family:monospace">AGENDA 02</span>
+        <span style="font-size:13px;font-weight:900;color:#1A202C">긴급모집 임계값</span>
+        <span style="font-size:10px;color:#6B7280">대상: 선장 · 파트너사</span>
+      </div>
+      <div style="background:#FEF2F2;border-radius:8px;padding:10px 14px;margin-bottom:12px;font-size:12px;color:#991B1B">
+        <strong>결정해야 할 것:</strong> 잔여석 몇 석부터 "긴급모집" 배지를 노출할 것인가 (선박 규모별 다를 수 있음)
+      </div>
+      <div style="font-size:11px;font-weight:800;color:#B45309;letter-spacing:.5px;margin-bottom:8px">▸ 인터뷰 질문</div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:1px solid #FDE68A;border-radius:8px;overflow:hidden;margin-bottom:12px">
+        <thead><tr style="background:#FEF3C7"><th style="padding:8px 12px;text-align:left;font-weight:700;color:#92400E;width:5%">#</th><th style="padding:8px 12px;text-align:left;font-weight:700;color:#92400E">질문</th><th style="padding:8px 12px;text-align:left;font-weight:700;color:#92400E;width:30%">확인하려는 것</th></tr></thead>
+        <tbody>
+          <tr style="border-top:1px solid #FDE68A"><td style="padding:8px 12px;color:#92400E;font-weight:700">Q1</td><td style="padding:8px 12px;color:#4A5568">선박 정원이 보통 몇 명인가요? 출조가 경제적으로 성립되는 최소 인원은 몇 명인가요?</td><td style="padding:8px 12px;color:#92400E">임계값 기준선 파악 (정원 대비 %)</td></tr>
+          <tr style="border-top:1px solid #FDE68A;background:#FFFBEB"><td style="padding:8px 12px;color:#92400E;font-weight:700">Q2</td><td style="padding:8px 12px;color:#4A5568">출조 며칠 전부터 잔여석이 적으면 "긴급"이라는 느낌이 드시나요? 출조 당일 D-1? D-3?</td><td style="padding:8px 12px;color:#92400E">시간 축 + 잔여석 수 2차원 기준</td></tr>
+          <tr style="border-top:1px solid #FDE68A"><td style="padding:8px 12px;color:#92400E;font-weight:700">Q3</td><td style="padding:8px 12px;color:#4A5568">잔여석이 적을 때 직접 홍보를 하신 경험이 있으신가요? 어떤 채널로, 얼마나 효과가 있었나요?</td><td style="padding:8px 12px;color:#92400E">현재 선장의 자구 채널 파악 → 앱 대체 가능성</td></tr>
+          <tr style="border-top:1px solid #FDE68A;background:#FFFBEB"><td style="padding:8px 12px;color:#92400E;font-weight:700">Q4</td><td style="padding:8px 12px;color:#4A5568">"긴급모집" 표시가 되면 가격을 일부 할인해서라도 채울 의향이 있으신가요?</td><td style="padding:8px 12px;color:#92400E">긴급모집 + 할인 연계 기능 수요 검증</td></tr>
+          <tr style="border-top:1px solid #FDE68A"><td style="padding:8px 12px;color:#92400E;font-weight:700">Q5</td><td style="padding:8px 12px;color:#4A5568">정원 대비 20% 이하(ex. 20인 선박 → 4석 이하)를 긴급모집으로 보면 적당할 것 같으신가요?</td><td style="padding:8px 12px;color:#92400E">PM 가설 직접 검증</td></tr>
+        </tbody>
+      </table>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div style="background:#FFFBEB;border:1px solid #FDE68A;border-radius:8px;padding:10px 12px">
+          <div style="font-size:11px;font-weight:800;color:#B45309;margin-bottom:6px">💡 PM 가설 (검증 대상)</div>
+          <div style="font-size:12px;color:#4A5568;line-height:1.7">잔여석 <strong>≤ 정원의 20%</strong> OR 절대값 <strong>≤ 3석</strong> 중 작은 값.<br>+ 출조 <strong>48시간 이내</strong> 조건 AND 적용.</div>
+        </div>
+        <div style="background:#FFFBEB;border:1px solid #FDE68A;border-radius:8px;padding:10px 12px">
+          <div style="font-size:11px;font-weight:800;color:#B45309;margin-bottom:6px">📌 기대 산출물</div>
+          <div style="font-size:12px;color:#4A5568;line-height:1.7">① 잔여석 수 임계값 확정<br>② 시간 축 조건 확정 (D-N)<br>③ 선박 규모별 차등 적용 여부</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AGENDA 03: 좌석 Hold 시간 -->
+    <div style="background:#fff;border:1.5px solid #FECACA;border-radius:12px;padding:18px;margin-bottom:28px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+        <span style="background:#FEE2E2;color:#DC2626;font-size:10px;font-weight:800;border-radius:5px;padding:3px 10px;font-family:monospace">AGENDA 03</span>
+        <span style="font-size:13px;font-weight:900;color:#1A202C">좌석 Hold 시간 (결제 중 임시 점유)</span>
+        <span style="font-size:10px;color:#6B7280">대상: 파트너사 · 개발팀</span>
+      </div>
+      <div style="background:#FEF2F2;border-radius:8px;padding:10px 14px;margin-bottom:12px;font-size:12px;color:#991B1B">
+        <strong>결정해야 할 것:</strong> 결제 페이지 진입 시 좌석을 임시로 잠글 것인가, 잠근다면 얼마 동안?
+      </div>
+      <div style="font-size:11px;font-weight:800;color:#B45309;letter-spacing:.5px;margin-bottom:8px">▸ 인터뷰 질문</div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:1px solid #FDE68A;border-radius:8px;overflow:hidden;margin-bottom:12px">
+        <thead><tr style="background:#FEF3C7"><th style="padding:8px 12px;text-align:left;font-weight:700;color:#92400E;width:5%">#</th><th style="padding:8px 12px;text-align:left;font-weight:700;color:#92400E">질문</th><th style="padding:8px 12px;text-align:left;font-weight:700;color:#92400E;width:30%">확인하려는 것</th></tr></thead>
+        <tbody>
+          <tr style="border-top:1px solid #FDE68A"><td style="padding:8px 12px;color:#92400E;font-weight:700">Q1</td><td style="padding:8px 12px;color:#4A5568">같은 날 같은 선박을 두 명이 동시에 예약하려 하면 어떻게 처리되길 원하시나요? (선착순 / 확정 전까지 모두 가능 등)</td><td style="padding:8px 12px;color:#92400E">파트너의 선호 충돌 해소 방식</td></tr>
+          <tr style="border-top:1px solid #FDE68A;background:#FFFBEB"><td style="padding:8px 12px;color:#92400E;font-weight:700">Q2</td><td style="padding:8px 12px;color:#4A5568">결제 중에 다른 사람이 마지막 자리를 가져가면 구매자에게 어떻게 안내하는 게 맞을 것 같으신가요?</td><td style="padding:8px 12px;color:#92400E">충돌 시 UX 메시지 기준 설정</td></tr>
+          <tr style="border-top:1px solid #FDE68A"><td style="padding:8px 12px;color:#92400E;font-weight:700">Q3</td><td style="padding:8px 12px;color:#4A5568">결제 창을 열어두고 10분 이상 아무것도 안 할 경우 자리를 풀어도 괜찮다고 생각하시나요?</td><td style="padding:8px 12px;color:#92400E">Hold 시간 수용 가능 범위 확인</td></tr>
+          <tr style="border-top:1px solid #FDE68A;background:#FFFBEB"><td style="padding:8px 12px;color:#92400E;font-weight:700">Q4</td><td style="padding:8px 12px;color:#4A5568">잔여석 1~2석인 선박에서 동시 접속이 많을 것으로 예상하시나요? 지금 카카오톡 등에서 이런 상황이 발생하나요?</td><td style="padding:8px 12px;color:#92400E">실제 동시성 압력 수준 추정</td></tr>
+        </tbody>
+      </table>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div style="background:#FFFBEB;border:1px solid #FDE68A;border-radius:8px;padding:10px 12px">
+          <div style="font-size:11px;font-weight:800;color:#B45309;margin-bottom:6px">💡 PM 가설 (검증 대상)</div>
+          <div style="font-size:12px;color:#4A5568;line-height:1.7">결제 페이지 진입 후 <strong>10분 Hold</strong>.<br>Hold 만료 시 토스트 경고 → 재선택 유도.<br>선착순 결제 완료 기준 확정.</div>
+        </div>
+        <div style="background:#FFFBEB;border:1px solid #FDE68A;border-radius:8px;padding:10px 12px">
+          <div style="font-size:11px;font-weight:800;color:#B45309;margin-bottom:6px">📌 기대 산출물</div>
+          <div style="font-size:12px;color:#4A5568;line-height:1.7">① Hold 시간 확정 (5분/10분/15분)<br>② 충돌 처리 방식 (선착순 vs 대기)<br>③ Hold 만료 UX 문구</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── P1 ─── -->
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+      <span style="background:#D97706;color:#fff;font-size:11px;font-weight:800;border-radius:6px;padding:4px 14px">P1 — 1차 릴리즈 전 확정</span>
+    </div>
+
+    <!-- AGENDA 04: 조황 랭킹 산식 -->
+    <div style="background:#fff;border:1.5px solid #FDE68A;border-radius:12px;padding:18px;margin-bottom:16px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+        <span style="background:#FEF3C7;color:#92400E;font-size:10px;font-weight:800;border-radius:5px;padding:3px 10px;font-family:monospace">AGENDA 04</span>
+        <span style="font-size:13px;font-weight:900;color:#1A202C">조황 랭킹 산식</span>
+        <span style="font-size:10px;color:#6B7280">대상: 선장 · 낚시 고수 유저</span>
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:1px solid #FDE68A;border-radius:8px;overflow:hidden;margin-bottom:12px">
+        <thead><tr style="background:#FEF3C7"><th style="padding:8px 12px;text-align:left;font-weight:700;color:#92400E;width:5%">#</th><th style="padding:8px 12px;text-align:left;font-weight:700;color:#92400E">질문</th><th style="padding:8px 12px;text-align:left;font-weight:700;color:#92400E;width:30%">확인하려는 것</th></tr></thead>
+        <tbody>
+          <tr style="border-top:1px solid #FDE68A"><td style="padding:8px 12px;color:#92400E;font-weight:700">Q1</td><td style="padding:8px 12px;color:#4A5568">낚시 조과를 볼 때 단순 마릿수가 중요한가요, 아니면 어종이나 씨알(크기)이 더 중요한가요?</td><td style="padding:8px 12px;color:#92400E">가중치 우선순위</td></tr>
+          <tr style="border-top:1px solid #FDE68A;background:#FFFBEB"><td style="padding:8px 12px;color:#92400E;font-weight:700">Q2</td><td style="padding:8px 12px;color:#4A5568">같은 마릿수라도 갑오징어 42마리 vs 참돔 5마리 중 어느 배가 조황이 좋다고 느끼시나요?</td><td style="padding:8px 12px;color:#92400E">어종별 가중치 직관 검증</td></tr>
+          <tr style="border-top:1px solid #FDE68A"><td style="padding:8px 12px;color:#92400E;font-weight:700">Q3</td><td style="padding:8px 12px;color:#4A5568">"오늘 조황 랭킹 1위" 배를 선택할 때 그 순위를 얼마나 신뢰하시나요? 신뢰하려면 무엇이 있어야 하나요?</td><td style="padding:8px 12px;color:#92400E">랭킹 신뢰도 요소 파악</td></tr>
+        </tbody>
+      </table>
+      <div style="background:#FFFBEB;border:1px solid #FDE68A;border-radius:8px;padding:10px 12px;font-size:12px;color:#4A5568">
+        <strong style="color:#B45309">💡 PM 가설:</strong> 기본은 마릿수 단순합. 단, 어종별 희소성 계수 적용 (ex. 참돔 1마리 = 갑오징어 3마리 환산). 검증 후 Phase 2에서 고도화.
+      </div>
+    </div>
+
+    <!-- AGENDA 05: 알림 발송 시각 -->
+    <div style="background:#fff;border:1.5px solid #FDE68A;border-radius:12px;padding:18px;margin-bottom:16px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+        <span style="background:#FEF3C7;color:#92400E;font-size:10px;font-weight:800;border-radius:5px;padding:3px 10px;font-family:monospace">AGENDA 05</span>
+        <span style="font-size:13px;font-weight:900;color:#1A202C">알림 발송 시각</span>
+        <span style="font-size:10px;color:#6B7280">대상: 예약자 유저 (베타)</span>
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:1px solid #FDE68A;border-radius:8px;overflow:hidden;margin-bottom:12px">
+        <thead><tr style="background:#FEF3C7"><th style="padding:8px 12px;text-align:left;font-weight:700;color:#92400E;width:5%">#</th><th style="padding:8px 12px;text-align:left;font-weight:700;color:#92400E">질문</th><th style="padding:8px 12px;text-align:left;font-weight:700;color:#92400E;width:30%">확인하려는 것</th></tr></thead>
+        <tbody>
+          <tr style="border-top:1px solid #FDE68A"><td style="padding:8px 12px;color:#92400E;font-weight:700">Q1</td><td style="padding:8px 12px;color:#4A5568">출조 전날 알림을 받는다면 몇 시쯤 받고 싶으세요? (오전 / 오후 / 저녁 / 취침 전)</td><td style="padding:8px 12px;color:#92400E">D-1 리마인드 최적 시각</td></tr>
+          <tr style="border-top:1px solid #FDE68A;background:#FFFBEB"><td style="padding:8px 12px;color:#92400E;font-weight:700">Q2</td><td style="padding:8px 12px;color:#4A5568">낚시를 다녀온 후 리뷰 작성 알림을 받는다면 언제 받는 게 자연스럽게 느껴지시나요? (귀항 직후 / 다음 날 / 3일 후)</td><td style="padding:8px 12px;color:#92400E">리뷰 유도 타이밍</td></tr>
+          <tr style="border-top:1px solid #FDE68A"><td style="padding:8px 12px;color:#92400E;font-weight:700">Q3</td><td style="padding:8px 12px;color:#4A5568">찜한 선박에서 마지막 자리가 생겼다는 알림을 받고 싶으신가요? 몇 석부터 알림이 오면 좋겠나요?</td><td style="padding:8px 12px;color:#92400E">잔여석 알림 수요 + 임계값</td></tr>
+        </tbody>
+      </table>
+      <div style="background:#FFFBEB;border:1px solid #FDE68A;border-radius:8px;padding:10px 12px;font-size:12px;color:#4A5568">
+        <strong style="color:#B45309">💡 PM 가설:</strong> D-1 리마인드 오후 7시 / 리뷰 유도 귀항 추정 +4시간 / 잔여석 알림 3석 이하 AND D-2 이내.
+      </div>
+    </div>
+
+    <!-- AGENDA 06: 취소 환불율 -->
+    <div style="background:#fff;border:1.5px solid #FDE68A;border-radius:12px;padding:18px;margin-bottom:28px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+        <span style="background:#FEF3C7;color:#92400E;font-size:10px;font-weight:800;border-radius:5px;padding:3px 10px;font-family:monospace">AGENDA 06</span>
+        <span style="font-size:13px;font-weight:900;color:#1A202C">취소 환불율 테이블</span>
+        <span style="font-size:10px;color:#6B7280">대상: 파트너사 · 법무 검토 필요</span>
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;border:1px solid #FDE68A;border-radius:8px;overflow:hidden;margin-bottom:12px">
+        <thead><tr style="background:#FEF3C7"><th style="padding:8px 12px;text-align:left;font-weight:700;color:#92400E;width:5%">#</th><th style="padding:8px 12px;text-align:left;font-weight:700;color:#92400E">질문</th><th style="padding:8px 12px;text-align:left;font-weight:700;color:#92400E;width:30%">확인하려는 것</th></tr></thead>
+        <tbody>
+          <tr style="border-top:1px solid #FDE68A"><td style="padding:8px 12px;color:#92400E;font-weight:700">Q1</td><td style="padding:8px 12px;color:#4A5568">지금 카카오톡 예약 취소 시 환불 정책이 있으신가요? 어떻게 운영 중이신가요?</td><td style="padding:8px 12px;color:#92400E">현재 관행 파악 → 기준선</td></tr>
+          <tr style="border-top:1px solid #FDE68A;background:#FFFBEB"><td style="padding:8px 12px;color:#92400E;font-weight:700">Q2</td><td style="padding:8px 12px;color:#4A5568">출조 48시간 전 취소 시 50% 환불, 24시간 전 취소 시 0% 환불 정책에 동의하시나요? 불합리하다고 느끼시는 부분이 있으신가요?</td><td style="padding:8px 12px;color:#92400E">정책 수용도 측정</td></tr>
+          <tr style="border-top:1px solid #FDE68A"><td style="padding:8px 12px;color:#92400E;font-weight:700">Q3</td><td style="padding:8px 12px;color:#4A5568">기상 악화로 출항 불가 시 100% 환불하는 것은 동의하시나요? 기상 판단 기준은 누가 결정해야 한다고 생각하시나요?</td><td style="padding:8px 12px;color:#92400E">기상 취소 판단 주체 + 분쟁 방지</td></tr>
+        </tbody>
+      </table>
+      <div style="background:#FEF3C7;border-left:3px solid #F59E0B;border-radius:0 8px 8px 0;padding:10px 14px;font-size:12px;color:#92400E">
+        <strong>⚠ 법무 검토:</strong> 소비자보호법 기준 최소 환불율 확인 필요. 플랫폼 중개 수수료 환불 여부도 별도 결정.
+      </div>
+    </div>
+
+    <!-- ─── P2 ─── -->
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+      <span style="background:#6D28D9;color:#fff;font-size:11px;font-weight:800;border-radius:6px;padding:4px 14px">P2 — 2차 릴리즈 전 확정</span>
+    </div>
+
+    <!-- AGENDA 07 + 08 나란히 -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px">
+
+      <!-- AGENDA 07: 검색 랭킹 가중치 -->
+      <div style="background:#fff;border:1.5px solid #DDD6FE;border-radius:12px;padding:18px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+          <span style="background:#EDE9FE;color:#6D28D9;font-size:10px;font-weight:800;border-radius:5px;padding:3px 8px;font-family:monospace">AGENDA 07</span>
+          <span style="font-size:12px;font-weight:900;color:#1A202C">검색 랭킹 가중치</span>
+        </div>
+        <div style="font-size:11px;color:#6B7280;margin-bottom:10px">대상: 데이터팀 · 운영팀</div>
+        <div style="font-size:12px;color:#4A5568;line-height:1.8;margin-bottom:10px">
+          <strong style="color:#5B21B6">Q1.</strong> 조황 품질 신호를 검색 랭킹에 반영하면 조황 미입력 선박이 불이익을 받는데, 선장 설득 방법은?<br><br>
+          <strong style="color:#5B21B6">Q2.</strong> 신규 선박 콜드스타트 부스팅 기간을 30일로 잡으면 기존 선박 입장에서 불공평하다고 느낄까요?<br><br>
+          <strong style="color:#5B21B6">Q3.</strong> 광고 상단 노출 슬롯을 최대 몇 개까지 허용할 것인가? (UX vs 수익 트레이드오프)
+        </div>
+        <div style="background:#F5F3FF;border-radius:8px;padding:8px 12px;font-size:11px;color:#5B21B6">
+          <strong>💡 가설:</strong> 신규 부스팅 30일, 광고 슬롯 최대 2개.
+        </div>
+      </div>
+
+      <!-- AGENDA 08: 쿠폰 정책 -->
+      <div style="background:#fff;border:1.5px solid #DDD6FE;border-radius:12px;padding:18px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+          <span style="background:#EDE9FE;color:#6D28D9;font-size:10px;font-weight:800;border-radius:5px;padding:3px 8px;font-family:monospace">AGENDA 08</span>
+          <span style="font-size:12px;font-weight:900;color:#1A202C">쿠폰 중복·유효기간</span>
+        </div>
+        <div style="font-size:11px;color:#6B7280;margin-bottom:10px">대상: 운영팀 · 재무팀</div>
+        <div style="font-size:12px;color:#4A5568;line-height:1.8;margin-bottom:10px">
+          <strong style="color:#5B21B6">Q1.</strong> 포인트 + 쿠폰 중복 사용을 허용하면 마진이 감당 가능한가? 최대 할인율 캡이 필요한가?<br><br>
+          <strong style="color:#5B21B6">Q2.</strong> 취소 시 쿠폰을 반환하면 어뷰징(쿠폰 반복 발급·사용·취소) 방지 정책은?<br><br>
+          <strong style="color:#5B21B6">Q3.</strong> 쿠폰 유효기간을 30일로 잡으면 사용률이 올라갈까요, 더 길게 줘야 할까요?
+        </div>
+        <div style="background:#F5F3FF;border-radius:8px;padding:8px 12px;font-size:11px;color:#5B21B6">
+          <strong>💡 가설:</strong> 쿠폰 유효기간 30일, 중복 사용 불가, 취소 시 미반환.
+        </div>
+      </div>
+    </div>
+
+    <!-- 인터뷰 체크리스트 -->
+    <div style="background:linear-gradient(135deg,#1E3A5F,#0369A1);border-radius:12px;padding:18px 20px">
+      <div style="font-size:12px;font-weight:800;color:#BAE6FD;letter-spacing:.5px;margin-bottom:12px">📋 인터뷰 전 체크리스트</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div>
+          <div style="font-size:11px;font-weight:700;color:#7DD3FC;margin-bottom:6px">준비사항</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.85);line-height:1.9">
+            □ 인터뷰 동의서 수령<br>
+            □ 경쟁사 정책 벤치마크 완료<br>
+            □ 프로토타입 링크 공유 준비<br>
+            □ 질문지 사전 발송 (선택)
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;color:#7DD3FC;margin-bottom:6px">결과 정리</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.85);line-height:1.9">
+            □ 녹취/메모 → 핵심 인사이트 3줄 요약<br>
+            □ 가설 검증 여부 O/X 마킹<br>
+            □ TBD → 확정값 스펙 문서 업데이트<br>
+            □ 개발팀 공유 후 착수 승인
+          </div>
+        </div>
+      </div>
+    </div>
 
   </div>
 </section>
